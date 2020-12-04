@@ -3,18 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0279A8D40A1E57E4F94764BE /* Pods_Villar_ScentralTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E5BFCEAFD2E2D80583E4FA /* Pods_Villar_ScentralTests.framework */; };
+		7FA6D1FF4920C62A836BAC9E /* Pods_Villar_Scentral_Villar_ScentralUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7074516D6CC3CC9B2E1186 /* Pods_Villar_Scentral_Villar_ScentralUITests.framework */; };
 		B34479F42579F3D800A7302B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34479F32579F3D800A7302B /* AppDelegate.swift */; };
 		B34479F62579F3D800A7302B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34479F52579F3D800A7302B /* SceneDelegate.swift */; };
 		B34479F82579F3D800A7302B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34479F72579F3D800A7302B /* ViewController.swift */; };
-		B34479FB2579F3D800A7302B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34479F92579F3D800A7302B /* Main.storyboard */; };
 		B34479FD2579F3D900A7302B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B34479FC2579F3D900A7302B /* Assets.xcassets */; };
 		B3447A002579F3D900A7302B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34479FE2579F3D900A7302B /* LaunchScreen.storyboard */; };
 		B3447A0B2579F3D900A7302B /* Villar_ScentralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A0A2579F3D900A7302B /* Villar_ScentralTests.swift */; };
 		B3447A162579F3D900A7302B /* Villar_ScentralUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A152579F3D900A7302B /* Villar_ScentralUITests.swift */; };
+		B3447A3E257A0C6900A7302B /* Activityloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A3A257A0C6800A7302B /* Activityloader.swift */; };
+		B3447A3F257A0C6900A7302B /* ChangeBottamColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A3B257A0C6800A7302B /* ChangeBottamColor.swift */; };
+		B3447A40257A0C6900A7302B /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A3C257A0C6900A7302B /* HelperMethods.swift */; };
+		B3447A41257A0C6900A7302B /* UIComponentsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A3D257A0C6900A7302B /* UIComponentsExtension.swift */; };
+		B3447A47257A0CBF00A7302B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A45257A0CBF00A7302B /* Constant.swift */; };
+		B3447A48257A0CBF00A7302B /* AFWrapperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A46257A0CBF00A7302B /* AFWrapperClass.swift */; };
+		B3447A51257A0D8800A7302B /* PickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A4F257A0D8800A7302B /* PickerManager.swift */; };
+		B3447A52257A0D8800A7302B /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A50257A0D8800A7302B /* ValidationManager.swift */; };
+		B3447A65257A108200A7302B /* PKWrapperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A64257A108200A7302B /* PKWrapperClass.swift */; };
+		B3447A75257A121700A7302B /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3447A74257A121700A7302B /* Auth.storyboard */; };
+		B3447A7A257A122400A7302B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3447A79257A122400A7302B /* Home.storyboard */; };
+		F2FCD50D1D2CA04E457088F0 /* Pods_Villar_Scentral.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B2BB4B506A3B2E0AAB2B77 /* Pods_Villar_Scentral.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,11 +48,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D93044802DE44B0DAB30D3C /* Pods-Villar ScentralTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Villar ScentralTests.release.xcconfig"; path = "Target Support Files/Pods-Villar ScentralTests/Pods-Villar ScentralTests.release.xcconfig"; sourceTree = "<group>"; };
+		20B2BB4B506A3B2E0AAB2B77 /* Pods_Villar_Scentral.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Villar_Scentral.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41D7187BEBDC7400A77FBF65 /* Pods-Villar Scentral-Villar ScentralUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Villar Scentral-Villar ScentralUITests.release.xcconfig"; path = "Target Support Files/Pods-Villar Scentral-Villar ScentralUITests/Pods-Villar Scentral-Villar ScentralUITests.release.xcconfig"; sourceTree = "<group>"; };
+		53E52F37F737C7555437343E /* Pods-Villar Scentral.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Villar Scentral.release.xcconfig"; path = "Target Support Files/Pods-Villar Scentral/Pods-Villar Scentral.release.xcconfig"; sourceTree = "<group>"; };
+		5E7074516D6CC3CC9B2E1186 /* Pods_Villar_Scentral_Villar_ScentralUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Villar_Scentral_Villar_ScentralUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C9EC51A2356C4E101249B02 /* Pods-Villar Scentral-Villar ScentralUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Villar Scentral-Villar ScentralUITests.debug.xcconfig"; path = "Target Support Files/Pods-Villar Scentral-Villar ScentralUITests/Pods-Villar Scentral-Villar ScentralUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		877C836D43D20B1CFC4A11DD /* Pods-Villar Scentral.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Villar Scentral.debug.xcconfig"; path = "Target Support Files/Pods-Villar Scentral/Pods-Villar Scentral.debug.xcconfig"; sourceTree = "<group>"; };
+		90CBA0BE48F2E8BAF58C240E /* Pods-Villar ScentralTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Villar ScentralTests.debug.xcconfig"; path = "Target Support Files/Pods-Villar ScentralTests/Pods-Villar ScentralTests.debug.xcconfig"; sourceTree = "<group>"; };
+		97E5BFCEAFD2E2D80583E4FA /* Pods_Villar_ScentralTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Villar_ScentralTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B34479F02579F3D800A7302B /* Villar Scentral.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Villar Scentral.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B34479F32579F3D800A7302B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B34479F52579F3D800A7302B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B34479F72579F3D800A7302B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B34479FA2579F3D800A7302B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B34479FC2579F3D900A7302B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B34479FF2579F3D900A7302B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3447A012579F3D900A7302B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +70,17 @@
 		B3447A112579F3D900A7302B /* Villar ScentralUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Villar ScentralUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3447A152579F3D900A7302B /* Villar_ScentralUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Villar_ScentralUITests.swift; sourceTree = "<group>"; };
 		B3447A172579F3D900A7302B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3447A3A257A0C6800A7302B /* Activityloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activityloader.swift; sourceTree = "<group>"; };
+		B3447A3B257A0C6800A7302B /* ChangeBottamColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeBottamColor.swift; sourceTree = "<group>"; };
+		B3447A3C257A0C6900A7302B /* HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
+		B3447A3D257A0C6900A7302B /* UIComponentsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIComponentsExtension.swift; sourceTree = "<group>"; };
+		B3447A45257A0CBF00A7302B /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		B3447A46257A0CBF00A7302B /* AFWrapperClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFWrapperClass.swift; sourceTree = "<group>"; };
+		B3447A4F257A0D8800A7302B /* PickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerManager.swift; sourceTree = "<group>"; };
+		B3447A50257A0D8800A7302B /* ValidationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
+		B3447A64257A108200A7302B /* PKWrapperClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKWrapperClass.swift; sourceTree = "<group>"; };
+		B3447A74257A121700A7302B /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		B3447A79257A122400A7302B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2FCD50D1D2CA04E457088F0 /* Pods_Villar_Scentral.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0279A8D40A1E57E4F94764BE /* Pods_Villar_ScentralTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +104,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FA6D1FF4920C62A836BAC9E /* Pods_Villar_Scentral_Villar_ScentralUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8D914E4285F3531322EFA39 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				877C836D43D20B1CFC4A11DD /* Pods-Villar Scentral.debug.xcconfig */,
+				53E52F37F737C7555437343E /* Pods-Villar Scentral.release.xcconfig */,
+				7C9EC51A2356C4E101249B02 /* Pods-Villar Scentral-Villar ScentralUITests.debug.xcconfig */,
+				41D7187BEBDC7400A77FBF65 /* Pods-Villar Scentral-Villar ScentralUITests.release.xcconfig */,
+				90CBA0BE48F2E8BAF58C240E /* Pods-Villar ScentralTests.debug.xcconfig */,
+				0D93044802DE44B0DAB30D3C /* Pods-Villar ScentralTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B34479E72579F3D800A7302B = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +131,8 @@
 				B3447A092579F3D900A7302B /* Villar ScentralTests */,
 				B3447A142579F3D900A7302B /* Villar ScentralUITests */,
 				B34479F12579F3D800A7302B /* Products */,
+				A8D914E4285F3531322EFA39 /* Pods */,
+				DAF27D15CDD836B883954BE1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,12 +149,11 @@
 		B34479F22579F3D800A7302B /* Villar Scentral */ = {
 			isa = PBXGroup;
 			children = (
-				B34479F32579F3D800A7302B /* AppDelegate.swift */,
-				B34479F52579F3D800A7302B /* SceneDelegate.swift */,
+				B3447A4C257A0CEC00A7302B /* App */,
+				B3447A2A257A0B7E00A7302B /* Controllers */,
+				B3447A29257A0B7600A7302B /* Views */,
+				B3447A4D257A0D3D00A7302B /* Resourses */,
 				B34479F72579F3D800A7302B /* ViewController.swift */,
-				B34479F92579F3D800A7302B /* Main.storyboard */,
-				B34479FC2579F3D900A7302B /* Assets.xcassets */,
-				B34479FE2579F3D900A7302B /* LaunchScreen.storyboard */,
 				B3447A012579F3D900A7302B /* Info.plist */,
 			);
 			path = "Villar Scentral";
@@ -128,6 +177,107 @@
 			path = "Villar ScentralUITests";
 			sourceTree = "<group>";
 		};
+		B3447A29257A0B7600A7302B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B3447A74257A121700A7302B /* Auth.storyboard */,
+				B3447A79257A122400A7302B /* Home.storyboard */,
+				B34479FE2579F3D900A7302B /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B3447A2A257A0B7E00A7302B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B3447A2B257A0B8C00A7302B /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				B3447A46257A0CBF00A7302B /* AFWrapperClass.swift */,
+				B3447A45257A0CBF00A7302B /* Constant.swift */,
+				B3447A64257A108200A7302B /* PKWrapperClass.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		B3447A2C257A0B9600A7302B /* Formatting */ = {
+			isa = PBXGroup;
+			children = (
+				B3447A3A257A0C6800A7302B /* Activityloader.swift */,
+				B3447A3B257A0C6800A7302B /* ChangeBottamColor.swift */,
+				B3447A3C257A0C6900A7302B /* HelperMethods.swift */,
+				B3447A3D257A0C6900A7302B /* UIComponentsExtension.swift */,
+			);
+			path = Formatting;
+			sourceTree = "<group>";
+		};
+		B3447A2D257A0BA400A7302B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B3447A2E257A0BAA00A7302B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B34479FC2579F3D900A7302B /* Assets.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		B3447A36257A0C0700A7302B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B34479F32579F3D800A7302B /* AppDelegate.swift */,
+				B34479F52579F3D800A7302B /* SceneDelegate.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B3447A4C257A0CEC00A7302B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B3447A4E257A0D7500A7302B /* Manager */,
+				B3447A2B257A0B8C00A7302B /* Constant */,
+				B3447A36257A0C0700A7302B /* Classes */,
+				B3447A2C257A0B9600A7302B /* Formatting */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B3447A4D257A0D3D00A7302B /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				B3447A2D257A0BA400A7302B /* Fonts */,
+				B3447A2E257A0BAA00A7302B /* Images */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		B3447A4E257A0D7500A7302B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B3447A4F257A0D8800A7302B /* PickerManager.swift */,
+				B3447A50257A0D8800A7302B /* ValidationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		DAF27D15CDD836B883954BE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20B2BB4B506A3B2E0AAB2B77 /* Pods_Villar_Scentral.framework */,
+				5E7074516D6CC3CC9B2E1186 /* Pods_Villar_Scentral_Villar_ScentralUITests.framework */,
+				97E5BFCEAFD2E2D80583E4FA /* Pods_Villar_ScentralTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +285,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3447A1A2579F3D900A7302B /* Build configuration list for PBXNativeTarget "Villar Scentral" */;
 			buildPhases = (
+				A938CDF52077465FC6B76E0A /* [CP] Check Pods Manifest.lock */,
 				B34479EC2579F3D800A7302B /* Sources */,
 				B34479ED2579F3D800A7302B /* Frameworks */,
 				B34479EE2579F3D800A7302B /* Resources */,
+				679357ACA0FA0BB2AA51D020 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +304,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3447A1D2579F3D900A7302B /* Build configuration list for PBXNativeTarget "Villar ScentralTests" */;
 			buildPhases = (
+				DE8720086AFB491EBB6CD27F /* [CP] Check Pods Manifest.lock */,
 				B3447A022579F3D900A7302B /* Sources */,
 				B3447A032579F3D900A7302B /* Frameworks */,
 				B3447A042579F3D900A7302B /* Resources */,
@@ -170,9 +323,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3447A202579F3D900A7302B /* Build configuration list for PBXNativeTarget "Villar ScentralUITests" */;
 			buildPhases = (
+				4AE753A2F7DEB33D3AE03AD7 /* [CP] Check Pods Manifest.lock */,
 				B3447A0D2579F3D900A7302B /* Sources */,
 				B3447A0E2579F3D900A7302B /* Frameworks */,
 				B3447A0F2579F3D900A7302B /* Resources */,
+				969AC9F9825B0B67B7F73ECD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,9 +386,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3447A75257A121700A7302B /* Auth.storyboard in Resources */,
+				B3447A7A257A122400A7302B /* Home.storyboard in Resources */,
 				B3447A002579F3D900A7302B /* LaunchScreen.storyboard in Resources */,
 				B34479FD2579F3D900A7302B /* Assets.xcassets in Resources */,
-				B34479FB2579F3D800A7302B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,14 +409,126 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4AE753A2F7DEB33D3AE03AD7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Villar Scentral-Villar ScentralUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		679357ACA0FA0BB2AA51D020 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Villar Scentral/Pods-Villar Scentral-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Villar Scentral/Pods-Villar Scentral-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Villar Scentral/Pods-Villar Scentral-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		969AC9F9825B0B67B7F73ECD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Villar Scentral-Villar ScentralUITests/Pods-Villar Scentral-Villar ScentralUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Villar Scentral-Villar ScentralUITests/Pods-Villar Scentral-Villar ScentralUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Villar Scentral-Villar ScentralUITests/Pods-Villar Scentral-Villar ScentralUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A938CDF52077465FC6B76E0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Villar Scentral-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE8720086AFB491EBB6CD27F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Villar ScentralTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B34479EC2579F3D800A7302B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3447A52257A0D8800A7302B /* ValidationManager.swift in Sources */,
+				B3447A3F257A0C6900A7302B /* ChangeBottamColor.swift in Sources */,
 				B34479F82579F3D800A7302B /* ViewController.swift in Sources */,
+				B3447A40257A0C6900A7302B /* HelperMethods.swift in Sources */,
+				B3447A47257A0CBF00A7302B /* Constant.swift in Sources */,
+				B3447A65257A108200A7302B /* PKWrapperClass.swift in Sources */,
 				B34479F42579F3D800A7302B /* AppDelegate.swift in Sources */,
 				B34479F62579F3D800A7302B /* SceneDelegate.swift in Sources */,
+				B3447A48257A0CBF00A7302B /* AFWrapperClass.swift in Sources */,
+				B3447A51257A0D8800A7302B /* PickerManager.swift in Sources */,
+				B3447A3E257A0C6900A7302B /* Activityloader.swift in Sources */,
+				B3447A41257A0C6900A7302B /* UIComponentsExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +564,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B34479F92579F3D800A7302B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B34479FA2579F3D800A7302B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B34479FE2579F3D900A7302B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -433,6 +693,7 @@
 		};
 		B3447A1B2579F3D900A7302B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 877C836D43D20B1CFC4A11DD /* Pods-Villar Scentral.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -445,12 +706,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "dharmani-apps.Villar-Scentral";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		B3447A1C2579F3D900A7302B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53E52F37F737C7555437343E /* Pods-Villar Scentral.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -463,12 +725,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "dharmani-apps.Villar-Scentral";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		B3447A1E2579F3D900A7302B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90CBA0BE48F2E8BAF58C240E /* Pods-Villar ScentralTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +753,7 @@
 		};
 		B3447A1F2579F3D900A7302B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D93044802DE44B0DAB30D3C /* Pods-Villar ScentralTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -511,6 +775,7 @@
 		};
 		B3447A212579F3D900A7302B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C9EC51A2356C4E101249B02 /* Pods-Villar Scentral-Villar ScentralUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -530,6 +795,7 @@
 		};
 		B3447A222579F3D900A7302B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41D7187BEBDC7400A77FBF65 /* Pods-Villar Scentral-Villar ScentralUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
