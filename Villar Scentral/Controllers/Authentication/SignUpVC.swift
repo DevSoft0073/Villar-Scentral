@@ -23,7 +23,7 @@ class SignUpVC: UIViewController {
     
     
     @IBAction func signUpButtonAction(_ sender: Any) {
-        let vc = SignInVC.instantiate(fromAppStoryboard: .Auth)
+        let vc = NotificationVC.instantiate(fromAppStoryboard: .SideMenu)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

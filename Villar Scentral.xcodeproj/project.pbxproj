@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0279A8D40A1E57E4F94764BE /* Pods_Villar_ScentralTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E5BFCEAFD2E2D80583E4FA /* Pods_Villar_ScentralTests.framework */; };
 		7FA6D1FF4920C62A836BAC9E /* Pods_Villar_Scentral_Villar_ScentralUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7074516D6CC3CC9B2E1186 /* Pods_Villar_Scentral_Villar_ScentralUITests.framework */; };
+		B31638F9257B893800958E18 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31638F8257B893800958E18 /* NotificationVC.swift */; };
+		B31638FE257B894E00958E18 /* OrderAcceptedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31638FD257B894E00958E18 /* OrderAcceptedVC.swift */; };
 		B34479F42579F3D800A7302B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34479F32579F3D800A7302B /* AppDelegate.swift */; };
 		B34479F62579F3D800A7302B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34479F52579F3D800A7302B /* SceneDelegate.swift */; };
 		B34479F82579F3D800A7302B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34479F72579F3D800A7302B /* ViewController.swift */; };
@@ -40,6 +42,7 @@
 		B3DCE85D257B6083001A6AC6 /* DisplayAlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE85C257B6083001A6AC6 /* DisplayAlertManager.swift */; };
 		B3DCE862257B60CB001A6AC6 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE861257B60CB001A6AC6 /* AppConstants.swift */; };
 		B3DCE867257B631E001A6AC6 /* AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE866257B631E001A6AC6 /* AppExtensions.swift */; };
+		B3DCE87A257B6F7A001A6AC6 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DCE879257B6F7A001A6AC6 /* SideMenu.storyboard */; };
 		F2FCD50D1D2CA04E457088F0 /* Pods_Villar_Scentral.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B2BB4B506A3B2E0AAB2B77 /* Pods_Villar_Scentral.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,8 @@
 		877C836D43D20B1CFC4A11DD /* Pods-Villar Scentral.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Villar Scentral.debug.xcconfig"; path = "Target Support Files/Pods-Villar Scentral/Pods-Villar Scentral.debug.xcconfig"; sourceTree = "<group>"; };
 		90CBA0BE48F2E8BAF58C240E /* Pods-Villar ScentralTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Villar ScentralTests.debug.xcconfig"; path = "Target Support Files/Pods-Villar ScentralTests/Pods-Villar ScentralTests.debug.xcconfig"; sourceTree = "<group>"; };
 		97E5BFCEAFD2E2D80583E4FA /* Pods_Villar_ScentralTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Villar_ScentralTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B31638F8257B893800958E18 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
+		B31638FD257B894E00958E18 /* OrderAcceptedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAcceptedVC.swift; sourceTree = "<group>"; };
 		B34479F02579F3D800A7302B /* Villar Scentral.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Villar Scentral.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B34479F32579F3D800A7302B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B34479F52579F3D800A7302B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +112,7 @@
 		B3DCE85C257B6083001A6AC6 /* DisplayAlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAlertManager.swift; sourceTree = "<group>"; };
 		B3DCE861257B60CB001A6AC6 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		B3DCE866257B631E001A6AC6 /* AppExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppExtensions.swift; sourceTree = "<group>"; };
+		B3DCE879257B6F7A001A6AC6 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +216,7 @@
 				B3447A74257A121700A7302B /* Auth.storyboard */,
 				B3447A79257A122400A7302B /* Home.storyboard */,
 				B34479FE2579F3D900A7302B /* LaunchScreen.storyboard */,
+				B3DCE879257B6F7A001A6AC6 /* SideMenu.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,6 +327,8 @@
 		B3DCE827257B55B2001A6AC6 /* Side Menu */ = {
 			isa = PBXGroup;
 			children = (
+				B31638F8257B893800958E18 /* NotificationVC.swift */,
+				B31638FD257B894E00958E18 /* OrderAcceptedVC.swift */,
 			);
 			path = "Side Menu";
 			sourceTree = "<group>";
@@ -471,6 +480,7 @@
 				B3447A7A257A122400A7302B /* Home.storyboard in Resources */,
 				B3447A002579F3D900A7302B /* LaunchScreen.storyboard in Resources */,
 				B3DCE841257B5770001A6AC6 /* Poppins-SemiBold.ttf in Resources */,
+				B3DCE87A257B6F7A001A6AC6 /* SideMenu.storyboard in Resources */,
 				B34479FD2579F3D900A7302B /* Assets.xcassets in Resources */,
 				B3DCE840257B5770001A6AC6 /* Poppins-Medium.ttf in Resources */,
 				B3DCE843257B5770001A6AC6 /* Poppins-Regular.ttf in Resources */,
@@ -605,6 +615,7 @@
 				B3447A52257A0D8800A7302B /* ValidationManager.swift in Sources */,
 				B3447A3F257A0C6900A7302B /* ChangeBottamColor.swift in Sources */,
 				B34479F82579F3D800A7302B /* ViewController.swift in Sources */,
+				B31638FE257B894E00958E18 /* OrderAcceptedVC.swift in Sources */,
 				B3447A40257A0C6900A7302B /* HelperMethods.swift in Sources */,
 				B3447A47257A0CBF00A7302B /* Constant.swift in Sources */,
 				B3DCE867257B631E001A6AC6 /* AppExtensions.swift in Sources */,
@@ -614,6 +625,7 @@
 				B3447A65257A108200A7302B /* PKWrapperClass.swift in Sources */,
 				B34479F42579F3D800A7302B /* AppDelegate.swift in Sources */,
 				B34479F62579F3D800A7302B /* SceneDelegate.swift in Sources */,
+				B31638F9257B893800958E18 /* NotificationVC.swift in Sources */,
 				B3447A48257A0CBF00A7302B /* AFWrapperClass.swift in Sources */,
 				B3447A51257A0D8800A7302B /* PickerManager.swift in Sources */,
 				B3DCE858257B5FA5001A6AC6 /* Reachability.swift in Sources */,

@@ -13,6 +13,8 @@ import UIKit
 enum AppStoryboard : String {
     case Auth
     case Home
+    case SideMenu
+    
 }
 
 extension AppStoryboard {
@@ -43,3 +45,12 @@ extension UIViewController {
 }
 
 
+
+extension UIImageView {
+    func setRounded() {
+        self.layoutIfNeeded()
+        self.layer.cornerRadius = (self.frame.width / 2)
+        self.layer.masksToBounds = true
+        self.clipsToBounds = true
+    }
+}
