@@ -86,32 +86,3 @@ class ValidationManager: NSObject {
         return false
     }
 }
-
-//------------------------------------------------------
-
-//MARK:  String
-
-extension String {
-    
-    public func toTrim() -> String {
-        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-    }
-    
-    public func toDictionary() -> [AnyHashable: Any]? {
-        if let data = self.data(using: .utf8) {
-            do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        }
-        return nil
-    }
-    
-    func toImage() -> UIImage? {
-        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters){
-            return UIImage(data: data)
-        }
-        return nil
-    }
-}
