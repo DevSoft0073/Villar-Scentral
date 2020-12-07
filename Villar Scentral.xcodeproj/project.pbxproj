@@ -28,6 +28,8 @@
 		B3447A65257A108200A7302B /* PKWrapperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A64257A108200A7302B /* PKWrapperClass.swift */; };
 		B3447A75257A121700A7302B /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3447A74257A121700A7302B /* Auth.storyboard */; };
 		B3447A7A257A122400A7302B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3447A79257A122400A7302B /* Home.storyboard */; };
+		B3586E51257E2CE700598C3A /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3586E50257E2CE700598C3A /* ProfileVC.swift */; };
+		B3586E56257E2CF900598C3A /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3586E55257E2CF900598C3A /* EditProfileVC.swift */; };
 		B3DCE82A257B55EC001A6AC6 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE829257B55EC001A6AC6 /* SignInVC.swift */; };
 		B3DCE832257B5605001A6AC6 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE831257B5605001A6AC6 /* SignUpVC.swift */; };
 		B3DCE837257B562C001A6AC6 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE836257B562C001A6AC6 /* ForgotPasswordVC.swift */; };
@@ -98,6 +100,8 @@
 		B3447A64257A108200A7302B /* PKWrapperClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKWrapperClass.swift; sourceTree = "<group>"; };
 		B3447A74257A121700A7302B /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		B3447A79257A122400A7302B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		B3586E50257E2CE700598C3A /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		B3586E55257E2CF900598C3A /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		B3DCE829257B55EC001A6AC6 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		B3DCE831257B5605001A6AC6 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		B3DCE836257B562C001A6AC6 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
@@ -314,6 +318,15 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		B3586E4F257E2CD600598C3A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B3586E50257E2CE700598C3A /* ProfileVC.swift */,
+				B3586E55257E2CF900598C3A /* EditProfileVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		B3DCE823257B5588001A6AC6 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +340,7 @@
 		B3DCE827257B55B2001A6AC6 /* Side Menu */ = {
 			isa = PBXGroup;
 			children = (
+				B3586E4F257E2CD600598C3A /* Profile */,
 				B31638F8257B893800958E18 /* NotificationVC.swift */,
 				B31638FD257B894E00958E18 /* OrderAcceptedVC.swift */,
 			);
@@ -612,6 +626,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3DCE832257B5605001A6AC6 /* SignUpVC.swift in Sources */,
+				B3586E51257E2CE700598C3A /* ProfileVC.swift in Sources */,
 				B3447A52257A0D8800A7302B /* ValidationManager.swift in Sources */,
 				B3447A3F257A0C6900A7302B /* ChangeBottamColor.swift in Sources */,
 				B34479F82579F3D800A7302B /* ViewController.swift in Sources */,
@@ -632,6 +647,7 @@
 				B3447A3E257A0C6900A7302B /* Activityloader.swift in Sources */,
 				B3DCE85D257B6083001A6AC6 /* DisplayAlertManager.swift in Sources */,
 				B3DCE837257B562C001A6AC6 /* ForgotPasswordVC.swift in Sources */,
+				B3586E56257E2CF900598C3A /* EditProfileVC.swift in Sources */,
 				B3DCE862257B60CB001A6AC6 /* AppConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
