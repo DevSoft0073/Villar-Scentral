@@ -12,8 +12,7 @@ target 'Villar Scentral' do
     pod 'Alamofire', '~> 5.0.0-rc.2'
     pod 'SDWebImage', '~> 4.0'
     pod 'SVProgressHUD'
-
-
+    pod 'LGSideMenuController'
 
   target 'Villar ScentralTests' do
     inherit! :search_paths

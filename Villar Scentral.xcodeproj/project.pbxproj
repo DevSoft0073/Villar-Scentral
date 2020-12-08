@@ -11,6 +11,8 @@
 		7FA6D1FF4920C62A836BAC9E /* Pods_Villar_Scentral_Villar_ScentralUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7074516D6CC3CC9B2E1186 /* Pods_Villar_Scentral_Villar_ScentralUITests.framework */; };
 		B31638F9257B893800958E18 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31638F8257B893800958E18 /* NotificationVC.swift */; };
 		B31638FE257B894E00958E18 /* OrderAcceptedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31638FD257B894E00958E18 /* OrderAcceptedVC.swift */; };
+		B331FDBA257F5730003B4A86 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B331FDB9257F5730003B4A86 /* SideMenuVC.swift */; };
+		B331FDCB257F598F003B4A86 /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B331FDCA257F598F003B4A86 /* SideMenuController.swift */; };
 		B34479F42579F3D800A7302B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34479F32579F3D800A7302B /* AppDelegate.swift */; };
 		B34479F62579F3D800A7302B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34479F52579F3D800A7302B /* SceneDelegate.swift */; };
 		B34479F82579F3D800A7302B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34479F72579F3D800A7302B /* ViewController.swift */; };
@@ -77,6 +79,8 @@
 		97E5BFCEAFD2E2D80583E4FA /* Pods_Villar_ScentralTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Villar_ScentralTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31638F8257B893800958E18 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		B31638FD257B894E00958E18 /* OrderAcceptedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAcceptedVC.swift; sourceTree = "<group>"; };
+		B331FDB9257F5730003B4A86 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
+		B331FDCA257F598F003B4A86 /* SideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		B34479F02579F3D800A7302B /* Villar Scentral.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Villar Scentral.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B34479F32579F3D800A7302B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B34479F52579F3D800A7302B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -343,6 +347,8 @@
 				B3586E4F257E2CD600598C3A /* Profile */,
 				B31638F8257B893800958E18 /* NotificationVC.swift */,
 				B31638FD257B894E00958E18 /* OrderAcceptedVC.swift */,
+				B331FDB9257F5730003B4A86 /* SideMenuVC.swift */,
+				B331FDCA257F598F003B4A86 /* SideMenuController.swift */,
 			);
 			path = "Side Menu";
 			sourceTree = "<group>";
@@ -628,6 +634,7 @@
 				B3DCE832257B5605001A6AC6 /* SignUpVC.swift in Sources */,
 				B3586E51257E2CE700598C3A /* ProfileVC.swift in Sources */,
 				B3447A52257A0D8800A7302B /* ValidationManager.swift in Sources */,
+				B331FDCB257F598F003B4A86 /* SideMenuController.swift in Sources */,
 				B3447A3F257A0C6900A7302B /* ChangeBottamColor.swift in Sources */,
 				B34479F82579F3D800A7302B /* ViewController.swift in Sources */,
 				B31638FE257B894E00958E18 /* OrderAcceptedVC.swift in Sources */,
@@ -649,6 +656,7 @@
 				B3DCE837257B562C001A6AC6 /* ForgotPasswordVC.swift in Sources */,
 				B3586E56257E2CF900598C3A /* EditProfileVC.swift in Sources */,
 				B3DCE862257B60CB001A6AC6 /* AppConstants.swift in Sources */,
+				B331FDBA257F5730003B4A86 /* SideMenuVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
