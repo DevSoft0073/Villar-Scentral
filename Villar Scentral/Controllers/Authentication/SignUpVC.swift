@@ -28,6 +28,13 @@ class SignUpVC: UIViewController {
     }
     
     @IBAction func gotoSignInVC(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        
+        let story = UIStoryboard(name: "SideMenu", bundle: nil)
+        let rootViewController:UIViewController = story.instantiateViewController(withIdentifier: "SideMenuControllerID")
+        self.navigationController?.pushViewController(rootViewController, animated: true)
+       
+                
+//        let vc = ProfileVC.instantiate(fromAppStoryboard: .SideMenu)
+//        self.navigationController?.popViewController(animated: true)
     }
 }

@@ -14,8 +14,8 @@ class SideMenuVC: UIViewController {
     @IBOutlet weak var cityLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
-    var nameArray = ["","","","",""]
-    var imgArray = ["","","","",""]
+    var nameArray = ["Home","Other Products","Order History","Video tutorials","Store Locator","Settings"]
+    var imgArray = ["home","product-icon","order-history","video-tutorial","store-locator","setting"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,7 +41,8 @@ extension SideMenuVC : UITableViewDelegate , UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTBViewCell", for: indexPath) as! SettingTBViewCell
-        
+        cell.nameLbl.text = nameArray[indexPath.row]
+        cell.iconImages.image = UIImage(named: imgArray[indexPath.row])
         return cell
     }
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LGSideMenuController
 
 class ProfileVC: UIViewController {
 
@@ -23,8 +24,13 @@ class ProfileVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func openMenu(_ sender: Any) {
+        sideMenuController?.showLeftViewAnimated()
+    }
+    
     
     @IBAction func gotoEditVC(_ sender: Any) {
+        
     }
     
 }
