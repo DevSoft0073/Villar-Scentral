@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import LGSideMenuController
 
 class ProfileVC: UIViewController {
 
@@ -25,12 +24,19 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func openMenu(_ sender: Any) {
-        sideMenuController?.showLeftViewAnimated()
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        profileImage.layer.masksToBounds = true
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
     }
     
     
     @IBAction func gotoEditVC(_ sender: Any) {
-        
+        let vc = EditProfileVC.instantiate(fromAppStoryboard: .SideMenu)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0279A8D40A1E57E4F94764BE /* Pods_Villar_ScentralTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E5BFCEAFD2E2D80583E4FA /* Pods_Villar_ScentralTests.framework */; };
 		7FA6D1FF4920C62A836BAC9E /* Pods_Villar_Scentral_Villar_ScentralUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7074516D6CC3CC9B2E1186 /* Pods_Villar_Scentral_Villar_ScentralUITests.framework */; };
+		B30728812580FA890022358B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30728802580FA890022358B /* ImagePicker.swift */; };
 		B31638F9257B893800958E18 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31638F8257B893800958E18 /* NotificationVC.swift */; };
 		B31638FE257B894E00958E18 /* OrderAcceptedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31638FD257B894E00958E18 /* OrderAcceptedVC.swift */; };
 		B331FDBA257F5730003B4A86 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B331FDB9257F5730003B4A86 /* SideMenuVC.swift */; };
@@ -26,11 +27,11 @@
 		B3447A40257A0C6900A7302B /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A3C257A0C6900A7302B /* HelperMethods.swift */; };
 		B3447A47257A0CBF00A7302B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A45257A0CBF00A7302B /* Constant.swift */; };
 		B3447A48257A0CBF00A7302B /* AFWrapperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A46257A0CBF00A7302B /* AFWrapperClass.swift */; };
-		B3447A51257A0D8800A7302B /* PickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A4F257A0D8800A7302B /* PickerManager.swift */; };
 		B3447A52257A0D8800A7302B /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A50257A0D8800A7302B /* ValidationManager.swift */; };
 		B3447A65257A108200A7302B /* PKWrapperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A64257A108200A7302B /* PKWrapperClass.swift */; };
 		B3447A75257A121700A7302B /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3447A74257A121700A7302B /* Auth.storyboard */; };
 		B3447A7A257A122400A7302B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3447A79257A122400A7302B /* Home.storyboard */; };
+		B34AC7CF2580D6F300CDE781 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34AC7CE2580D6F300CDE781 /* HomeVC.swift */; };
 		B3586E51257E2CE700598C3A /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3586E50257E2CE700598C3A /* ProfileVC.swift */; };
 		B3586E56257E2CF900598C3A /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3586E55257E2CF900598C3A /* EditProfileVC.swift */; };
 		B3C3EE1D257F956A0069CB4F /* StoreLocatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C3EE1C257F956A0069CB4F /* StoreLocatorVC.swift */; };
@@ -79,6 +80,7 @@
 		877C836D43D20B1CFC4A11DD /* Pods-Villar Scentral.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Villar Scentral.debug.xcconfig"; path = "Target Support Files/Pods-Villar Scentral/Pods-Villar Scentral.debug.xcconfig"; sourceTree = "<group>"; };
 		90CBA0BE48F2E8BAF58C240E /* Pods-Villar ScentralTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Villar ScentralTests.debug.xcconfig"; path = "Target Support Files/Pods-Villar ScentralTests/Pods-Villar ScentralTests.debug.xcconfig"; sourceTree = "<group>"; };
 		97E5BFCEAFD2E2D80583E4FA /* Pods_Villar_ScentralTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Villar_ScentralTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B30728802580FA890022358B /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B31638F8257B893800958E18 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		B31638FD257B894E00958E18 /* OrderAcceptedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAcceptedVC.swift; sourceTree = "<group>"; };
 		B331FDB9257F5730003B4A86 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
@@ -102,11 +104,11 @@
 		B3447A3C257A0C6900A7302B /* HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
 		B3447A45257A0CBF00A7302B /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		B3447A46257A0CBF00A7302B /* AFWrapperClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFWrapperClass.swift; sourceTree = "<group>"; };
-		B3447A4F257A0D8800A7302B /* PickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerManager.swift; sourceTree = "<group>"; };
 		B3447A50257A0D8800A7302B /* ValidationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		B3447A64257A108200A7302B /* PKWrapperClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKWrapperClass.swift; sourceTree = "<group>"; };
 		B3447A74257A121700A7302B /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		B3447A79257A122400A7302B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		B34AC7CE2580D6F300CDE781 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		B3586E50257E2CE700598C3A /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B3586E55257E2CF900598C3A /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		B3C3EE1C257F956A0069CB4F /* StoreLocatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocatorVC.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				B3DCE866257B631E001A6AC6 /* AppExtensions.swift */,
 				B34479F32579F3D800A7302B /* AppDelegate.swift */,
 				B34479F52579F3D800A7302B /* SceneDelegate.swift */,
+				B30728802580FA890022358B /* ImagePicker.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -318,7 +321,6 @@
 		B3447A4E257A0D7500A7302B /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				B3447A4F257A0D8800A7302B /* PickerManager.swift */,
 				B3447A50257A0D8800A7302B /* ValidationManager.swift */,
 				B3DCE85C257B6083001A6AC6 /* DisplayAlertManager.swift */,
 				B3DCE861257B60CB001A6AC6 /* AppConstants.swift */,
@@ -349,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				B3586E4F257E2CD600598C3A /* Profile */,
+				B34AC7CE2580D6F300CDE781 /* HomeVC.swift */,
 				B31638F8257B893800958E18 /* NotificationVC.swift */,
 				B31638FD257B894E00958E18 /* OrderAcceptedVC.swift */,
 				B331FDB9257F5730003B4A86 /* SideMenuVC.swift */,
@@ -656,13 +659,14 @@
 				B34479F62579F3D800A7302B /* SceneDelegate.swift in Sources */,
 				B31638F9257B893800958E18 /* NotificationVC.swift in Sources */,
 				B3447A48257A0CBF00A7302B /* AFWrapperClass.swift in Sources */,
-				B3447A51257A0D8800A7302B /* PickerManager.swift in Sources */,
 				B3DCE858257B5FA5001A6AC6 /* Reachability.swift in Sources */,
 				B3447A3E257A0C6900A7302B /* Activityloader.swift in Sources */,
 				B3DCE85D257B6083001A6AC6 /* DisplayAlertManager.swift in Sources */,
+				B34AC7CF2580D6F300CDE781 /* HomeVC.swift in Sources */,
 				B3DCE837257B562C001A6AC6 /* ForgotPasswordVC.swift in Sources */,
 				B3586E56257E2CF900598C3A /* EditProfileVC.swift in Sources */,
 				B3C3EE1D257F956A0069CB4F /* StoreLocatorVC.swift in Sources */,
+				B30728812580FA890022358B /* ImagePicker.swift in Sources */,
 				B3DCE862257B60CB001A6AC6 /* AppConstants.swift in Sources */,
 				B331FDBA257F5730003B4A86 /* SideMenuVC.swift in Sources */,
 			);
@@ -833,15 +837,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = H73AXDCAQS;
 				INFOPLIST_FILE = "Villar Scentral/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dharmani-apps.Villar-Scentral";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foodtrknetwork.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Foodtrucknetwork Dist 19 aug 2020";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -853,15 +860,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = H73AXDCAQS;
 				INFOPLIST_FILE = "Villar Scentral/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "dharmani-apps.Villar-Scentral";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foodtrknetwork.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Foodtrucknetwork Dist 19 aug 2020";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

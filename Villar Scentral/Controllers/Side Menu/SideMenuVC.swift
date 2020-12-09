@@ -18,7 +18,9 @@ class SideMenuVC: UIViewController {
     var imgArray = ["home","product-icon","order-history","video-tutorial","store-locator","setting"]
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        settingTBView.separatorStyle = .none
+        
         // Do any additional setup after loading the view.
     }
 }
@@ -51,7 +53,8 @@ extension SideMenuVC : UITableViewDelegate , UITableViewDataSource{
         sideMenuController?.hideLeftViewAnimated()
         
         if(indexPath.row == 0) {
-             
+            let vc = HomeVC.instantiate(fromAppStoryboard: .SideMenu)
+            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
         }
             
         else if(indexPath.row == 1) {
@@ -59,20 +62,20 @@ extension SideMenuVC : UITableViewDelegate , UITableViewDataSource{
         }
             
         else if(indexPath.row == 2) {
-             
-        }
+            let vc = OrderHistoryVC.instantiate(fromAppStoryboard: .SideMenu)
+            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)        }
             
         else if(indexPath.row == 3) {
             
         }
             
         else if(indexPath.row == 4) {
-            
-        }
+            let vc = StoreLocatorVC.instantiate(fromAppStoryboard: .SideMenu)
+            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)        }
                         
         else if(indexPath.row == 5) {
-            
-         
+            let vc = ProfileVC.instantiate(fromAppStoryboard: .SideMenu)
+            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -95,6 +95,9 @@
                                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="2jG-S4-XHo" id="71U-vU-JeR"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytj-3q-3ZM">
                                                                 <rect key="frame" x="0.0" y="57" width="272" height="0.5"/>
@@ -136,6 +139,9 @@
                                                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="2jG-S4-XHo" id="t8N-ym-D4A"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ot-Th-ZQ3">
                                                                 <rect key="frame" x="0.0" y="57" width="272" height="0.5"/>
@@ -369,6 +375,9 @@
                                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="HeR-lD-GeR" id="fb5-6A-8S6"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yH-6E-NQO">
                                                                 <rect key="frame" x="0.0" y="55" width="272" height="0.5"/>
@@ -409,6 +418,9 @@
                                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="HeR-lD-GeR" id="w2h-mm-jM4"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYU-AK-CSE">
                                                                 <rect key="frame" x="0.0" y="55.5" width="272" height="0.5"/>
@@ -450,6 +462,9 @@
                                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="HeR-lD-GeR" id="wdQ-gC-Iui"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tu0-lV-7at">
                                                                 <rect key="frame" x="0.0" y="55.5" width="272" height="0.5"/>
@@ -479,13 +494,13 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lD-bv-03r">
-                                                <rect key="frame" x="0.0" y="382.5" width="320" height="34"/>
+                                                <rect key="frame" x="0.0" y="413" width="320" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAs-mq-0Bh">
-                                                <rect key="frame" x="24" y="416.5" width="272" height="34"/>
+                                                <rect key="frame" x="24" y="447" width="272" height="34"/>
                                                 <state key="normal" title="Button" image="btn-sign-up"/>
                                                 <connections>
                                                     <action selector="signUpButtonAction:" destination="HeR-lD-GeR" eventType="touchUpInside" id="AKR-zT-fFL"/>
@@ -519,17 +534,46 @@
                                                     <constraint firstItem="2ZM-cx-elB" firstAttribute="top" secondItem="Lpf-XC-ggM" secondAttribute="top" id="w2b-8f-Bwx"/>
                                                 </constraints>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCv-0v-Kov">
+                                                <rect key="frame" x="24" y="392.5" width="13" height="12.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="bCv-0v-Kov" secondAttribute="height" multiplier="1:1" id="LVo-eP-N2s"/>
+                                                </constraints>
+                                                <state key="normal" image="check-icon-1"/>
+                                                <connections>
+                                                    <action selector="checkUncheckButton:" destination="HeR-lD-GeR" eventType="touchUpInside" id="etM-25-wY1"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agree with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znT-Iw-mS2">
+                                                <rect key="frame" x="42" y="391" width="62" height="15.5"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBc-pj-gGd">
+                                                <rect key="frame" x="106" y="385" width="114" height="28"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                <state key="normal" title="Terms &amp; Conditions">
+                                                    <color key="titleColor" red="0.186539501" green="0.74840897319999999" blue="0.84970349069999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="9lD-bv-03r" firstAttribute="top" secondItem="UBc-pj-gGd" secondAttribute="bottom" id="1a4-Qu-ysY"/>
                                             <constraint firstItem="74W-na-9pu" firstAttribute="top" secondItem="wqx-t6-6RT" secondAttribute="top" id="CIG-6V-RB3"/>
                                             <constraint firstItem="lJP-Bt-9iN" firstAttribute="top" secondItem="IQb-cQ-wzn" secondAttribute="bottom" id="IPt-ke-Sfb"/>
+                                            <constraint firstItem="znT-Iw-mS2" firstAttribute="centerY" secondItem="bCv-0v-Kov" secondAttribute="centerY" id="K32-rv-cPi"/>
+                                            <constraint firstItem="UBc-pj-gGd" firstAttribute="centerY" secondItem="znT-Iw-mS2" secondAttribute="centerY" id="NBZ-KG-9Sx"/>
+                                            <constraint firstItem="UBc-pj-gGd" firstAttribute="leading" secondItem="znT-Iw-mS2" secondAttribute="trailing" constant="2" id="NUH-CM-qjc"/>
+                                            <constraint firstItem="znT-Iw-mS2" firstAttribute="leading" secondItem="bCv-0v-Kov" secondAttribute="trailing" constant="5" id="NhD-Of-Axl"/>
                                             <constraint firstItem="74W-na-9pu" firstAttribute="leading" secondItem="wqx-t6-6RT" secondAttribute="leading" id="QNm-WG-xy2"/>
                                             <constraint firstItem="pAs-mq-0Bh" firstAttribute="top" secondItem="9lD-bv-03r" secondAttribute="bottom" id="Rqi-yw-qha"/>
                                             <constraint firstAttribute="bottom" secondItem="U5A-BP-9ki" secondAttribute="bottom" constant="10" id="Tql-dv-R1R"/>
                                             <constraint firstAttribute="trailing" secondItem="74W-na-9pu" secondAttribute="trailing" id="WUR-Pk-OkY"/>
                                             <constraint firstItem="IQb-cQ-wzn" firstAttribute="top" secondItem="1K2-6U-ps6" secondAttribute="bottom" id="fGi-jW-ONc"/>
-                                            <constraint firstItem="9lD-bv-03r" firstAttribute="top" secondItem="lJP-Bt-9iN" secondAttribute="bottom" id="rnI-xO-vom"/>
+                                            <constraint firstItem="bCv-0v-Kov" firstAttribute="leading" secondItem="lJP-Bt-9iN" secondAttribute="leading" id="lT7-bz-HU3"/>
+                                            <constraint firstItem="bCv-0v-Kov" firstAttribute="top" secondItem="lJP-Bt-9iN" secondAttribute="bottom" constant="10" id="vGV-Fz-U7R"/>
                                             <constraint firstItem="1K2-6U-ps6" firstAttribute="top" secondItem="74W-na-9pu" secondAttribute="bottom" id="zJ3-G6-9XV"/>
                                         </constraints>
                                     </view>
@@ -552,6 +596,7 @@
                             <constraint firstItem="9lD-bv-03r" firstAttribute="height" secondItem="9iA-5t-xjf" secondAttribute="height" multiplier="0.06" id="AM2-5f-eWA"/>
                             <constraint firstItem="1K2-6U-ps6" firstAttribute="width" secondItem="9iA-5t-xjf" secondAttribute="width" multiplier="0.75" id="JC8-I7-RJ1"/>
                             <constraint firstItem="v5o-NZ-9Ah" firstAttribute="trailing" secondItem="1Vy-jl-ieL" secondAttribute="trailing" id="KuJ-xu-qsa"/>
+                            <constraint firstItem="bCv-0v-Kov" firstAttribute="width" secondItem="9iA-5t-xjf" secondAttribute="width" multiplier="0.04" id="LpU-Qj-NyM"/>
                             <constraint firstItem="U5A-BP-9ki" firstAttribute="centerX" secondItem="v5o-NZ-9Ah" secondAttribute="centerX" id="Lwa-Ys-P3B"/>
                             <constraint firstItem="U5A-BP-9ki" firstAttribute="height" secondItem="9iA-5t-xjf" secondAttribute="height" multiplier="0.0616197" id="MHl-sB-lMi"/>
                             <constraint firstAttribute="bottom" secondItem="Hif-Wx-i7V" secondAttribute="bottom" id="RiT-s8-w4H"/>
@@ -578,6 +623,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="c1C-4H-Gm6"/>
                     <connections>
+                        <outlet property="checkUncheckButton" destination="bCv-0v-Kov" id="PgD-mR-2ca"/>
                         <outlet property="confirmPasswordLbl" destination="Tu0-lV-7at" id="Htv-fd-lY4"/>
                         <outlet property="confirmPasswordTxtFld" destination="vTr-3V-aKe" id="6Ns-Un-Uej"/>
                         <outlet property="passwordBootamLbl" destination="OYU-AK-CSE" id="E40-vn-8MX"/>
@@ -588,7 +634,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5f-Tg-BJz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759" y="45"/>
+            <point key="canvasLocation" x="1758.75" y="44.366197183098592"/>
         </scene>
         <!--Forgot PasswordVC-->
         <scene sceneID="Sdq-6j-Cca">
@@ -631,6 +677,9 @@
                                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="m28-XK-uCK" id="bT8-fA-CEd"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyi-y4-ncX">
                                         <rect key="frame" x="0.0" y="62" width="272" height="0.5"/>
@@ -734,6 +783,7 @@
         <image name="btn-sign-in" width="540" height="73"/>
         <image name="btn-sign-up" width="540" height="73"/>
         <image name="btn-submit" width="608" height="82"/>
+        <image name="check-icon-1" width="128" height="128"/>
         <image name="info.png" width="28" height="28"/>
         <image name="logo" width="469" height="64"/>
         <systemColor name="systemBackgroundColor">
