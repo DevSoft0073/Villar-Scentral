@@ -58,26 +58,34 @@ extension SideMenuVC : UITableViewDelegate , UITableViewDataSource{
         }
             
         else if(indexPath.row == 1) {
+            let vc = OtherProductsVC.instantiate(fromAppStoryboard: .SideMenu)
+            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
             
         }
             
         else if(indexPath.row == 2) {
             let vc = OrderHistoryVC.instantiate(fromAppStoryboard: .SideMenu)
-            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)        }
+            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
+            
+        }
             
         else if(indexPath.row == 3) {
-            
+            let vc = ShowAllVideosVC.instantiate(fromAppStoryboard: .SideMenu)
+            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
         }
             
         else if(indexPath.row == 4) {
             let vc = StoreLocatorVC.instantiate(fromAppStoryboard: .SideMenu)
-            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)        }
+            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
+            
+        }
                         
         else if(indexPath.row == 5) {
             let vc = ProfileVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
         }
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }

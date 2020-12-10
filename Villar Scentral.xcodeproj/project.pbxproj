@@ -34,6 +34,10 @@
 		B34AC7CF2580D6F300CDE781 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34AC7CE2580D6F300CDE781 /* HomeVC.swift */; };
 		B3586E51257E2CE700598C3A /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3586E50257E2CE700598C3A /* ProfileVC.swift */; };
 		B3586E56257E2CF900598C3A /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3586E55257E2CF900598C3A /* EditProfileVC.swift */; };
+		B3719CDA2581EF6F00959EF5 /* OfferDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3719CD92581EF6F00959EF5 /* OfferDetailVC.swift */; };
+		B3719CDF2581F59D00959EF5 /* ShowAllVideosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3719CDE2581F59D00959EF5 /* ShowAllVideosVC.swift */; };
+		B3719CE4258202C200959EF5 /* OtherProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3719CE3258202C200959EF5 /* OtherProductsVC.swift */; };
+		B3719CE92582146C00959EF5 /* CheckoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3719CE82582146C00959EF5 /* CheckoutVC.swift */; };
 		B3C3EE1D257F956A0069CB4F /* StoreLocatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C3EE1C257F956A0069CB4F /* StoreLocatorVC.swift */; };
 		B3DCE82A257B55EC001A6AC6 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE829257B55EC001A6AC6 /* SignInVC.swift */; };
 		B3DCE832257B5605001A6AC6 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE831257B5605001A6AC6 /* SignUpVC.swift */; };
@@ -111,6 +115,10 @@
 		B34AC7CE2580D6F300CDE781 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		B3586E50257E2CE700598C3A /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B3586E55257E2CF900598C3A /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		B3719CD92581EF6F00959EF5 /* OfferDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferDetailVC.swift; sourceTree = "<group>"; };
+		B3719CDE2581F59D00959EF5 /* ShowAllVideosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAllVideosVC.swift; sourceTree = "<group>"; };
+		B3719CE3258202C200959EF5 /* OtherProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProductsVC.swift; sourceTree = "<group>"; };
+		B3719CE82582146C00959EF5 /* CheckoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutVC.swift; sourceTree = "<group>"; };
 		B3C3EE1C257F956A0069CB4F /* StoreLocatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocatorVC.swift; sourceTree = "<group>"; };
 		B3DCE829257B55EC001A6AC6 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		B3DCE831257B5605001A6AC6 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -352,12 +360,12 @@
 			children = (
 				B3586E4F257E2CD600598C3A /* Profile */,
 				B34AC7CE2580D6F300CDE781 /* HomeVC.swift */,
-				B31638F8257B893800958E18 /* NotificationVC.swift */,
-				B31638FD257B894E00958E18 /* OrderAcceptedVC.swift */,
 				B331FDB9257F5730003B4A86 /* SideMenuVC.swift */,
 				B331FDCA257F598F003B4A86 /* SideMenuController.swift */,
 				B331FDD7257F8A46003B4A86 /* OrderHistoryVC.swift */,
 				B3C3EE1C257F956A0069CB4F /* StoreLocatorVC.swift */,
+				B3719CDE2581F59D00959EF5 /* ShowAllVideosVC.swift */,
+				B3719CE3258202C200959EF5 /* OtherProductsVC.swift */,
 			);
 			path = "Side Menu";
 			sourceTree = "<group>";
@@ -365,6 +373,10 @@
 		B3DCE828257B55C2001A6AC6 /* Home  */ = {
 			isa = PBXGroup;
 			children = (
+				B3719CD92581EF6F00959EF5 /* OfferDetailVC.swift */,
+				B31638FD257B894E00958E18 /* OrderAcceptedVC.swift */,
+				B31638F8257B893800958E18 /* NotificationVC.swift */,
+				B3719CE82582146C00959EF5 /* CheckoutVC.swift */,
 			);
 			path = "Home ";
 			sourceTree = "<group>";
@@ -640,8 +652,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3719CDA2581EF6F00959EF5 /* OfferDetailVC.swift in Sources */,
 				B3DCE832257B5605001A6AC6 /* SignUpVC.swift in Sources */,
 				B3586E51257E2CE700598C3A /* ProfileVC.swift in Sources */,
+				B3719CE92582146C00959EF5 /* CheckoutVC.swift in Sources */,
 				B3447A52257A0D8800A7302B /* ValidationManager.swift in Sources */,
 				B331FDCB257F598F003B4A86 /* SideMenuController.swift in Sources */,
 				B3447A3F257A0C6900A7302B /* ChangeBottamColor.swift in Sources */,
@@ -655,6 +669,7 @@
 				B3DCE82A257B55EC001A6AC6 /* SignInVC.swift in Sources */,
 				B3DCE849257B5DE6001A6AC6 /* AppFunctions.swift in Sources */,
 				B3447A65257A108200A7302B /* PKWrapperClass.swift in Sources */,
+				B3719CDF2581F59D00959EF5 /* ShowAllVideosVC.swift in Sources */,
 				B34479F42579F3D800A7302B /* AppDelegate.swift in Sources */,
 				B34479F62579F3D800A7302B /* SceneDelegate.swift in Sources */,
 				B31638F9257B893800958E18 /* NotificationVC.swift in Sources */,
@@ -669,6 +684,7 @@
 				B30728812580FA890022358B /* ImagePicker.swift in Sources */,
 				B3DCE862257B60CB001A6AC6 /* AppConstants.swift in Sources */,
 				B331FDBA257F5730003B4A86 /* SideMenuVC.swift in Sources */,
+				B3719CE4258202C200959EF5 /* OtherProductsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,7 +853,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = H73AXDCAQS;
 				INFOPLIST_FILE = "Villar Scentral/Info.plist";
@@ -848,7 +864,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.foodtrknetwork.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Foodtrucknetwork Dist 19 aug 2020";
+				PROVISIONING_PROFILE_SPECIFIER = "Foortrucknetwork Dev 19 Aug 2020";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -860,7 +876,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = H73AXDCAQS;
 				INFOPLIST_FILE = "Villar Scentral/Info.plist";
@@ -871,7 +887,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.foodtrknetwork.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Foodtrucknetwork Dist 19 aug 2020";
+				PROVISIONING_PROFILE_SPECIFIER = "Foortrucknetwork Dev 19 Aug 2020";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

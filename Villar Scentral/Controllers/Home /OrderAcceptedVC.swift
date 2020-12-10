@@ -16,7 +16,7 @@ class OrderAcceptedVC: UIViewController {
     }
     
     @IBAction func backButtonAction(_ sender: Any) {
-        let vc = SignInVC.instantiate(fromAppStoryboard: .Auth)
+        let vc = HomeVC.instantiate(fromAppStoryboard: .SideMenu)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

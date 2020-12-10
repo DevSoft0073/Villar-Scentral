@@ -1,0 +1,93 @@
+//
+//  OtherProductsVC.swift
+//  Villar Scentral
+//
+//  Created by Vivek Dharmani on 10/12/20.
+//
+
+import UIKit
+import LGSideMenuController
+
+class OtherProductsVC: UIViewController {
+
+    @IBOutlet weak var produtsListCollectionView: UICollectionView!
+    var productListingArray = [ProductsData]()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "5"))
+        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "5"))
+        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "5"))
+        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "5"))
+        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "5"))
+        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "5"))
+        
+        produtsListCollectionView.reloadData()
+    }
+    
+
+    @IBAction func menuOpen(_ sender: Any) {
+        sideMenuController?.showLeftViewAnimated()
+    }
+    
+    @IBAction func nextButton(_ sender: Any) {
+        let vc = OfferDetailVC.instantiate(fromAppStoryboard: .SideMenu)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+class ProdutsListCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var quantityLbl: UILabel!
+    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var minusButton: UIButton!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var productImage: UIImageView!
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+    }
+}
+
+struct ProductsData {
+    var productImage : String
+    var name : String
+    var quantity : String
+    
+    init(productImage : String ,  name : String , quantity : String) {
+        self.productImage = productImage
+        self.name = name
+        self.quantity = quantity
+    }
+}
+
+extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return productListingArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProdutsListCollectionViewCell", for: indexPath) as! ProdutsListCollectionViewCell
+        cell.productImage.image = UIImage(named: productListingArray[indexPath.item].productImage)
+        cell.nameLbl.text = productListingArray[indexPath.item].name
+        return cell
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let noOfCellsInRow = 2
+
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+
+        let totalSpace = flowLayout.sectionInset.left
+            + flowLayout.sectionInset.right
+            + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
+
+        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
+
+        return CGSize(width: size, height: size)
+    }
+    
+}

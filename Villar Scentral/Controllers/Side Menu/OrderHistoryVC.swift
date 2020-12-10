@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LGSideMenuController
 
 class OrderHistoryVC: UIViewController {
 
@@ -21,6 +22,10 @@ class OrderHistoryVC: UIViewController {
         orderHistoryArray.append(OrderHistoryData(name: "Orinted Luz", id: "ID 335513", quantity: "3", deliveryDate: "5DEC 2020", price: "$150.00", image: "order-hist-pro"))
         orderHistoryArray.append(OrderHistoryData(name: "Orinted Luz", id: "ID 335513", quantity: "3", deliveryDate: "5DEC 2020", price: "$150.00", image: "order-hist-pro-2"))
         orderHistoryTBView.reloadData()
+    }
+    @IBAction func openMenu(_ sender: Any) {
+        sideMenuController?.showLeftViewAnimated()
+
     }
     
 }
