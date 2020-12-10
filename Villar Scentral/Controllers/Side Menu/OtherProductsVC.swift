@@ -9,6 +9,8 @@ import UIKit
 import LGSideMenuController
 
 class OtherProductsVC: UIViewController {
+    
+    var count = 0
 
     @IBOutlet weak var produtsListCollectionView: UICollectionView!
     var productListingArray = [ProductsData]()
@@ -70,10 +72,32 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProdutsListCollectionViewCell", for: indexPath) as! ProdutsListCollectionViewCell
         cell.productImage.image = UIImage(named: productListingArray[indexPath.item].productImage)
         cell.nameLbl.text = productListingArray[indexPath.item].name
+        cell.plusButton.addTarget(self, action: #selector(increaseCounter(sender:)), for: .touchUpInside)
+        cell.minusButton.addTarget(self, action: #selector(decreaseCounter(sender:)), for: .touchUpInside)
         return cell
     }
     
+    @objc func increaseCounter(sender: UIButton) {
+        //increase logic here
+        count = (count + 1)
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        let cell = collectionView(produtsListCollectionView, cellForItemAt: indexPath) as! ProdutsListCollectionViewCell
+        cell.quantityLbl.text = "\(count)"
+        produtsListCollectionView.reloadData()
+
+    }
     
+    @objc func decreaseCounter(sender: UIButton) {
+        //increase logic here
+        count = (count - 1)
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        let cell = collectionView(produtsListCollectionView, cellForItemAt: indexPath) as! ProdutsListCollectionViewCell
+        cell.quantityLbl.text = "\(count)"
+        produtsListCollectionView.reloadData()
+//        let indexPath = IndexPath(row: sender.tag, section: 0)
+//        let cell = tableView.cellForRow(at: indexPath)
+//        cell.lblForOnty.text = "\(count)"
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 

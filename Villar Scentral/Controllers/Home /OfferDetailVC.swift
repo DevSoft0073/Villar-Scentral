@@ -69,7 +69,7 @@ extension OfferDetailVC : UITableViewDelegate , UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OffersTBViewCell", for: indexPath) as! OffersTBViewCell
         cell.offerLbl.text = offerArray[indexPath.row].offerDetail
-        self.heightConstraint.constant = offersTBView.contentSize.height
+        self.heightConstraint.constant = offersTBView.contentSize.height + 50
         return cell
     }
     

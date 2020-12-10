@@ -16,6 +16,8 @@ class OrderHistoryVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        orderHistoryTBView.separatorStyle = .none
+
         
         orderHistoryArray.append(OrderHistoryData(name: "Orinted Luz", id: "ID 335513", quantity: "3", deliveryDate: "5DEC 2020", price: "$150.00", image: "order-hist-pro-1"))
         orderHistoryArray.append(OrderHistoryData(name: "Orinted Luz", id: "ID 335513", quantity: "3", deliveryDate: "5DEC 2020", price: "$150.00", image: "order-hist-pro-2"))
