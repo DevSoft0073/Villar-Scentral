@@ -20,6 +20,7 @@ open class ImagePicker: NSObject {
     private weak var presentationController: UIViewController?
     private weak var delegate: ImagePickerDelegate?
 
+
     public init(presentationController: UIViewController, delegate: ImagePickerDelegate) {
         self.pickerController = UIImagePickerController()
 
@@ -87,6 +88,10 @@ extension ImagePicker: UIImagePickerControllerDelegate {
         guard let image = info[.editedImage] as? UIImage else {
             return self.pickerController(picker, didSelect: nil)
         }
+        guard let imgData3 = image.jpegData(compressionQuality: 0.2) else {return}
+        var base64String = String()
+        base64String = imgData3.base64EncodedString(options: .lineLength64Characters)
+        UserDefaults.standard.set(base64String, forKey: "imag")
         self.pickerController(picker, didSelect: image)
     }
 }

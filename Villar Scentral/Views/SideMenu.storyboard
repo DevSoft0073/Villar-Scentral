@@ -541,14 +541,14 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMA-jB-IIe">
-                                                                    <rect key="frame" x="0.0" y="88" width="70.5" height="22"/>
+                                                                    <rect key="frame" x="0.0" y="88" width="64" height="22"/>
                                                                     <state key="normal" title="RE ORDER" image="order-btn"/>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="nMA-jB-IIe" firstAttribute="height" secondItem="SEh-DW-Upl" secondAttribute="height" multiplier="0.2" id="5bX-un-SeF"/>
                                                                 <constraint firstItem="nMA-jB-IIe" firstAttribute="leading" secondItem="SEh-DW-Upl" secondAttribute="leading" id="JUe-Yw-acu"/>
-                                                                <constraint firstItem="nMA-jB-IIe" firstAttribute="width" secondItem="SEh-DW-Upl" secondAttribute="width" multiplier="0.55" id="P3p-1Q-x3o"/>
+                                                                <constraint firstItem="nMA-jB-IIe" firstAttribute="width" secondItem="SEh-DW-Upl" secondAttribute="width" multiplier="0.5" id="P3p-1Q-x3o"/>
                                                             </constraints>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$150.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjX-Qk-s6u">
@@ -916,7 +916,7 @@
                                             <action selector="gotoEditVC:" destination="hfi-xo-wrR" eventType="touchUpInside" id="2Wd-ai-vuK"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back-1" translatesAutoresizingMaskIntoConstraints="NO" id="w81-Bb-m1k">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="w81-Bb-m1k">
                                         <rect key="frame" x="16.5" y="12.5" width="15.5" height="15.5"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9I-rT-hHF">
@@ -998,7 +998,7 @@
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72u-7B-fE4">
                                                 <rect key="frame" x="0.0" y="60" width="304" height="0.5"/>
-                                                <color key="backgroundColor" red="0.186539501" green="0.74840897319999999" blue="0.84970349069999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1027,10 +1027,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ph-Ul-ZdP">
-                                                <rect key="frame" x="0.0" y="34" width="273.5" height="27"/>
+                                                <rect key="frame" x="0.0" y="34" width="273.5" height="28"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" textContentType="name"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1262,6 +1262,9 @@
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Zm1-FT-dMB" id="NhS-Vr-iju"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4G-7z-7pL">
                                                 <rect key="frame" x="0.0" y="60" width="304" height="0.5"/>
@@ -1294,15 +1297,18 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vPE-Kl-IgC">
-                                                <rect key="frame" x="0.0" y="34" width="273.5" height="27"/>
+                                                <rect key="frame" x="0.0" y="34" width="273.5" height="28"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" textContentType="name"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Zm1-FT-dMB" id="P2j-nq-ldb"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTB-yK-7Xf">
                                                 <rect key="frame" x="0.0" y="60" width="304" height="0.5"/>
@@ -1345,6 +1351,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Zm1-FT-dMB" id="gLm-ud-lb1"/>
+                                        </connections>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.090181164440000003" green="0.090204648669999998" blue="0.090179674330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2477,7 +2486,7 @@
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="minus-btn"/>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiS-CM-iQx">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiS-CM-iQx">
                                                                     <rect key="frame" x="15.5" y="0.0" width="10.5" height="10"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="10"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

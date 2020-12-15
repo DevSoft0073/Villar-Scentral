@@ -13,6 +13,7 @@ class ShowAllVideosVC: UIViewController {
 
     @IBOutlet weak var showAllVideosTBView: UITableView!
     var videoDataArray = [VideoData]()
+    var message = String()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +29,41 @@ class ShowAllVideosVC: UIViewController {
         showAllVideosTBView.reloadData()
         showAllVideosTBView.separatorStyle = .none
         
+    }
+    
+    func getAllVideos()  {
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            IJProgressView.shared.showProgressView()
+            let id = UserDefaults.standard.value(forKey: "id") ?? ""
+            let url = Constant.shared.baseUrl + Constant.shared.ForgotPassword
+            print(url)
+            let parms : [String:Any] = ["user_id":id,"pageno":"1","per_page":"10"]
+            print(parms)
+            AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
+                IJProgressView.shared.hideProgressView()
+                print(response)
+                self.message = response["message"] as? String ?? ""
+                let status = response["status"] as? Int
+                    if status == 1{
+                        showAlertMessage(title: Constant.shared.appTitle, message: self.message, okButton: "OK", controller: self) {
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    }else{
+                        IJProgressView.shared.hideProgressView()
+                        alert(Constant.shared.appTitle, message: self.message, view: self)
+                    }
+            }) { (error) in
+                IJProgressView.shared.hideProgressView()
+                alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
+                print(error)
+            }
+            
+        } else {
+            print("Internet connection FAILED")
+            alert(Constant.shared.appTitle, message: "Check internet connection", view: self)
+        }
+
     }
     
     @IBAction func showMenu(_ sender: Any) {

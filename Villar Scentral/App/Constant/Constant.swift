@@ -18,7 +18,7 @@ class Constant: NSObject {
     let SignUP = "SignUp.php"
     let SignIN = "Login.php"
     let ForgotPassword = "ForgetPassword.php"
-    let profile = ""
     let EditProfile = "EditUserProfile.php"
-    
+    let profile = "GetUserProfile.php"
+    let allVideos = "GetVideoDetailById.php"
 }

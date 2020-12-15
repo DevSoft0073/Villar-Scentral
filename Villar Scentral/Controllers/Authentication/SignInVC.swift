@@ -37,20 +37,23 @@ class SignInVC: UIViewController , UITextFieldDelegate {
     @IBAction func signInButtonAction(_ sender: Any) {
        
         
-        if (usernameTxTFld.text?.isEmpty)!{
-            
-            ValidateData(strMessage: " Please enter username")
-        }
-//        else if isValidEmail(testStr: (usernameTxTFld.text)!) == false{
+//        if (usernameTxTFld.text?.isEmpty)!{
 //
-//            ValidateData(strMessage: "Enter valid email")
+//            ValidateData(strMessage: " Please enter username")
 //        }
-        else if (passwordTxtFld.text?.isEmpty)!{
-            
-            ValidateData(strMessage: " Please enter password")
-        }else{
-            self.signIn()
-        }
+////        else if isValidEmail(testStr: (usernameTxTFld.text)!) == false{
+////
+////            ValidateData(strMessage: "Enter valid email")
+////        }
+//        else if (passwordTxtFld.text?.isEmpty)!{
+//
+//            ValidateData(strMessage: " Please enter password")
+//        }else{
+//            self.signIn()
+//        }
+        let story = UIStoryboard(name: "SideMenu", bundle: nil)
+        let rootViewController:UIViewController = story.instantiateViewController(withIdentifier: "SideMenuControllerID")
+        self.navigationController?.pushViewController(rootViewController, animated: true)
         
     }
         
