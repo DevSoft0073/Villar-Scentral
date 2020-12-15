@@ -2,6 +2,9 @@ PODS:
   - Alamofire (5.0.5)
   - IQKeyboardManagerSwift (6.5.6)
   - LGSideMenuController (2.1.1)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
   - SCLAlertView (0.8)
   - SDWebImage (4.4.8):
     - SDWebImage/Core (= 4.4.8)
@@ -12,6 +15,7 @@ DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.2)
   - IQKeyboardManagerSwift
   - LGSideMenuController
+  - NVActivityIndicatorView
   - SCLAlertView
   - SDWebImage (~> 4.0)
   - SVProgressHUD
@@ -21,6 +25,7 @@ SPEC REPOS:
     - Alamofire
     - IQKeyboardManagerSwift
     - LGSideMenuController
+    - NVActivityIndicatorView
     - SCLAlertView
     - SDWebImage
     - SVProgressHUD
@@ -29,10 +34,11 @@ SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 8a8fa6984830732ba7be45d7b3acd06abc8a89e9
+PODFILE CHECKSUM: 033a2a2a2f70574979fff48e4d130b4baad0d7fe
 
 COCOAPODS: 1.10.0

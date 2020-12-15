@@ -146,7 +146,7 @@ class PKWrapperClass{
     
     class func svprogressHudShow(title:String,view:UIViewController) -> Void
     {
-         SVProgressHUD.show()
+        SVProgressHUD.show()
         SVProgressHUD.setDefaultAnimationType(SVProgressHUDAnimationType.native)
         SVProgressHUD.setForegroundColor(.blue)
         SVProgressHUD.setFont(UIFont(name: "Avenir-Black", size: 17)!)

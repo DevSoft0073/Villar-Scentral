@@ -12,5 +12,13 @@ class Constant: NSObject {
     
     static let shared = Constant()
     let appTitle  = "Villar Scentral"
-
+    let device_token = "1"
+    let baseUrl = "https://www.dharmani.com/Scentral/WebServices/"
+    
+    let SignUP = "SignUp.php"
+    let SignIN = "Login.php"
+    let ForgotPassword = "ForgetPassword.php"
+    let profile = ""
+    let EditProfile = "EditUserProfile.php"
+    
 }

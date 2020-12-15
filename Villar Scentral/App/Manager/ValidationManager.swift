@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import NVActivityIndicatorView
 
 enum RegularExpressions: String {
     case url = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
@@ -19,6 +19,7 @@ enum RegularExpressions: String {
     case username = "^[a-zA-Z][a-zA-Z.-_]*"
     case zipCode = "^[0-9]{5}(-[0-9]{4})?$"
 }
+
 
 class ValidationManager: NSObject {
     
@@ -85,4 +86,16 @@ class ValidationManager: NSObject {
         }
         return false
     }
+}
+
+
+extension UIViewController {
+    
+    func ValidateData(strMessage: String)
+    {
+        let alert = UIAlertController(title: Constant.shared.appTitle, message: strMessage, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }

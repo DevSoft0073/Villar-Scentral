@@ -13,6 +13,8 @@ target 'Villar Scentral' do
     pod 'SDWebImage', '~> 4.0'
     pod 'SVProgressHUD'
     pod 'LGSideMenuController'
+    pod 'NVActivityIndicatorView'
+
 
   target 'Villar ScentralTests' do
     inherit! :search_paths
