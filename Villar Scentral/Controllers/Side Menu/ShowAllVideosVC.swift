@@ -14,6 +14,8 @@ class ShowAllVideosVC: UIViewController {
     @IBOutlet weak var showAllVideosTBView: UITableView!
     var videoDataArray = [VideoData]()
     var message = String()
+    var page = Int()
+    var lastPage = Bool()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,17 +30,24 @@ class ShowAllVideosVC: UIViewController {
         
         showAllVideosTBView.reloadData()
         showAllVideosTBView.separatorStyle = .none
-        
+        page = 1
+        getAllVideos()
+
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+            page = 1
+            getAllVideos()
+        }
     
     func getAllVideos()  {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
             IJProgressView.shared.showProgressView()
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
-            let url = Constant.shared.baseUrl + Constant.shared.ForgotPassword
+            let url = Constant.shared.baseUrl + Constant.shared.allVideos
             print(url)
-            let parms : [String:Any] = ["user_id":id,"pageno":"1","per_page":"10"]
+            let parms : [String:Any] = ["user_id":id,"pageno":page,"per_page":"10"]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 IJProgressView.shared.hideProgressView()
@@ -46,9 +55,6 @@ class ShowAllVideosVC: UIViewController {
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                     if status == 1{
-                        showAlertMessage(title: Constant.shared.appTitle, message: self.message, okButton: "OK", controller: self) {
-                            self.navigationController?.popViewController(animated: true)
-                        }
                     }else{
                         IJProgressView.shared.hideProgressView()
                         alert(Constant.shared.appTitle, message: self.message, view: self)

@@ -21,4 +21,8 @@ class Constant: NSObject {
     let EditProfile = "EditUserProfile.php"
     let profile = "GetUserProfile.php"
     let allVideos = "GetVideoDetailById.php"
+    let allProducts = "GetAllProduct.php"
+    let addRemoveProduct = "AddRemoveProduct.php"
+    let checkout = "Checkout.php"
+    let orderHistory = "OrderHistory.php"
 }

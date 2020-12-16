@@ -11,9 +11,10 @@ import LGSideMenuController
 class OtherProductsVC: UIViewController {
     
     var count = 0
-
+    var message = String()
     @IBOutlet weak var produtsListCollectionView: UICollectionView!
     var productListingArray = [ProductsData]()
+    var chekAddRemove = Bool()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +38,44 @@ class OtherProductsVC: UIViewController {
         let vc = OfferDetailVC.instantiate(fromAppStoryboard: .SideMenu)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func addremove()  {
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            IJProgressView.shared.showProgressView()
+            let id = UserDefaults.standard.value(forKey: "id") ?? ""
+            let url = Constant.shared.baseUrl + Constant.shared.addRemoveProduct
+            print(url)
+            var parms = [String:Any]()
+            if chekAddRemove == true{
+                parms = ["user_id":id,"product_id":"1","type":"add"]
+            }else{
+                parms = ["user_id":id,"product_id":"1","type":"remove"]
+            }
+            print(parms)
+            AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
+                IJProgressView.shared.hideProgressView()
+                print(response)
+                self.message = response["message"] as? String ?? ""
+                let status = response["status"] as? Int
+                if status == 1{
+                }else{
+                    IJProgressView.shared.hideProgressView()
+                    alert(Constant.shared.appTitle, message: self.message, view: self)
+                }
+            }) { (error) in
+                IJProgressView.shared.hideProgressView()
+                alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
+                print(error)
+            }
+            
+        } else {
+            print("Internet connection FAILED")
+            alert(Constant.shared.appTitle, message: "Check internet connection", view: self)
+        }
+        
+    }
+
 }
 
 class ProdutsListCollectionViewCell: UICollectionViewCell {
@@ -83,6 +122,7 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
     @objc func increaseCounter(sender: UIButton) {
         //increase logic here
         count = (count + 1)
+        chekAddRemove = true
         let currntVal = Int(productListingArray[sender.tag].quantity) ?? 0
         let newVal = currntVal + 1
         productListingArray[sender.tag].quantity = "\(newVal)"
@@ -91,6 +131,7 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
         cell.quantityLbl.text = "\(count)"
         DispatchQueue.main.async {
             self.produtsListCollectionView.reloadData()
+            self.addremove()
 
         }
 
@@ -98,6 +139,7 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
     
     @objc func decreaseCounter(sender: UIButton) {
         //increase logic here
+        chekAddRemove = false
         count = (count - 1)
         let currntVal = Int(productListingArray[sender.tag].quantity) ?? 0
         if currntVal <= 1{
@@ -109,6 +151,7 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
             cell.quantityLbl.text = "\(count)"
             DispatchQueue.main.async {
                 self.produtsListCollectionView.reloadData()
+                self.addremove()
             }
 
         }
