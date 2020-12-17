@@ -25,4 +25,5 @@ class Constant: NSObject {
     let addRemoveProduct = "AddRemoveProduct.php"
     let checkout = "Checkout.php"
     let orderHistory = "OrderHistory.php"
+    let notification = "GetNotificationDetailById.php"
 }
