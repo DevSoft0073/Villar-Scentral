@@ -16,7 +16,6 @@ class StoreLocatorVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         storeLocatorTBView.separatorStyle = .none
         
         storeLocatorArray.append(StoreLocatorData(name: "Essences For Life", details: "details: Villar Scentral", distance: "20 Miles", openClose: "Closed Now", image: "img"))

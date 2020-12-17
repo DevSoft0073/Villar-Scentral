@@ -28,7 +28,6 @@ class OfferDetailVC: UIViewController {
         
         offersTBView.reloadData()
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func gotoOrderAcceptedVC(_ sender: Any) {

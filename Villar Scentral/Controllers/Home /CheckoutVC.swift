@@ -21,7 +21,6 @@ class CheckoutVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -30,8 +29,6 @@ class CheckoutVC: UIViewController {
     
     @IBAction func submitButton(_ sender: Any) {
         checkout()
-//        let vc = OrderAcceptedVC.instantiate(fromAppStoryboard: .SideMenu)
-//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func checkout() {
@@ -49,7 +46,6 @@ class CheckoutVC: UIViewController {
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                     if status == 1{
-//                        UserDefaults.standard.set(true, forKey: "tokenFString")
                         showAlertMessage(title: Constant.shared.appTitle, message: self.message, okButton: "OK", controller: self) {
                             let vc = OrderAcceptedVC.instantiate(fromAppStoryboard: .SideMenu)
                             self.navigationController?.pushViewController(vc, animated: true)                        }
@@ -68,6 +64,4 @@ class CheckoutVC: UIViewController {
             alert(Constant.shared.appTitle, message: "Check internet connection", view: self)
         }
     }
-
-    
 }

@@ -21,7 +21,6 @@ class SideMenuVC: UIViewController {
         
         settingTBView.separatorStyle = .none
         
-        // Do any additional setup after loading the view.
     }
 }
 

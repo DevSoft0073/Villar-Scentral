@@ -24,7 +24,6 @@ class ProfileVC: UIViewController {
         addressTxtFld.isUserInteractionEnabled = false
         bioTxtView.isUserInteractionEnabled = false
 
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {

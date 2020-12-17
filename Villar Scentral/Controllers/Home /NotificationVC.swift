@@ -27,10 +27,6 @@ class NotificationVC: UIViewController {
         
         notificationTableView.reloadData()
         notificationTableView.separatorStyle = .none
-        
-        
-        // Do any additional setup after loading the view.
-        
         page = 1
         notificationData()
     }
