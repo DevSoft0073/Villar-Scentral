@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate , LocationServiceDelegate 
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         getLoggedUser()
+        LocationService.sharedInstance.startUpdatingLocation()
+        LocationService.sharedInstance.isLocateSuccess = false
+        LocationService.sharedInstance.delegate = self
         return true
     }
     

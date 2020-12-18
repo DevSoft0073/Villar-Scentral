@@ -14,15 +14,54 @@ class SideMenuVC: UIViewController {
     @IBOutlet weak var cityLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    var timer: Timer?
     var nameArray = ["Home","Other Products","Order History","Video tutorials","Store Locator","Settings"]
     var imgArray = ["home","product-icon","order-history","video-tutorial","store-locator","setting"]
+    var message = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         settingTBView.separatorStyle = .none
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func fireTimer() {
+        
+        self.updateLocation()
         
     }
+    
+    func updateLocation() {
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            let id = UserDefaults.standard.value(forKey: "id") ?? ""
+            let authToken = UserDefaults.standard.value(forKey: "authToken") as? String ?? ""
+            let signInUrl = Constant.shared.baseUrl + Constant.shared.currentLocation
+            print(signInUrl)
+            let parms : [String:Any] = ["latitude" : Singleton.sharedInstance.lat,"longitude" : Singleton.sharedInstance.long,"authToken" :  authToken ,"user_id" : id]
+            print(parms)
+            AFWrapperClass.requestPOSTURL(signInUrl, params: parms, success: { [self] (response) in
+                print(response)
+                self.message = response["message"] as? String ?? ""
+                let status = response["status"] as? Int
+                if status == 1{
+                }else{
+                }
+            }) { (error) in
+                IJProgressView.shared.hideProgressView()
+                alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
+                print(error)
+            }
+            
+        } else {
+            print("Internet connection FAILED")
+            alert(Constant.shared.appTitle, message: "Check internet connection", view: self)
+        }
+    }
+
+    
 }
+
 
 
 class SettingTBViewCell: UITableViewCell {

@@ -26,6 +26,9 @@ class Constant: NSObject {
     let checkout = "Checkout.php"
     let orderHistory = "OrderHistory.php"
     let notification = "GetNotificationDetailById.php"
+    let currentLocation = "AddUserCurrentLocation.php"
+    let videoDetails = "GetVideoDetailById.php"
+    let productDetails = "GetProductDetailById.php"
 }
 
 class Singleton  {

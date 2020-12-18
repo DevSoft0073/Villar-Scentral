@@ -14,7 +14,7 @@ class OfferDetailVC: UIViewController {
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var orderImage: UIImageView!
-    
+    var message = String()
     var offerArray = [OfferDetailsData]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,38 @@ class OfferDetailVC: UIViewController {
         
         offersTBView.reloadData()
 
+    }
+    
+    func videoDetails()  {
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            IJProgressView.shared.showProgressView()
+            let id = UserDefaults.standard.value(forKey: "id") ?? ""
+            let url = Constant.shared.baseUrl + Constant.shared.productDetails
+            print(url)
+            let parms : [String:Any] = ["user_id":id,"store_id":"1"]
+            print(parms)
+            AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
+                IJProgressView.shared.hideProgressView()
+                print(response)
+                self.message = response["message"] as? String ?? ""
+                let status = response["status"] as? Int
+                if status == 1{
+                }else{
+                    IJProgressView.shared.hideProgressView()
+                    alert(Constant.shared.appTitle, message: self.message, view: self)
+                }
+            }) { (error) in
+                IJProgressView.shared.hideProgressView()
+                alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
+                print(error)
+            }
+            
+        } else {
+            print("Internet connection FAILED")
+            alert(Constant.shared.appTitle, message: "Check internet connection", view: self)
+        }
+        
     }
     
     @IBAction func gotoOrderAcceptedVC(_ sender: Any) {
