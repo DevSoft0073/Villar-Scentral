@@ -38,6 +38,7 @@
 		B3719CDF2581F59D00959EF5 /* ShowAllVideosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3719CDE2581F59D00959EF5 /* ShowAllVideosVC.swift */; };
 		B3719CE4258202C200959EF5 /* OtherProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3719CE3258202C200959EF5 /* OtherProductsVC.swift */; };
 		B3719CE92582146C00959EF5 /* CheckoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3719CE82582146C00959EF5 /* CheckoutVC.swift */; };
+		B37D4A07258C8CEB007F892A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37D4A06258C8CEA007F892A /* LocationManager.swift */; };
 		B3C3EE1D257F956A0069CB4F /* StoreLocatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C3EE1C257F956A0069CB4F /* StoreLocatorVC.swift */; };
 		B3DCE82A257B55EC001A6AC6 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE829257B55EC001A6AC6 /* SignInVC.swift */; };
 		B3DCE832257B5605001A6AC6 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCE831257B5605001A6AC6 /* SignUpVC.swift */; };
@@ -119,6 +120,7 @@
 		B3719CDE2581F59D00959EF5 /* ShowAllVideosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAllVideosVC.swift; sourceTree = "<group>"; };
 		B3719CE3258202C200959EF5 /* OtherProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProductsVC.swift; sourceTree = "<group>"; };
 		B3719CE82582146C00959EF5 /* CheckoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutVC.swift; sourceTree = "<group>"; };
+		B37D4A06258C8CEA007F892A /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B3C3EE1C257F956A0069CB4F /* StoreLocatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocatorVC.swift; sourceTree = "<group>"; };
 		B3DCE829257B55EC001A6AC6 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		B3DCE831257B5605001A6AC6 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				B34479F32579F3D800A7302B /* AppDelegate.swift */,
 				B34479F52579F3D800A7302B /* SceneDelegate.swift */,
 				B30728802580FA890022358B /* ImagePicker.swift */,
+				B37D4A06258C8CEA007F892A /* LocationManager.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				B3DCE849257B5DE6001A6AC6 /* AppFunctions.swift in Sources */,
 				B3447A65257A108200A7302B /* PKWrapperClass.swift in Sources */,
 				B3719CDF2581F59D00959EF5 /* ShowAllVideosVC.swift in Sources */,
+				B37D4A07258C8CEB007F892A /* LocationManager.swift in Sources */,
 				B34479F42579F3D800A7302B /* AppDelegate.swift in Sources */,
 				B34479F62579F3D800A7302B /* SceneDelegate.swift in Sources */,
 				B31638F9257B893800958E18 /* NotificationVC.swift in Sources */,
@@ -855,6 +859,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = H73AXDCAQS;
 				INFOPLIST_FILE = "Villar Scentral/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -878,6 +883,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = H73AXDCAQS;
 				INFOPLIST_FILE = "Villar Scentral/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

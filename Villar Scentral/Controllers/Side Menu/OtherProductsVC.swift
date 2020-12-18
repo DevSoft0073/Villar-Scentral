@@ -7,6 +7,7 @@
 
 import UIKit
 import LGSideMenuController
+import SDWebImage
 
 class OtherProductsVC: UIViewController {
     
@@ -15,20 +16,26 @@ class OtherProductsVC: UIViewController {
     @IBOutlet weak var produtsListCollectionView: UICollectionView!
     var productListingArray = [ProductsData]()
     var chekAddRemove = Bool()
+    var page = Int()
+    var lastPage = Bool()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
-        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
-        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
-        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
-        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
-        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
+//        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
+//        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
+//        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
+//        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
+//        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
+//        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
         
         produtsListCollectionView.reloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        page = 1
+        getAllProducts()
+    }
 
     @IBAction func menuOpen(_ sender: Any) {
         sideMenuController?.showLeftViewAnimated()
@@ -39,7 +46,7 @@ class OtherProductsVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func addremove()  {
+    func addRemoveProducts()  {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
             IJProgressView.shared.showProgressView()
@@ -75,6 +82,44 @@ class OtherProductsVC: UIViewController {
         }
         
     }
+    
+    func getAllProducts()  {
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            IJProgressView.shared.showProgressView()
+            let id = UserDefaults.standard.value(forKey: "id") ?? ""
+            let url = Constant.shared.baseUrl + Constant.shared.allProducts
+            print(url)
+            let parms : [String:Any] = ["user_id":id,"pageno":page,"per_page":"10"]
+            print(parms)
+            AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
+                IJProgressView.shared.hideProgressView()
+                print(response)
+                self.message = response["message"] as? String ?? ""
+                let status = response["status"] as? Int
+                self.productListingArray.removeAll()
+                    if status == 1{
+                        for obj in response["product_detail"] as? [[String:Any]] ?? [[:]]{
+                            self.productListingArray.append(ProductsData(productImage: obj["image"] as? String ?? "", name: obj["product_name"] as? String ?? "", quantity: "0" as? String ?? "0"))
+                        }
+                        self.produtsListCollectionView.reloadData()
+                    }else{
+                        IJProgressView.shared.hideProgressView()
+                        alert(Constant.shared.appTitle, message: self.message, view: self)
+                    }
+            }) { (error) in
+                IJProgressView.shared.hideProgressView()
+                alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
+                print(error)
+            }
+            
+        } else {
+            print("Internet connection FAILED")
+            alert(Constant.shared.appTitle, message: "Check internet connection", view: self)
+        }
+
+    }
+
 
 }
 
@@ -111,7 +156,7 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProdutsListCollectionViewCell", for: indexPath) as! ProdutsListCollectionViewCell
         cell.plusButton.tag = indexPath.item
         cell.minusButton.tag = indexPath.item
-        cell.productImage.image = UIImage(named: productListingArray[indexPath.item].productImage)
+        cell.productImage.sd_setImage(with: URL(string:productListingArray[indexPath.item].productImage), placeholderImage: UIImage(named: "pro"))
         cell.nameLbl.text = productListingArray[indexPath.item].name
         cell.plusButton.addTarget(self, action: #selector(increaseCounter(sender:)), for: .touchUpInside)
         cell.minusButton.addTarget(self, action: #selector(decreaseCounter(sender:)), for: .touchUpInside)
@@ -131,7 +176,7 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
         cell.quantityLbl.text = "\(count)"
         DispatchQueue.main.async {
             self.produtsListCollectionView.reloadData()
-            self.addremove()
+            self.addRemoveProducts()
 
         }
 
@@ -151,7 +196,7 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
             cell.quantityLbl.text = "\(count)"
             DispatchQueue.main.async {
                 self.produtsListCollectionView.reloadData()
-                self.addremove()
+                self.addRemoveProducts()
             }
 
         }

@@ -7,13 +7,14 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import CoreLocation
 
 func appDelegate() -> AppDelegate {
     return UIApplication.shared.delegate as! AppDelegate
 }
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate , LocationServiceDelegate {
     
     
     var window: UIWindow?
@@ -39,6 +40,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    func getAddressForLocation(locationAddress: String, currentAddress: [String : Any]) {
+        print(locationAddress)
+        print(currentAddress)
+        LocationData.init(long: Double(currentAddress["lat"] as? String ?? "") ?? 0.0, lat: Double(currentAddress["long"] as? String ?? "") ?? 0.0)
+        
+        Singleton.sharedInstance.lat = Double(currentAddress["lat"] as? String ?? "") ?? 0.0
+        Singleton.sharedInstance.long = Double(currentAddress["long"] as? String ?? "") ?? 0.0
+        
     }
     
     func Logout1(){

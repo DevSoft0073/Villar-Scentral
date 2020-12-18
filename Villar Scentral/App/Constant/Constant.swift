@@ -20,10 +20,20 @@ class Constant: NSObject {
     let ForgotPassword = "ForgetPassword.php"
     let EditProfile = "EditUserProfile.php"
     let profile = "GetUserProfile.php"
-    let allVideos = "GetVideoDetailById.php"
+    let allVideos = "GetAllVideos.php"
     let allProducts = "GetAllProduct.php"
     let addRemoveProduct = "AddRemoveProduct.php"
     let checkout = "Checkout.php"
     let orderHistory = "OrderHistory.php"
     let notification = "GetNotificationDetailById.php"
+}
+
+class Singleton  {
+   static let sharedInstance = Singleton()
+    var currentAddress = [String: Any]()
+    var lat = Double()
+    var long = Double()
+    var authToken = String()
+    
+
 }

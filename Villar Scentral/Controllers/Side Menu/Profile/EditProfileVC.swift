@@ -10,26 +10,25 @@ import SDWebImage
 
 class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate {
 
+    @IBOutlet weak var nameTxtFld: UITextField!
     @IBOutlet weak var bioTXtView: UITextView!
     @IBOutlet weak var addressBottamLbl: UILabel!
     @IBOutlet weak var emailBottamLbl: UILabel!
     @IBOutlet weak var addressLbl: UITextField!
     @IBOutlet weak var emailLbl: UITextField!
-    @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     var message = String()
     var imagePicker: ImagePicker!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-        
+        getData()
+
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getData()
-
     }
     
     override func viewDidLayoutSubviews() {
@@ -89,6 +88,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
                         self.emailLbl.text = allData["name"] as? String ?? ""
                         self.addressLbl.text = allData["address"] as? String ?? ""
                         self.bioTXtView.text = allData["biography"] as? String ?? ""
+                        self.nameTxtFld.text = allData["name"] as? String ?? ""
                         self.profileImage.sd_setImage(with: URL(string:allData["profile_image"] as? String ?? ""), placeholderImage: UIImage(named: "img"))
                         let url = URL(string:allData["image"] as? String ?? "")
                         if url != nil{
@@ -132,14 +132,14 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
             var base64String = String()
             base64String = UserDefaults.standard.value(forKey: "imag") as? String ?? ""
                         
-            let parms : [String:Any] = ["user_id": id,"email" : emailLbl.text ?? "","address" : addressLbl.text ?? "" ,"image" : base64String,"bio" : bioTXtView.text ?? "" ,"latitude" : "" , "longitude" : "" , "name":"Aman"]
+            let parms : [String:Any] = ["user_id": id,"email" : emailLbl.text ?? "","address" : addressLbl.text ?? "" ,"image" : base64String,"bio" : bioTXtView.text ?? "" ,"latitude" : "" , "longitude" : "" , "name":nameTxtFld.text ?? ""]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
             IJProgressView.shared.hideProgressView()
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
-                    if let allData = response["userDetails"] as? [String:Any]{
+                    if let allData = response["userDetails"] as? [String:Any] ?? [:]{
                         IJProgressView.shared.hideProgressView()
                     }
                     let story = UIStoryboard(name: "SideMenu", bundle: nil)
@@ -159,9 +159,6 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
             alert(Constant.shared.appTitle, message: "Check internet connection", view: self)
         }
     }
-    
-    
-    
 }
 
 extension EditProfileVC: ImagePickerDelegate {

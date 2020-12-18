@@ -37,23 +37,20 @@ class SignInVC: UIViewController , UITextFieldDelegate {
     @IBAction func signInButtonAction(_ sender: Any) {
        
         
-//        if (usernameTxTFld.text?.isEmpty)!{
+        if (usernameTxTFld.text?.isEmpty)!{
+
+            ValidateData(strMessage: " Please enter username")
+        }
+//        else if isValidEmail(testStr: (usernameTxTFld.text)!) == false{
 //
-//            ValidateData(strMessage: " Please enter username")
+//            ValidateData(strMessage: "Enter valid email")
 //        }
-////        else if isValidEmail(testStr: (usernameTxTFld.text)!) == false{
-////
-////            ValidateData(strMessage: "Enter valid email")
-////        }
-//        else if (passwordTxtFld.text?.isEmpty)!{
-//
-//            ValidateData(strMessage: " Please enter password")
-//        }else{
-//            self.signIn()
-//        }
-        let story = UIStoryboard(name: "SideMenu", bundle: nil)
-        let rootViewController:UIViewController = story.instantiateViewController(withIdentifier: "SideMenuControllerID")
-        self.navigationController?.pushViewController(rootViewController, animated: true)
+        else if (passwordTxtFld.text?.isEmpty)!{
+
+            ValidateData(strMessage: " Please enter password")
+        }else{
+            self.signIn()
+        }
         
     }
         
@@ -106,5 +103,16 @@ class SignInVC: UIViewController , UITextFieldDelegate {
     @IBAction func gotoSignUpVC(_ sender: Any) {
         let vc = SignUpVC.instantiate(fromAppStoryboard: .Auth)
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+
+struct LocationData {
+    var long : Double
+    var lat : Double
+    
+    init(long : Double,lat : Double ) {
+        self.lat = lat
+        self.long = long
     }
 }
