@@ -22,7 +22,6 @@ class SignUpVC: UIViewController  , UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

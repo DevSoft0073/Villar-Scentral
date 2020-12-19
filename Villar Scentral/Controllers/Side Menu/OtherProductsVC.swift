@@ -21,14 +21,6 @@ class OtherProductsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-//        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
-//        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
-//        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
-//        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
-//        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
-//        productListingArray.append(ProductsData(productImage: "pro", name: "Oriental Lux", quantity: "1"))
-        
         produtsListCollectionView.reloadData()
     }
     

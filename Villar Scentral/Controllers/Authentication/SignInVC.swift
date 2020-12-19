@@ -17,7 +17,6 @@ class SignInVC: UIViewController , UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     
@@ -40,12 +39,7 @@ class SignInVC: UIViewController , UITextFieldDelegate {
         if (usernameTxTFld.text?.isEmpty)!{
 
             ValidateData(strMessage: " Please enter username")
-        }
-//        else if isValidEmail(testStr: (usernameTxTFld.text)!) == false{
-//
-//            ValidateData(strMessage: "Enter valid email")
-//        }
-        else if (passwordTxtFld.text?.isEmpty)!{
+        }        else if (passwordTxtFld.text?.isEmpty)!{
 
             ValidateData(strMessage: " Please enter password")
         }else{

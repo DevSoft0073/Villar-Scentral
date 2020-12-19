@@ -20,14 +20,6 @@ class ShowAllVideosVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
-//        videoDataArray.append(VideoData(profileImage: "img", videoTitle: "First Video", videoDetails: "FIrst Video", videoThumbnail: "pro"))
-//        videoDataArray.append(VideoData(profileImage: "img", videoTitle: "First Video", videoDetails: "FIrst Video", videoThumbnail: "pro"))
-//        videoDataArray.append(VideoData(profileImage: "img", videoTitle: "First Video", videoDetails: "FIrst Video", videoThumbnail: "pro"))
-//        videoDataArray.append(VideoData(profileImage: "img", videoTitle: "First Video", videoDetails: "FIrst Video", videoThumbnail: "pro"))
-//        videoDataArray.append(VideoData(profileImage: "img", videoTitle: "First Video", videoDetails: "FIrst Video", videoThumbnail: "pro"))
-//        videoDataArray.append(VideoData(profileImage: "img", videoTitle: "First Video", videoDetails: "FIrst Video", videoThumbnail: "pro"))
 //
 //        showAllVideosTBView.reloadData()
         showAllVideosTBView.separatorStyle = .none
