@@ -29,6 +29,7 @@ class Constant: NSObject {
     let currentLocation = "AddUserCurrentLocation.php"
     let videoDetails = "GetVideoDetailById.php"
     let productDetails = "GetProductDetailById.php"
+    let nearByStore = "GetUserAllNearbyStore.php"
 }
 
 class Singleton  {

@@ -30,7 +30,7 @@ class OfferDetailVC: UIViewController {
 
     }
     
-    func videoDetails()  {
+    func productDetail()  {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
             IJProgressView.shared.showProgressView()

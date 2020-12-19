@@ -13,6 +13,9 @@ class StoreLocatorVC: UIViewController {
 
     var storeLocatorArray = [StoreLocatorData]()
     @IBOutlet weak var storeLocatorTBView: UITableView!
+    var message = String()
+    var page = Int()
+    var lastPage = Bool()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +27,47 @@ class StoreLocatorVC: UIViewController {
         storeLocatorArray.append(StoreLocatorData(name: "Essences For Life", details: "details: Villar Scentral", distance: "20 Miles", openClose: "Closed Now", image: "img"))
         
         storeLocatorTBView.reloadData()
+        page = 1
+        storeLocator()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        page = 1
+        storeLocator()
+    }
+    
+    func storeLocator()  {
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            IJProgressView.shared.showProgressView()
+            let id = UserDefaults.standard.value(forKey: "id") ?? ""
+            let url = Constant.shared.baseUrl + Constant.shared.nearByStore
+            print(url)
+            let parms : [String:Any] = ["user_id":id,"pageno":page,"per_page":"100"]
+            print(parms)
+            AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
+                IJProgressView.shared.hideProgressView()
+                print(response)
+                self.message = response["message"] as? String ?? ""
+                let status = response["status"] as? Int
+                if status == 1{
+                }else{
+                    IJProgressView.shared.hideProgressView()
+                    alert(Constant.shared.appTitle, message: self.message, view: self)
+                }
+            }) { (error) in
+                IJProgressView.shared.hideProgressView()
+                alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
+                print(error)
+            }
+            
+        } else {
+            print("Internet connection FAILED")
+            alert(Constant.shared.appTitle, message: "Check internet connection", view: self)
+        }
+        
+    }
+
 
 
     @IBAction func openMenu(_ sender: Any) {
