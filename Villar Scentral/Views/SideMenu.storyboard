@@ -115,6 +115,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpw-F6-lyY">
                                                 <rect key="frame" x="48" y="231" width="224" height="39.5"/>
                                                 <state key="normal" image="about"/>
+                                                <connections>
+                                                    <action selector="aboutUsButtonAction:" destination="zz8-PH-m5n" eventType="touchUpInside" id="2Kj-D5-J40"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03U-du-FWo">
                                                 <rect key="frame" x="0.0" y="270.5" width="320" height="40"/>
@@ -155,6 +158,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0u-HR-cI1">
                                                 <rect key="frame" x="48" y="534.5" width="224" height="39.5"/>
                                                 <state key="normal" image="refill"/>
+                                                <connections>
+                                                    <action selector="requetRefillButtonAction:" destination="zz8-PH-m5n" eventType="touchUpInside" id="k5s-W3-Sxi"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzy-FZ-45M">
                                                 <rect key="frame" x="0.0" y="574" width="320" height="20"/>
@@ -1229,19 +1235,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDO-xR-Wz0">
-                                <rect key="frame" x="0.0" y="209.5" width="320" height="34"/>
+                                <rect key="frame" x="0.0" y="211" width="320" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sfsfsfsdfdsfsdfsfdsfd" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="req-Cf-m4t">
-                                <rect key="frame" x="78.5" y="184.5" width="163" height="25"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="req-Cf-m4t">
+                                <rect key="frame" x="158" y="184.5" width="4" height="26.5"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AlNile" family="Al Nile" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r0s-7u-qk5">
-                                <rect key="frame" x="8" y="243.5" width="304" height="131"/>
+                                <rect key="frame" x="8" y="245" width="304" height="131"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09H-IL-iHn">
                                         <rect key="frame" x="0.0" y="0.0" width="304" height="60.5"/>
@@ -1337,13 +1343,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fts-C0-10e">
-                                <rect key="frame" x="8" y="399.5" width="23" height="25"/>
+                                <rect key="frame" x="8" y="401" width="23" height="25"/>
                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lKa-G4-PYD">
-                                <rect key="frame" x="8" y="432.5" width="304" height="68"/>
+                                <rect key="frame" x="8" y="434" width="304" height="68"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="K5m-vD-48D">
                                         <rect key="frame" x="15" y="3" width="274" height="61.5"/>

@@ -16,8 +16,8 @@ class OtherProductsVC: UIViewController {
     @IBOutlet weak var produtsListCollectionView: UICollectionView!
     var productListingArray = [ProductsData]()
     var chekAddRemove = Bool()
-    var page = Int()
-    var lastPage = Bool()
+    var page = 1
+    var lastPage = 1
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,7 +25,6 @@ class OtherProductsVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        page = 1
         getAllProducts()
     }
 
@@ -34,8 +33,17 @@ class OtherProductsVC: UIViewController {
     }
     
     @IBAction func nextButton(_ sender: Any) {
-        let vc = OfferDetailVC.instantiate(fromAppStoryboard: .SideMenu)
-        self.navigationController?.pushViewController(vc, animated: true)
+        let filterArray = self.productListingArray.filter({$0.selectedCell == true})
+        if filterArray.count > 0{
+            print(filterArray)
+            let vc = OfferDetailVC.instantiate(fromAppStoryboard: .SideMenu)
+            vc.productID = filterArray[0].product_id
+            vc.price = filterArray[0].price ?? "0"
+            vc.name = filterArray[0].name ?? "0"
+            vc.quantity = "\(count)"
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+       
     }
     
     func addRemoveProducts()  {
@@ -89,18 +97,19 @@ class OtherProductsVC: UIViewController {
                 print(response)
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
-                self.productListingArray.removeAll()
+//                self.productListingArray.removeAll()
                     if status == 1{
                         for obj in response["product_detail"] as? [[String:Any]] ?? [[:]]{
-                            self.productListingArray.append(ProductsData(productImage: obj["image"] as? String ?? "", name: obj["product_name"] as? String ?? "", quantity: "0" as? String ?? "0"))
+                            self.productListingArray.append(ProductsData(productImage: obj["image"] as? String ?? "", name: obj["product_name"] as? String ?? "", quantity: "0", selectedCell: false,price: obj["price"] as? String ?? "", product_id: obj["product_id"] as? String ?? "", description: obj["description"] as? String ?? ""))
+                            
                         }
                         self.produtsListCollectionView.reloadData()
                     }else{
                         IJProgressView.shared.hideProgressView()
-                        alert(Constant.shared.appTitle, message: self.message, view: self)
+//                        alert(Constant.shared.appTitle, message: self.message, view: self)
                     }
             }) { (error) in
-                IJProgressView.shared.hideProgressView()
+//                IJProgressView.shared.hideProgressView()
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }
@@ -131,11 +140,20 @@ struct ProductsData {
     var productImage : String
     var name : String
     var quantity : String
+    var selectedCell : Bool
+    var price : String
+    var product_id : String
+    var description : String
     
-    init(productImage : String ,  name : String , quantity : String) {
+    init(productImage : String ,  name : String , quantity : String, selectedCell : Bool,price : String,product_id : String,description : String) {
+        
         self.productImage = productImage
         self.name = name
         self.quantity = quantity
+        self.selectedCell = selectedCell
+        self.price = price
+        self.product_id = product_id
+        self.description = description
     }
 }
 
@@ -153,6 +171,12 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
         cell.plusButton.addTarget(self, action: #selector(increaseCounter(sender:)), for: .touchUpInside)
         cell.minusButton.addTarget(self, action: #selector(decreaseCounter(sender:)), for: .touchUpInside)
         cell.quantityLbl.text = productListingArray[indexPath.item].quantity
+        let data = self.productListingArray[indexPath.row]
+//        if data.selectedCell{
+//            cell.contentView.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+//        }else{
+//            cell.contentView.backgroundColor = .clear
+//        }
         return cell
     }
     
@@ -195,6 +219,16 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
         
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        if page <= lastPage{
+            let bottamEdge = Float(self.produtsListCollectionView.contentOffset.y + self.produtsListCollectionView.frame.size.height)
+            if bottamEdge >= Float(self.produtsListCollectionView.contentSize.height) && productListingArray.count > 0 {
+                page = page + 1
+                getAllProducts()
+//            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let noOfCellsInRow = 2
@@ -210,4 +244,23 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
         return CGSize(width: size, height: size)
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if self.productListingArray[indexPath.row].selectedCell{
+            self.productListingArray[indexPath.row].selectedCell = !self.productListingArray[indexPath.row].selectedCell
+            self.productListingArray = self.productListingArray.map({ (data) -> ProductsData in
+                var mutableData = data
+                mutableData.selectedCell = false
+                return mutableData
+            })
+        }else{
+            self.productListingArray = self.productListingArray.map({ (data) -> ProductsData in
+                var mutableData = data
+                mutableData.selectedCell = false
+                return mutableData
+            })
+            self.productListingArray[indexPath.row].selectedCell = !self.productListingArray[indexPath.row].selectedCell
+        }
+        collectionView.reloadData()
+    }
 }

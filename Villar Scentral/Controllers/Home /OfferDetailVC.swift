@@ -16,6 +16,10 @@ class OfferDetailVC: UIViewController {
     @IBOutlet weak var orderImage: UIImageView!
     var message = String()
     var offerArray = [OfferDetailsData]()
+    var productID = String()
+    var price = String()
+    var name = String()
+    var quantity = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +31,9 @@ class OfferDetailVC: UIViewController {
         offerArray.append(OfferDetailsData(image: "", offerDetail: "Loreum Ipsum or Ipsum it is sometimes known , is dummy text used in laying out print."))
         
         offersTBView.reloadData()
+        nameLbl.text = name
+        let totalPrice = Int(price)! * Int(quantity)!
+        priceLbl.text = "$\(totalPrice)"
 
     }
     
@@ -37,7 +44,7 @@ class OfferDetailVC: UIViewController {
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.productDetails
             print(url)
-            let parms : [String:Any] = ["user_id":id,"store_id":"1"]
+            let parms : [String:Any] = ["user_id":id,"product_id":productID]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 IJProgressView.shared.hideProgressView()

@@ -22,12 +22,12 @@ class SideMenuVC: UIViewController {
         super.viewDidLoad()
         
         settingTBView.separatorStyle = .none
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
     }
     
     @objc func fireTimer() {
         
-//        self.updateLocation()
+        self.updateLocation()
         
     }
     

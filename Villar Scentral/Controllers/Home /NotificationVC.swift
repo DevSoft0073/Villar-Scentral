@@ -100,6 +100,17 @@ extension NotificationVC : UITableViewDelegate, UITableViewDataSource{
         let vc = OrderAcceptedVC.instantiate(fromAppStoryboard: .SideMenu)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        if page <= lastPage{
+            let bottamEdge = Float(self.notificationTableView.contentOffset.y + self.notificationTableView.frame.size.height)
+            if bottamEdge >= Float(self.notificationTableView.contentSize.height) && notificationArray.count > 0 {
+                page = page + 1
+                notificationData()
+//            }
+        }
+    }
+    
 }
 
 struct NotificationData {

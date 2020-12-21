@@ -107,6 +107,15 @@ extension StoreLocatorVC : UITableViewDelegate, UITableViewDataSource{
         return 120
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        if page <= lastPage{
+            let bottamEdge = Float(self.storeLocatorTBView.contentOffset.y + self.storeLocatorTBView.frame.size.height)
+            if bottamEdge >= Float(self.storeLocatorTBView.contentSize.height) && storeLocatorArray.count > 0 {
+                page = page + 1
+                storeLocator()
+//            }
+        }
+    }
     
 }
 

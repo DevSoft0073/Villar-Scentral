@@ -133,4 +133,14 @@ extension OrderHistoryVC : UITableViewDelegate , UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        if page <= lastPage{
+            let bottamEdge = Float(self.orderHistoryTBView.contentOffset.y + self.orderHistoryTBView.frame.size.height)
+            if bottamEdge >= Float(self.orderHistoryTBView.contentSize.height) && orderHistoryArray.count > 0 {
+                page = page + 1
+                orderHistory()
+//            }
+        }
+    }
+
 }

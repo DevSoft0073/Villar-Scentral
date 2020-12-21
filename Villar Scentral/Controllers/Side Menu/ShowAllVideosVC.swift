@@ -50,7 +50,7 @@ class ShowAllVideosVC: UIViewController {
                 if status == 1{
                     for obj in response["video_details"] as? [[String:Any]] ?? [[:]]{
                         print(obj)
-                        self.videoDataArray.append(VideoData(profileImage: obj["image"] as? String ?? "", videoTitle: obj["title"] as? String ?? "", videoDetails: obj["description"] as? String ?? "", videoThumbnail: obj["pro"] as? String ?? ""))
+                        self.videoDataArray.append(VideoData(profileImage: obj["image"] as? String ?? "", videoTitle: obj["title"] as? String ?? "", videoDetails: obj["description"] as? String ?? "", videoThumbnail: obj["pro"] as? String ?? "", videoId: obj["id"] as? String ?? ""))
                     }
                     self.showAllVideosTBView.reloadData()
                 }else{
@@ -93,13 +93,15 @@ struct VideoData {
     var videoTitle: String
     var videoDetails: String
     var videoThumbnail : String
+    var videoId : String
     
-    init(profileImage : String , videoTitle: String , videoDetails: String , videoThumbnail : String) {
+    init(profileImage : String , videoTitle: String , videoDetails: String , videoThumbnail : String , videoId : String) {
         
         self.profileImage = profileImage
         self.videoTitle = videoTitle
         self.videoDetails = videoDetails
         self.videoThumbnail = videoThumbnail
+        self.videoId = videoId
     }
     
 }
@@ -114,7 +116,6 @@ extension ShowAllVideosVC : UITableViewDelegate , UITableViewDataSource{
         cell.profileImage.setRounded()
         cell.profileImage.sd_setImage(with: URL(string:videoDataArray[indexPath.row].profileImage), placeholderImage: UIImage(named: "img"))
         cell.videoThumbnailImage.sd_setImage(with: URL(string:videoDataArray[indexPath.row].videoThumbnail), placeholderImage: UIImage(named: "pro"))
-//        cell.videoThumbnailImage.image = UIImage(named: videoDataArray[indexPath.row].videoThumbnail)
         cell.titleLbl.text = videoDataArray[indexPath.row].videoTitle
         cell.descriptionLbl.text = videoDataArray[indexPath.row].videoDetails
 
@@ -122,6 +123,15 @@ extension ShowAllVideosVC : UITableViewDelegate , UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 220
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        if page <= lastPage{
+            let bottamEdge = Float(self.showAllVideosTBView.contentOffset.y + self.showAllVideosTBView.frame.size.height)
+            if bottamEdge >= Float(self.showAllVideosTBView.contentSize.height) && videoDataArray.count > 0 {
+                page = page + 1
+                getAllVideos()
+//            }
+        }
     }
     
 }

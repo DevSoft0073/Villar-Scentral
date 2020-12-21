@@ -16,6 +16,12 @@ class HomeVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func requetRefillButtonAction(_ sender: Any) {
+        let vc = OtherProductsVC.instantiate(fromAppStoryboard: .SideMenu)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func aboutUsButtonAction(_ sender: Any) {
+    }
     
     @IBAction func openMenu(_ sender: Any) {
         sideMenuController?.showLeftViewAnimated()
