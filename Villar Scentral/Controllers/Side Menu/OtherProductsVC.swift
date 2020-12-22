@@ -38,8 +38,8 @@ class OtherProductsVC: UIViewController {
             print(filterArray)
             let vc = OfferDetailVC.instantiate(fromAppStoryboard: .SideMenu)
             vc.productID = filterArray[0].product_id
-            vc.price = filterArray[0].price ?? "0"
-            vc.name = filterArray[0].name ?? "0"
+            vc.price = filterArray[0].price
+            vc.name = filterArray[0].name
             vc.quantity = "\(count)"
             self.navigationController?.pushViewController(vc, animated: true)
         }

@@ -10,6 +10,7 @@ import UIKit
 class VideoPlayVC: UIViewController {
 
     var message = String()
+    var videoId = String()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +23,7 @@ class VideoPlayVC: UIViewController {
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.videoDetails
             print(url)
-            let parms : [String:Any] = ["user_id":id,"video_id":"1"]
+            let parms : [String:Any] = ["user_id":id,"video_id":videoId as? String ?? "0"]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 IJProgressView.shared.hideProgressView()

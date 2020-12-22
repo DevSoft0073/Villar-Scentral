@@ -15,16 +15,16 @@ class ShowAllVideosVC: UIViewController {
     @IBOutlet weak var showAllVideosTBView: UITableView!
     var videoDataArray = [VideoData]()
     var message = String()
-    var page = Int()
-    var lastPage = Bool()
+    var page = 1
+    var lastPage = 1
     override func viewDidLoad() {
         super.viewDidLoad()
 
 //
 //        showAllVideosTBView.reloadData()
         showAllVideosTBView.separatorStyle = .none
-        page = 1
-        getAllVideos()
+//        page = 1
+//        getAllVideos()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,7 +39,7 @@ class ShowAllVideosVC: UIViewController {
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.allVideos
             print(url)
-            let parms : [String:Any] = ["user_id":id,"pageno":page,"per_page":"10"]
+            let parms : [String:Any] = ["user_id":id,"pageno":page,"per_page":"100"]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 IJProgressView.shared.hideProgressView()
@@ -133,5 +133,9 @@ extension ShowAllVideosVC : UITableViewDelegate , UITableViewDataSource{
 //            }
         }
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = VideoPlayVC.instantiate(fromAppStoryboard: .SideMenu)
+        vc.videoId = videoDataArray[0].videoId
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

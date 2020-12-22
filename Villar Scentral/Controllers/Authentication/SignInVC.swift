@@ -61,12 +61,12 @@ class SignInVC: UIViewController , UITextFieldDelegate {
                 self.messgae = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
-                    UserDefaults.standard.set(true, forKey: "tokenFString")
                     let allData = response as? [String:Any] ?? [:]
                     print(allData)
-                    if let data = allData["data"] as? [String:Any]  {
-                        UserDefaults.standard.set(data["userID"], forKey: "id")
-                        UserDefaults.standard.set(data["authToken"], forKey: "authToken")
+                    if let data = allData["user_detail"] as? [String:Any]  {
+                        UserDefaults.standard.set(true, forKey: "tokenFString")
+                        UserDefaults.standard.set(data["id"], forKey: "id")
+                        UserDefaults.standard.set(data["device_token"], forKey: "authToken")
                         print(data)
                     }
                     let story = UIStoryboard(name: "SideMenu", bundle: nil)

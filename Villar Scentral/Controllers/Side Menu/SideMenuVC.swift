@@ -9,14 +9,14 @@ import UIKit
 import LGSideMenuController
 
 class SideMenuVC: UIViewController {
-
+    
     @IBOutlet weak var settingTBView: UITableView!
     @IBOutlet weak var cityLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     var timer: Timer?
-    var nameArray = ["Home","Other Products","Order History","Video tutorials","Store Locator","Settings"]
-    var imgArray = ["home","product-icon","order-history","video-tutorial","store-locator","setting"]
+    var nameArray = ["Home","Other Products","Order History","Video tutorials","Store Locator","Settings","Logout"]
+    var imgArray = ["home","product-icon","order-history","video-tutorial","store-locator","setting","logout"]
     var message = String()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +58,38 @@ class SideMenuVC: UIViewController {
             alert(Constant.shared.appTitle, message: "Check internet connection", view: self)
         }
     }
-
+    
+    func logout() {
+        
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            let id = UserDefaults.standard.value(forKey: "id") ?? ""
+            let signInUrl = Constant.shared.baseUrl + Constant.shared.currentLocation
+            print(signInUrl)
+            let parms : [String:Any] = ["user_id":id]
+            print(parms)
+            AFWrapperClass.requestPOSTURL(signInUrl, params: parms, success: { [self] (response) in
+                print(response)
+                self.message = response["message"] as? String ?? ""
+                let status = response["status"] as? Int
+                if status == 1{
+                    UserDefaults.standard.removeObject(forKey: "tokenFString")
+                    let appDel = UIApplication.shared.delegate as! AppDelegate
+                    appDel.Logout1()
+                }else{
+                    
+                }
+            }) { (error) in
+                IJProgressView.shared.hideProgressView()
+                alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
+                print(error)
+            }
+            
+        } else {
+            print("Internet connection FAILED")
+            alert(Constant.shared.appTitle, message: "Check internet connection", view: self)
+        }
+    }
     
 }
 
@@ -94,33 +125,56 @@ extension SideMenuVC : UITableViewDelegate , UITableViewDataSource{
             let vc = HomeVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
         }
-            
+        
         else if(indexPath.row == 1) {
             let vc = OtherProductsVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
             
         }
-            
+        
         else if(indexPath.row == 2) {
             let vc = OrderHistoryVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
             
         }
-            
+        
         else if(indexPath.row == 3) {
             let vc = ShowAllVideosVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
         }
-            
+        
         else if(indexPath.row == 4) {
             let vc = StoreLocatorVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
             
         }
-                        
+        
         else if(indexPath.row == 5) {
             let vc = ProfileVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
+        }
+        
+        else if (indexPath.row == 6) {
+            let dialogMessage = UIAlertController(title: Constant.shared.appTitle, message: "Are you sure you want to Logout?", preferredStyle: .alert)
+            
+            // Create OK button with action handler
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                print("Ok button click...")
+                UserDefaults.standard.set(false, forKey: "tokenFString")
+                self.logout()
+            })
+            
+            // Create Cancel button with action handlder
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
+                print("Cancel button click...")
+            }
+            
+            //Add OK and Cancel button to dialog message
+            dialogMessage.addAction(ok)
+            dialogMessage.addAction(cancel)
+            
+            // Present dialog message to user
+            self.present(dialogMessage, animated: true, completion: nil)
         }
     }
     

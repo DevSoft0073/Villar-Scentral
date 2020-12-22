@@ -13,8 +13,8 @@ class OrderHistoryVC: UIViewController {
     
     var orderHistoryArray = [OrderHistoryData]()
     @IBOutlet weak var orderHistoryTBView: UITableView!
-    var page = Int()
-    var lastPage = Bool()
+    var page = 1
+    var lastPage = 1
     var message = String()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +28,10 @@ class OrderHistoryVC: UIViewController {
 //        orderHistoryArray.append(OrderHistoryData(name: "Orinted Luz", id: "ID 335513", quantity: "3", deliveryDate: "5DEC 2020", price: "$150.00", image: "order-hist-pro"))
 //        orderHistoryArray.append(OrderHistoryData(name: "Orinted Luz", id: "ID 335513", quantity: "3", deliveryDate: "5DEC 2020", price: "$150.00", image: "order-hist-pro-2"))
         orderHistoryTBView.reloadData()
-        page = 1
-        orderHistory()
+//        orderHistory()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        page = 1
         orderHistory()
     }
     @IBAction func openMenu(_ sender: Any) {

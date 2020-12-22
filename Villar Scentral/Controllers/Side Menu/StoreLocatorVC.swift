@@ -7,15 +7,15 @@
 
 import UIKit
 import LGSideMenuController
-
+import SDWebImage
 
 class StoreLocatorVC: UIViewController {
 
     var storeLocatorArray = [StoreLocatorData]()
     @IBOutlet weak var storeLocatorTBView: UITableView!
     var message = String()
-    var page = Int()
-    var lastPage = Bool()
+    var page = 1
+    var lastPage = 1
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,10 +50,12 @@ class StoreLocatorVC: UIViewController {
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
+                    for obj in response["store_detail"] as? [[String:Any]] ?? [[:]]{
+                        self.storeLocatorArray.append(StoreLocatorData(name: obj["name"] as? String ?? "", details: obj["address"] as? String ?? "", distance: obj["distance"] as? String ?? "", openClose: obj["status"] as? String ?? "", image: obj["photo"] as? String ?? "", id: obj["id"] as? String ?? ""))
+                    }
+                    self.storeLocatorTBView.reloadData()
                 }else{
                     IJProgressView.shared.hideProgressView()
-                    alert(Constant.shared.appTitle, message: self.message, view: self)
-                    self.storeLocatorTBView.reloadData()
                 }
             }) { (error) in
                 IJProgressView.shared.hideProgressView()
@@ -100,6 +102,8 @@ extension StoreLocatorVC : UITableViewDelegate, UITableViewDataSource{
         cell.detailslbl.text = storeLocatorArray[indexPath.item].details
         cell.distanceLbl.text = storeLocatorArray[indexPath.item].distance
         cell.openCloseLbl.text = storeLocatorArray[indexPath.item].openClose
+        cell.showImage.sd_setImage(with: URL(string:storeLocatorArray[indexPath.item].image), placeholderImage: UIImage(named: "img"))
+        cell.showImage.setRounded()
         return cell
     }
     
@@ -125,12 +129,14 @@ struct StoreLocatorData {
     var distance : String
     var openClose : String
     var image : String
+    var id : String
     
-    init(name : String , details : String , distance : String , openClose : String , image : String) {
+    init(name : String , details : String , distance : String , openClose : String , image : String ,id : String) {
         self.name = name
         self.details = details
         self.distance = distance
         self.openClose = openClose
         self.image = image
+        self.id = id
     }
 }
