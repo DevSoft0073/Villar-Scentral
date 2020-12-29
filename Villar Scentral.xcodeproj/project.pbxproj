@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0279A8D40A1E57E4F94764BE /* Pods_Villar_ScentralTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E5BFCEAFD2E2D80583E4FA /* Pods_Villar_ScentralTests.framework */; };
+		1843C687259B0664001D11D2 /* StoreDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843C686259B0664001D11D2 /* StoreDetailVC.swift */; };
+		1843C68A259B1A29001D11D2 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843C689259B1A29001D11D2 /* FloatRatingView.swift */; };
 		7FA6D1FF4920C62A836BAC9E /* Pods_Villar_Scentral_Villar_ScentralUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7074516D6CC3CC9B2E1186 /* Pods_Villar_Scentral_Villar_ScentralUITests.framework */; };
 		B30728812580FA890022358B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30728802580FA890022358B /* ImagePicker.swift */; };
 		B31638F9257B893800958E18 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31638F8257B893800958E18 /* NotificationVC.swift */; };
@@ -78,6 +80,8 @@
 
 /* Begin PBXFileReference section */
 		0D93044802DE44B0DAB30D3C /* Pods-Villar ScentralTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Villar ScentralTests.release.xcconfig"; path = "Target Support Files/Pods-Villar ScentralTests/Pods-Villar ScentralTests.release.xcconfig"; sourceTree = "<group>"; };
+		1843C686259B0664001D11D2 /* StoreDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailVC.swift; sourceTree = "<group>"; };
+		1843C689259B1A29001D11D2 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		20B2BB4B506A3B2E0AAB2B77 /* Pods_Villar_Scentral.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Villar_Scentral.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D7187BEBDC7400A77FBF65 /* Pods-Villar Scentral-Villar ScentralUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Villar Scentral-Villar ScentralUITests.release.xcconfig"; path = "Target Support Files/Pods-Villar Scentral-Villar ScentralUITests/Pods-Villar Scentral-Villar ScentralUITests.release.xcconfig"; sourceTree = "<group>"; };
 		53E52F37F737C7555437343E /* Pods-Villar Scentral.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Villar Scentral.release.xcconfig"; path = "Target Support Files/Pods-Villar Scentral/Pods-Villar Scentral.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +173,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1843C688259B1A04001D11D2 /* Rating View */ = {
+			isa = PBXGroup;
+			children = (
+				1843C689259B1A29001D11D2 /* FloatRatingView.swift */,
+			);
+			path = "Rating View";
+			sourceTree = "<group>";
+		};
 		A8D914E4285F3531322EFA39 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +313,7 @@
 		B3447A36257A0C0700A7302B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1843C688259B1A04001D11D2 /* Rating View */,
 				B3DCE848257B5DE6001A6AC6 /* AppFunctions.swift */,
 				B3DCE866257B631E001A6AC6 /* AppExtensions.swift */,
 				B34479F32579F3D800A7302B /* AppDelegate.swift */,
@@ -383,6 +396,7 @@
 				B31638FD257B894E00958E18 /* OrderAcceptedVC.swift */,
 				B31638F8257B893800958E18 /* NotificationVC.swift */,
 				B3719CE82582146C00959EF5 /* CheckoutVC.swift */,
+				1843C686259B0664001D11D2 /* StoreDetailVC.swift */,
 			);
 			path = "Home ";
 			sourceTree = "<group>";
@@ -665,6 +679,7 @@
 				B3447A52257A0D8800A7302B /* ValidationManager.swift in Sources */,
 				B331FDCB257F598F003B4A86 /* SideMenuController.swift in Sources */,
 				B3447A3F257A0C6900A7302B /* ChangeBottamColor.swift in Sources */,
+				1843C687259B0664001D11D2 /* StoreDetailVC.swift in Sources */,
 				B34479F82579F3D800A7302B /* ViewController.swift in Sources */,
 				B31638FE257B894E00958E18 /* OrderAcceptedVC.swift in Sources */,
 				B37D4A0F258CCDAB007F892A /* VideoPlayVC.swift in Sources */,
@@ -689,6 +704,7 @@
 				B3DCE837257B562C001A6AC6 /* ForgotPasswordVC.swift in Sources */,
 				B3586E56257E2CF900598C3A /* EditProfileVC.swift in Sources */,
 				B3C3EE1D257F956A0069CB4F /* StoreLocatorVC.swift in Sources */,
+				1843C68A259B1A29001D11D2 /* FloatRatingView.swift in Sources */,
 				B30728812580FA890022358B /* ImagePicker.swift in Sources */,
 				B3DCE862257B60CB001A6AC6 /* AppConstants.swift in Sources */,
 				B331FDBA257F5730003B4A86 /* SideMenuVC.swift in Sources */,
