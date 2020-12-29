@@ -121,6 +121,13 @@ extension StoreLocatorVC : UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         let vc = StoreDetailVC.instantiate(fromAppStoryboard: .SideMenu)
+        vc.name = storeLocatorArray[indexPath.row].name
+        vc.image = storeLocatorArray[indexPath.row].image
+        vc.storeId = storeLocatorArray[indexPath.row].id
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 struct StoreLocatorData {

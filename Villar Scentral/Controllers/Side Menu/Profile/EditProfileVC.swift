@@ -139,7 +139,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
-                    if let allData = response["userDetails"] as? [String:Any] ?? [:]{
+                    if let allData = response["userDetails"] as? [String:Any] {
                         IJProgressView.shared.hideProgressView()
                     }
                     let story = UIStoryboard(name: "SideMenu", bundle: nil)

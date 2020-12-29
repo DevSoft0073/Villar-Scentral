@@ -14,9 +14,13 @@ class StoreDetailVC: UIViewController {
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var storeImage: UIImageView!
     var message = String()
+    var name = String()
+    var image = String()
+    var storeId = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        itemName.text = name
+        storeImage.image = UIImage(named: image ?? "img")
         // Do any additional setup after loading the view.
     }
     @IBAction func backbutton(_ sender: Any) {
@@ -35,7 +39,7 @@ class StoreDetailVC: UIViewController {
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.storeDetails
             print(url)
-            let parms : [String:Any] = ["user_id":id,"store_id":"1"]
+            let parms : [String:Any] = ["user_id":id,"store_id":storeId]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 IJProgressView.shared.hideProgressView()

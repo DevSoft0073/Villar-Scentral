@@ -13,7 +13,9 @@ func appDelegate() -> AppDelegate {
     return UIApplication.shared.delegate as! AppDelegate
 }
 
-@main
+//@main
+@UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate , LocationServiceDelegate {
     
     
