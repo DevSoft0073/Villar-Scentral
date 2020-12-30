@@ -126,6 +126,7 @@ extension StoreLocatorVC : UITableViewDelegate, UITableViewDataSource{
         vc.name = storeLocatorArray[indexPath.row].name
         vc.image = storeLocatorArray[indexPath.row].image
         vc.storeId = storeLocatorArray[indexPath.row].id
+        vc.address = storeLocatorArray[indexPath.row].details
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

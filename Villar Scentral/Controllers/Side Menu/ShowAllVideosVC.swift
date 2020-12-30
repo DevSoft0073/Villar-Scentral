@@ -46,7 +46,6 @@ class ShowAllVideosVC: UIViewController {
                 print(response)
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
-                self.videoDataArray.removeAll()
                 if status == 1{
                     for obj in response["video_details"] as? [[String:Any]] ?? [[:]]{
                         print(obj)
@@ -55,7 +54,6 @@ class ShowAllVideosVC: UIViewController {
                     self.showAllVideosTBView.reloadData()
                 }else{
                     IJProgressView.shared.hideProgressView()
-                    alert(Constant.shared.appTitle, message: self.message, view: self)
                 }
             }) { (error) in
                 IJProgressView.shared.hideProgressView()

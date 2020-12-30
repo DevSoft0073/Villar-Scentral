@@ -55,9 +55,9 @@ class OtherProductsVC: UIViewController {
             print(url)
             var parms = [String:Any]()
             if chekAddRemove == true{
-                parms = ["user_id":id,"product_id":"1","type":"add"]
+                parms = ["user_id":id,"product_id":productListingArray[0].product_id,"type":"add"]
             }else{
-                parms = ["user_id":id,"product_id":"1","type":"remove"]
+                parms = ["user_id":id,"product_id":productListingArray[0].product_id,"type":"remove"]
             }
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in

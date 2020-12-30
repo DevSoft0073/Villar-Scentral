@@ -71,6 +71,7 @@ class OfferDetailVC: UIViewController {
     
     @IBAction func gotoOrderAcceptedVC(_ sender: Any) {
         let vc = CheckoutVC.instantiate(fromAppStoryboard: .SideMenu)
+        vc.productIDArray.append(productID)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

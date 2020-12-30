@@ -18,6 +18,7 @@ class CheckoutVC: UIViewController {
     @IBOutlet weak var addressTxtFld: UITextField!
     @IBOutlet weak var productName: UITextField!
     var message = String()
+    var productIDArray = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +39,7 @@ class CheckoutVC: UIViewController {
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.checkout
             print(url)
-            let parms : [String:Any] = ["address":addressTxtFld.text ?? "", "user_id" : id, "city" : citytxtFld.text ?? "", "description" : descriptionTxtView.text ?? "",  "contact_no" : contextNumberTxtFld.text ?? "" ,"product_id" : ["1"]]
+            let parms : [String:Any] = ["address":addressTxtFld.text ?? "", "user_id" : id, "city" : citytxtFld.text ?? "", "description" : descriptionTxtView.text ?? "",  "contact_no" : contextNumberTxtFld.text ?? "" ,"product_id" : productIDArray]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 IJProgressView.shared.hideProgressView()

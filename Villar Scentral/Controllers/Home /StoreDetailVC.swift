@@ -9,6 +9,8 @@ import UIKit
 
 class StoreDetailVC: UIViewController {
 
+    @IBOutlet weak var addressLbl: UILabel!
+    @IBOutlet weak var workingHourLbl: UILabel!
     @IBOutlet weak var ratingView: FloatRatingView!
     @IBOutlet weak var storeName: UILabel!
     @IBOutlet weak var itemName: UILabel!
@@ -17,13 +19,16 @@ class StoreDetailVC: UIViewController {
     var name = String()
     var image = String()
     var storeId = String()
+    var address = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         itemName.text = name
-        storeImage.image = UIImage(named: image ?? "img")
+//        storeImage.image = UIImage(named: image ?? "store-detail-img")
+        addressLbl.text = address
         // Do any additional setup after loading the view.
     }
     @IBAction func backbutton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func contactButton(_ sender: Any) {

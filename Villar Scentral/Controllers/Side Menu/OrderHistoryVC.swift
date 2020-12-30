@@ -18,17 +18,7 @@ class OrderHistoryVC: UIViewController {
     var message = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
         orderHistoryTBView.separatorStyle = .none
-        
-        
-//        orderHistoryArray.append(OrderHistoryData(name: "Orinted Luz", id: "ID 335513", quantity: "3", deliveryDate: "5DEC 2020", price: "$150.00", image: "order-hist-pro-1"))
-//        orderHistoryArray.append(OrderHistoryData(name: "Orinted Luz", id: "ID 335513", quantity: "3", deliveryDate: "5DEC 2020", price: "$150.00", image: "order-hist-pro-2"))
-//        orderHistoryArray.append(OrderHistoryData(name: "Orinted Luz", id: "ID 335513", quantity: "3", deliveryDate: "5DEC 2020", price: "$150.00", image: "order-hist-pro"))
-//        orderHistoryArray.append(OrderHistoryData(name: "Orinted Luz", id: "ID 335513", quantity: "3", deliveryDate: "5DEC 2020", price: "$150.00", image: "order-hist-pro-2"))
-        orderHistoryTBView.reloadData()
-//        orderHistory()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,15 +43,13 @@ class OrderHistoryVC: UIViewController {
                 print(response)
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
-                self.orderHistoryArray.removeAll()
                 if status == 1{
                     for obj in response["order_history"] as? [[String:Any]] ?? [[:]]{
-                        self.orderHistoryArray.append(OrderHistoryData(name: obj["product_name"] as? String ?? "Orinted Luz", id: obj["product_id"] as? String ?? "", quantity: obj["Quantity"] as? String ?? "", deliveryDate: obj["Deliver_by"] as? String ?? "", price: obj["price"] as? String ?? "$123.00", image: obj["product_image"] as? String ?? ""))
+                        self.orderHistoryArray.append(OrderHistoryData(name: obj["product_name"] as? String ?? "Orinted Luz", id: obj["product_id"] as? String ?? "", quantity: obj["Quantity"] as? String ?? "", deliveryDate: obj["Deliver_by"] as? String ?? "", price: obj["price"] as? String ?? "$123.00", image: obj["product_image"] as? String ?? "img"))
                     }
                     self.orderHistoryTBView.reloadData()
                 }else{
                     IJProgressView.shared.hideProgressView()
-                    alert(Constant.shared.appTitle, message: self.message, view: self)
                 }
             }) { (error) in
                 IJProgressView.shared.hideProgressView()
@@ -119,14 +107,24 @@ extension OrderHistoryVC : UITableViewDelegate , UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderHistoryTBViewCell", for: indexPath) as! OrderHistoryTBViewCell
-        cell.orderImage.sd_setImage(with: URL(string:orderHistoryArray[indexPath.row].image), placeholderImage: UIImage(named: "order-hist-pro-2"))
+        cell.orderImage.sd_setImage(with: URL(string:orderHistoryArray[indexPath.row].image), placeholderImage: UIImage(named: "img"))
         cell.nameLbl.text = orderHistoryArray[indexPath.row].name
         cell.idLbl.text = orderHistoryArray[indexPath.row].id
         cell.quantityLbl.text = orderHistoryArray[indexPath.row].quantity
         cell.deliveryDate.text = orderHistoryArray[indexPath.row].deliveryDate
         cell.priceLbl.text = orderHistoryArray[indexPath.row].price
+        cell.reorderButton.addTarget(self, action: #selector(reorderButton(sender:)), for: .touchUpInside)
+
         return cell
     }
+    
+    @objc func reorderButton(sender: UIButton) {
+        
+        let vc = CheckoutVC.instantiate(fromAppStoryboard: .SideMenu)
+        vc.productIDArray.append(orderHistoryArray[0].id)
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+       }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
