@@ -127,8 +127,10 @@ extension SideMenuVC : UITableViewDelegate , UITableViewDataSource{
         }
         
         else if(indexPath.row == 1) {
-            let vc = OtherProductsVC.instantiate(fromAppStoryboard: .SideMenu)
-            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
+//            let vc = OtherProductsVC.instantiate(fromAppStoryboard: .SideMenu)
+//            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
+            guard let url = URL(string: "https://stackoverflow.com") else { return }
+            UIApplication.shared.open(url)
             
         }
         

@@ -21,6 +21,13 @@ class HomeVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func aboutUsButtonAction(_ sender: Any) {
+         if let url = URL(string: "mailto://azimov@demo.com") {
+             if UIApplication.shared.canOpenURL(url) {
+                 UIApplication.shared.openURL(url)
+             } else {
+                 print("Cannot open URL")
+             }
+         }
     }
     
     @IBAction func openMenu(_ sender: Any) {
