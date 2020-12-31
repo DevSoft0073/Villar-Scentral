@@ -74,6 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , LocationServiceDelegate 
             let storyBoard = UIStoryboard.init(name: "SideMenu", bundle: nil)
             let rootVc = storyBoard.instantiateViewController(withIdentifier: "SideMenuControllerID") as! SideMenuController
             navigationController?.pushViewController(rootVc, animated: false)
+            
         }else{
             let navigationController: UINavigationController? = (self.window?.rootViewController as? UINavigationController)
             let storyBoard = UIStoryboard.init(name: "Auth", bundle: nil)

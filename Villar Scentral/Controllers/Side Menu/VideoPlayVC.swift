@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import VersaPlayer
+import AVFoundation
 
 class VideoPlayVC: UIViewController {
 
+    @IBOutlet var controls: VersaPlayerControls!
+    @IBOutlet weak var playerView: VersaPlayerView!
     var message = String()
     var videoId = String()
     override func viewDidLoad() {
         super.viewDidLoad()
+        videoDetails()
 
     }
     
@@ -31,6 +36,16 @@ class VideoPlayVC: UIViewController {
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
+                    let videoDetails = response["video_detail"] as? [String:Any] ?? [:]
+                    self.playerView.layer.backgroundColor = UIColor.black.cgColor
+                    self.playerView.use(controls: self.controls)
+                    self.playerView.controls?.behaviour.shouldShowControls
+                           
+                           if let url = URL.init(string: videoDetails["video"] as? String ?? "") {
+                               let item = VersaPlayerItem(url: url)
+                            self.playerView.set(item: item)
+                           }
+                    
                 }else{
                     IJProgressView.shared.hideProgressView()
                     alert(Constant.shared.appTitle, message: self.message, view: self)
@@ -48,6 +63,9 @@ class VideoPlayVC: UIViewController {
         
     }
     
+    @IBAction func backButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 

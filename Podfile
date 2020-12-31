@@ -14,6 +14,7 @@ target 'Villar Scentral' do
     pod 'SVProgressHUD'
     pod 'LGSideMenuController'
     pod 'NVActivityIndicatorView'
+    pod 'VersaPlayer'
 
 
   target 'Villar ScentralTests' do
