@@ -76,7 +76,7 @@ open class VersaPlayerControls: View {
     private var wasPlayingBeforeSeeking: Bool = false
     
     /// Skip size in seconds to be used for skipping forward or backwards
-    public var skipSize: Double = 30
+    public var skipSize: Double = 10
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: VersaPlayer.VPlayerNotificationName.timeChanged.notification, object: nil)
