@@ -8,13 +8,15 @@
 import UIKit
 
 class StoreDetailVC: UIViewController {
-
+    
+    @IBOutlet weak var imagesCollectionView: UICollectionView!
     @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var workingHourLbl: UILabel!
     @IBOutlet weak var ratingView: FloatRatingView!
     @IBOutlet weak var storeName: UILabel!
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var storeImage: UIImageView!
+    var imagesArray = [String]()
     var message = String()
     var name = String()
     var image = String()
@@ -23,7 +25,7 @@ class StoreDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         itemName.text = name
-//        storeImage.image = UIImage(named: image ?? "store-detail-img")
+        //        storeImage.image = UIImage(named: image ?? "store-detail-img")
         addressLbl.text = address
         storeDetails()
         ratingView.type = .wholeRatings
@@ -57,6 +59,7 @@ class StoreDetailVC: UIViewController {
                     let ratVal = storeDetails["rating"] as? String ?? ""
                     self.ratingView.rating = Double(ratVal) ?? 0
                     
+                    
                 }else{
                     IJProgressView.shared.hideProgressView()
                     alert(Constant.shared.appTitle, message: self.message, view: self)
@@ -75,3 +78,34 @@ class StoreDetailVC: UIViewController {
     
 }
 
+class ImagesCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var images: UIView!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+}
+
+extension StoreDetailVC : UICollectionViewDelegate , UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imagesArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImagesCollectionViewCell", for: indexPath) as! ImagesCollectionViewCell
+        return cell
+    }
+}
+
+extension StoreDetailVC:UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: self.view.frame.size.width, height: collectionView.frame.size.height)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+}

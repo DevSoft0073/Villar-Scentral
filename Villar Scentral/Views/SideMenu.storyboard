@@ -3100,6 +3100,45 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tDs-fU-RAN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="197"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K2V-Nf-dxf">
+                                                            <size key="itemSize" width="312" height="197"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImagesCollectionViewCell" id="yVU-2i-SCR" customClass="ImagesCollectionViewCell" customModule="Villar_Scentral" customModuleProvider="target">
+                                                                <rect key="frame" x="4" y="0.0" width="312" height="197"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dz2-HN-dDp">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="312" height="197"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HEI-Vy-3Li">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="312" height="197"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="bottom" secondItem="HEI-Vy-3Li" secondAttribute="bottom" id="FQh-z3-36L"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="HEI-Vy-3Li" secondAttribute="trailing" id="hti-Ox-nDs"/>
+                                                                        <constraint firstItem="HEI-Vy-3Li" firstAttribute="leading" secondItem="dz2-HN-dDp" secondAttribute="leading" id="m0U-aA-FZI"/>
+                                                                        <constraint firstItem="HEI-Vy-3Li" firstAttribute="top" secondItem="dz2-HN-dDp" secondAttribute="top" id="y5r-RG-plT"/>
+                                                                    </constraints>
+                                                                </collectionViewCellContentView>
+                                                                <size key="customSize" width="312" height="197"/>
+                                                                <connections>
+                                                                    <outlet property="images" destination="dz2-HN-dDp" id="Fmv-Il-zom"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="Vwx-hK-xp9" id="5CW-8v-yPH"/>
+                                                            <outlet property="delegate" destination="Vwx-hK-xp9" id="gcA-nc-200"/>
+                                                        </connections>
+                                                    </collectionView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.090185977520000002" green="0.090201936659999996" blue="0.090178661049999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -3109,11 +3148,15 @@
                                                     <constraint firstItem="6lk-HI-94Y" firstAttribute="height" secondItem="GeQ-pU-Drr" secondAttribute="height" multiplier="0.63" id="Gm6-L5-kiC"/>
                                                     <constraint firstItem="p3e-z9-YHI" firstAttribute="centerY" secondItem="6iC-qc-w0k" secondAttribute="centerY" constant="-5" id="IP5-1V-Q0l"/>
                                                     <constraint firstItem="p3e-z9-YHI" firstAttribute="trailing" secondItem="6lk-HI-94Y" secondAttribute="trailing" constant="-15" id="OA3-0f-aPb"/>
+                                                    <constraint firstAttribute="trailing" secondItem="tDs-fU-RAN" secondAttribute="trailing" id="Qn8-XK-ciH"/>
+                                                    <constraint firstItem="tDs-fU-RAN" firstAttribute="top" secondItem="GeQ-pU-Drr" secondAttribute="top" id="ajv-b2-KQc"/>
                                                     <constraint firstItem="KSG-IA-fmJ" firstAttribute="leading" secondItem="6lk-HI-94Y" secondAttribute="leading" constant="15" id="cmj-yZ-7wB"/>
                                                     <constraint firstItem="KSG-IA-fmJ" firstAttribute="top" secondItem="6lk-HI-94Y" secondAttribute="bottom" constant="8" id="cy3-sB-uH7"/>
                                                     <constraint firstItem="6iC-qc-w0k" firstAttribute="top" secondItem="wSm-fl-Fd0" secondAttribute="bottom" constant="8" id="ja5-f4-MOZ"/>
                                                     <constraint firstItem="6iC-qc-w0k" firstAttribute="leading" secondItem="6lk-HI-94Y" secondAttribute="leading" constant="15" id="kFb-rE-4lg"/>
                                                     <constraint firstItem="6lk-HI-94Y" firstAttribute="top" secondItem="GeQ-pU-Drr" secondAttribute="top" constant="10" id="kG4-K5-Rf6"/>
+                                                    <constraint firstItem="KSG-IA-fmJ" firstAttribute="top" secondItem="tDs-fU-RAN" secondAttribute="bottom" id="n7g-se-hp6"/>
+                                                    <constraint firstItem="tDs-fU-RAN" firstAttribute="leading" secondItem="GeQ-pU-Drr" secondAttribute="leading" id="pII-Sg-TQs"/>
                                                     <constraint firstItem="wSm-fl-Fd0" firstAttribute="leading" secondItem="KSG-IA-fmJ" secondAttribute="leading" id="qLL-Qg-ulK"/>
                                                 </constraints>
                                             </view>
@@ -3216,6 +3259,7 @@
                     </view>
                     <connections>
                         <outlet property="addressLbl" destination="LyI-U2-Lf3" id="37d-rR-qIb"/>
+                        <outlet property="imagesCollectionView" destination="tDs-fU-RAN" id="knT-Rg-jzZ"/>
                         <outlet property="itemName" destination="KSG-IA-fmJ" id="bZK-Pj-6ZS"/>
                         <outlet property="ratingView" destination="Dxa-3F-xRB" id="eRj-S2-teF"/>
                         <outlet property="storeImage" destination="6lk-HI-94Y" id="Bmb-bf-s9e"/>
