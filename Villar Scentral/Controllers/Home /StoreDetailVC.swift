@@ -25,7 +25,8 @@ class StoreDetailVC: UIViewController {
         itemName.text = name
 //        storeImage.image = UIImage(named: image ?? "store-detail-img")
         addressLbl.text = address
-        // Do any additional setup after loading the view.
+        storeDetails()
+        ratingView.type = .wholeRatings
     }
     @IBAction func backbutton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -52,6 +53,10 @@ class StoreDetailVC: UIViewController {
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
+                    let storeDetails = response["store_detail"] as? [String:Any] ?? [:]
+                    let ratVal = storeDetails["rating"] as? String ?? ""
+                    self.ratingView.rating = Double(ratVal) ?? 0
+                    
                 }else{
                     IJProgressView.shared.hideProgressView()
                     alert(Constant.shared.appTitle, message: self.message, view: self)

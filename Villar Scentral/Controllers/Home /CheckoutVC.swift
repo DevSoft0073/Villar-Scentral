@@ -47,9 +47,12 @@ class CheckoutVC: UIViewController {
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                     if status == 1{
+                        
                         showAlertMessage(title: Constant.shared.appTitle, message: self.message, okButton: "OK", controller: self) {
                             let vc = OrderAcceptedVC.instantiate(fromAppStoryboard: .SideMenu)
-                            self.navigationController?.pushViewController(vc, animated: true)                        }
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            
+                        }
                     }else{
                         IJProgressView.shared.hideProgressView()
                         alert(Constant.shared.appTitle, message: self.message, view: self)
