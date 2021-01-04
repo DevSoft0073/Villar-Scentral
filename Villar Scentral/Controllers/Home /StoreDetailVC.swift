@@ -16,6 +16,7 @@ class StoreDetailVC: UIViewController {
     @IBOutlet weak var storeName: UILabel!
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var storeImage: UIImageView!
+    var storeDetailArray = [StoreDetails]()
     var imagesArray = [String]()
     var message = String()
     var name = String()
@@ -34,10 +35,13 @@ class StoreDetailVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
     @IBAction func contactButton(_ sender: Any) {
     }
     
     @IBAction func directionButton(_ sender: Any) {
+        let url = NSURL(string:"http://maps.apple.com/?saddr=\(Singleton.sharedInstance.lat),\(Singleton.sharedInstance.long)&daddr=\(self.storeDetailArray[0].lat),\(storeDetailArray[0].long)")!
+               UIApplication.shared.open(url as URL)
     }
     
     func storeDetails() {
@@ -56,9 +60,10 @@ class StoreDetailVC: UIViewController {
                 let status = response["status"] as? Int
                 if status == 1{
                     let storeDetails = response["store_detail"] as? [String:Any] ?? [:]
+
+                    self.storeDetailArray.append(StoreDetails(name: storeDetails["name"] as? String ?? "", address: storeDetails["address"] as? String ?? "", lat: storeDetails["latitude"] as? String ?? "", long: storeDetails["longitude"] as? String ?? "", rating: storeDetails["rating"] as? String ?? "", srartDate: storeDetails["start_date"] as? String ?? "", workingHour: storeDetails["working_hours"] as? String ?? "", placeID: storeDetails["place_id"] as? String ?? "", endDate: storeDetails["end_date"] as? String ?? ""))
                     let ratVal = storeDetails["rating"] as? String ?? ""
                     self.ratingView.rating = Double(ratVal) ?? 0
-                    
                     
                 }else{
                     IJProgressView.shared.hideProgressView()
@@ -107,5 +112,29 @@ extension StoreDetailVC:UICollectionViewDelegateFlowLayout{
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+struct StoreDetails {
+    var name : String
+    var address : String
+    var lat : String
+    var long : String
+    var rating : String
+    var srartDate : String
+    var workingHour : String
+    var placeID : String
+    var endDate : String
+    
+    init(name : String, address : String, lat : String, long : String, rating : String,srartDate : String, workingHour : String, placeID : String, endDate : String) {
+        self.name = name
+        self.address = address
+        self.lat = lat
+        self.long = long
+        self.srartDate = srartDate
+        self.endDate = endDate
+        self.workingHour = workingHour
+        self.placeID = placeID
+        self.rating = rating
     }
 }
