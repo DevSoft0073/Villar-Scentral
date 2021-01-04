@@ -15,8 +15,8 @@ class SideMenuVC: UIViewController {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     var timer: Timer?
-    var nameArray = ["Home","Other Products","Order History","Video tutorials","Store Locator","Settings","Logout"]
-    var imgArray = ["home","product-icon","order-history","video-tutorial","store-locator","setting","logout"]
+    var nameArray = ["Home","Other Products","Order History","Video tutorials","Invite","Store Locator","Settings","Logout"]
+    var imgArray = ["home","product-icon","order-history","video-tutorial","setting","store-locator","setting","logout"]
     var message = String()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,19 +144,33 @@ extension SideMenuVC : UITableViewDelegate , UITableViewDataSource{
             let vc = ShowAllVideosVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
         }
-        
+            
         else if(indexPath.row == 4) {
+            
+            if let name = URL(string: "https://itunes.apple.com/us/app/myapp/idxxxxxxxx?ls=1&mt=8"), !name.absoluteString.isEmpty {
+                let objectsToShare = [name]
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+
+                self.present(activityVC, animated: true, completion: nil)
+            }else  {
+                // show alert for not available
+                alert(Constant.shared.appTitle, message: "App not on app store right now ", view: self)
+            }
+            
+        }
+        
+        else if(indexPath.row == 5) {
             let vc = StoreLocatorVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
             
         }
         
-        else if(indexPath.row == 5) {
+        else if(indexPath.row == 6) {
             let vc = ProfileVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
         }
         
-        else if (indexPath.row == 6) {
+        else if (indexPath.row == 7) {
             let dialogMessage = UIAlertController(title: Constant.shared.appTitle, message: "Are you sure you want to Logout?", preferredStyle: .alert)
             
             // Create OK button with action handler
