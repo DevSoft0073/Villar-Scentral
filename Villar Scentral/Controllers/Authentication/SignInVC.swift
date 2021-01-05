@@ -64,7 +64,8 @@ class SignInVC: UIViewController , UITextFieldDelegate {
                     let allData = response as? [String:Any] ?? [:]
                     print(allData)
                     if let data = allData["user_detail"] as? [String:Any]  {
-                        UserDefaults.standard.set(true, forKey: "tokenFString")
+//                        UserDefaults.standard.set(true, forKey: "tokenFString")
+                        UserDefaults.standard.set(1, forKey: "tokenFString")
                         UserDefaults.standard.set(data["id"], forKey: "id")
                         UserDefaults.standard.set(data["device_token"], forKey: "authToken")
                         print(data)

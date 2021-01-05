@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , LocationServiceDelegate 
         LocationService.sharedInstance.startUpdatingLocation()
         LocationService.sharedInstance.isLocateSuccess = false
         LocationService.sharedInstance.delegate = self
-        
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
@@ -86,15 +85,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate , LocationServiceDelegate 
     }
     
     func getLoggedUser(){
-        let credentials = UserDefaults.standard.bool(forKey: "tokenFString")
-        if credentials == true{
+        let credentials = UserDefaults.standard.value(forKey: "tokenFString") as? Int
+        if credentials == 1{
             
             let navigationController: UINavigationController? = (self.window?.rootViewController as? UINavigationController)
             let storyBoard = UIStoryboard.init(name: "SideMenu", bundle: nil)
             let rootVc = storyBoard.instantiateViewController(withIdentifier: "SideMenuControllerID") as! SideMenuController
             navigationController?.pushViewController(rootVc, animated: false)
             
-        }else{
+        }else if credentials == 0{
+            
             let navigationController: UINavigationController? = (self.window?.rootViewController as? UINavigationController)
             let storyBoard = UIStoryboard.init(name: "Auth", bundle: nil)
             let rootVc = storyBoard.instantiateViewController(withIdentifier: "SignInVC") as! SignInVC

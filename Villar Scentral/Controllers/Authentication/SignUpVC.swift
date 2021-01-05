@@ -113,7 +113,9 @@ class SignUpVC: UIViewController  , UITextFieldDelegate{
                 self.messgae = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
-                    UserDefaults.standard.set(true, forKey: "tokenFString")
+//                    UserDefaults.standard.set(true, forKey: "tokenFString")
+                    UserDefaults.standard.set(1, forKey: "tokenFString")
+
                     let allData = response as? [String:Any] ?? [:]
                     print(allData)
                     if let data = allData["user_detail"] as? [String:Any]  {

@@ -23,6 +23,7 @@ class SideMenuVC: UIViewController {
         
         settingTBView.separatorStyle = .none
         timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        getData()
     }
     
     @objc func fireTimer() {
@@ -30,6 +31,59 @@ class SideMenuVC: UIViewController {
         self.updateLocation()
         
     }
+    
+    
+    
+    func getData() {
+        let id = UserDefaults.standard.value(forKey: "id") ?? ""
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            IJProgressView.shared.showProgressView()
+            let signInUrl = Constant.shared.baseUrl + Constant.shared.profile
+            print(signInUrl)
+            let parms : [String:Any] = ["user_id" : id]
+            print(parms)
+            AFWrapperClass.requestPOSTURL(signInUrl, params: parms, success: { (response) in
+                IJProgressView.shared.hideProgressView()
+                print(response)
+                self.message = response["message"] as? String ?? ""
+                let status = response["status"] as? Int
+                if status == 1{
+                    if let allData = response["user_details"] as? [String:Any]{
+                        self.cityLbl.text = allData["name"] as? String ?? ""
+                        self.nameLbl.text = allData["address"] as? String ?? ""
+                        self.profileImage.sd_setImage(with: URL(string:allData["profile_image"] as? String ?? ""), placeholderImage: UIImage(named: "img"))
+                        let url = URL(string:allData["image"] as? String ?? "")
+                        if url != nil{
+                            if let data = try? Data(contentsOf: url!)
+                            {
+                                if let image: UIImage = (UIImage(data: data)){
+                                    self.profileImage.image = image
+                                    self.profileImage.contentMode = .scaleToFill
+                                    IJProgressView.shared.hideProgressView()
+                                }
+                            }
+                        }
+                        else{
+                            self.profileImage.image = UIImage(named: "img")
+                        }
+                    }
+                }else{
+                    IJProgressView.shared.hideProgressView()
+                    alert(Constant.shared.appTitle, message: self.message, view: self)
+                }
+            }) { (error) in
+                IJProgressView.shared.hideProgressView()
+                alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
+                print(error)
+            }
+            
+        } else {
+            print("Internet connection FAILED")
+            alert(Constant.shared.appTitle, message: "Check internet connection", view: self)
+        }
+    }
+
     
     func updateLocation() {
         if Reachability.isConnectedToNetwork() == true {
@@ -73,9 +127,14 @@ class SideMenuVC: UIViewController {
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
-                    UserDefaults.standard.removeObject(forKey: "tokenFString")
+//                    UserDefaults.standard.set(false, forKey: "tokenFString")
+                    UserDefaults.standard.set(0, forKey: "tokenFString")
+
                     let appDel = UIApplication.shared.delegate as! AppDelegate
-                    appDel.Logout1()
+                    appDel.getLoggedUser()
+//                    UserDefaults.standard.set(false, forKey: "tokenFString")
+//                    Switcher.updateRootVC()
+                    
                 }else{
                     
                 }
