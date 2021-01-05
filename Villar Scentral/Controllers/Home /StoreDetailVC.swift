@@ -59,12 +59,14 @@ class StoreDetailVC: UIViewController {
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
+                    self.imagesArray.removeAll()
                     let storeDetails = response["store_detail"] as? [String:Any] ?? [:]
-
                     self.storeDetailArray.append(StoreDetails(name: storeDetails["name"] as? String ?? "", address: storeDetails["address"] as? String ?? "", lat: storeDetails["latitude"] as? String ?? "", long: storeDetails["longitude"] as? String ?? "", rating: storeDetails["rating"] as? String ?? "", srartDate: storeDetails["start_date"] as? String ?? "", workingHour: storeDetails["working_hours"] as? String ?? "", placeID: storeDetails["place_id"] as? String ?? "", endDate: storeDetails["end_date"] as? String ?? ""))
                     let ratVal = storeDetails["rating"] as? String ?? ""
                     self.ratingView.rating = Double(ratVal) ?? 0
-                    
+                    self.imagesArray = storeDetails["photo"] as? [String] ?? [String]()
+                    print(self.imagesArray)
+                    self.imagesCollectionView.reloadData()
                 }else{
                     IJProgressView.shared.hideProgressView()
                     alert(Constant.shared.appTitle, message: self.message, view: self)
@@ -85,7 +87,7 @@ class StoreDetailVC: UIViewController {
 
 class ImagesCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var images: UIView!
+    @IBOutlet weak var imageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -98,6 +100,8 @@ extension StoreDetailVC : UICollectionViewDelegate , UICollectionViewDataSource 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImagesCollectionViewCell", for: indexPath) as! ImagesCollectionViewCell
+        let img = imagesArray[indexPath.item]
+        cell.imageView.sd_setImage(with: URL(string:img), placeholderImage: UIImage(named: "img"))
         return cell
     }
 }

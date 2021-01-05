@@ -49,6 +49,7 @@ class StoreLocatorVC: UIViewController {
                 print(response)
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
+                self.storeLocatorArray.removeAll()
                 if status == 1{
                     for obj in response["store_detail"] as? [[String:Any]] ?? [[:]]{
                         self.storeLocatorArray.append(StoreLocatorData(name: obj["name"] as? String ?? "", details: obj["address"] as? String ?? "", distance: obj["distance"] as? String ?? "", openClose: obj["status"] as? String ?? "", image: obj["photo"] as? String ?? "", id: obj["id"] as? String ?? ""))
