@@ -55,11 +55,16 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
     
     @IBAction func doneButton(_ sender: Any) {
         
-        editProfile()
+        
         
 //        let story = UIStoryboard(name: "SideMenu", bundle: nil)
 //        let rootViewController:UIViewController = story.instantiateViewController(withIdentifier: "SideMenuControllerID")
 //        self.navigationController?.pushViewController(rootViewController, animated: true)
+    }
+    
+    
+    @IBAction func saveButton(_ sender: Any) {
+        editProfile()
     }
     
     

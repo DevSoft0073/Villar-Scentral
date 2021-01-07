@@ -42,6 +42,8 @@ class OtherProductsVC: UIViewController {
             vc.name = filterArray[0].name
             vc.quantity = "\(count)"
             self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            alert(Constant.shared.appTitle, message: "Please select atleast one product", view: self)
         }
        
     }
@@ -172,11 +174,17 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
         cell.minusButton.addTarget(self, action: #selector(decreaseCounter(sender:)), for: .touchUpInside)
         cell.quantityLbl.text = productListingArray[indexPath.item].quantity
         let data = self.productListingArray[indexPath.row]
-//        if data.selectedCell{
-//            cell.contentView.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-//        }else{
-//            cell.contentView.backgroundColor = .clear
-//        }
+        if data.selectedCell{
+            cell.contentView.borderWidth = 2
+            cell.contentView.shadowRadius = 3
+            cell.contentView.shadowColor = .white
+            cell.contentView.shadowOpacity = 0.7
+            cell.contentView.borderColor = .white
+        }else{
+//            cell.contentView.borderWidth = 2
+//            cell.contentView.shadowRadius = 3
+            cell.contentView.borderColor = .clear
+        }
         return cell
     }
     

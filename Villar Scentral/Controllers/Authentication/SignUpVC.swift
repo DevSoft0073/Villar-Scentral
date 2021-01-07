@@ -44,12 +44,12 @@ class SignUpVC: UIViewController  , UITextFieldDelegate{
     @IBAction func checkUncheckButton(_ sender: UIButton) {
         if (unchecked == false)
         {
-            checkUncheckButton.setBackgroundImage(UIImage(named: "check-icon"), for: UIControl.State.normal)
+            checkUncheckButton.setBackgroundImage(UIImage(named: "checkbox"), for: UIControl.State.normal)
             unchecked = true
         }
         else
         {
-            checkUncheckButton.setBackgroundImage(UIImage(named: "check-icon-1"), for: UIControl.State.normal)
+            checkUncheckButton.setBackgroundImage(UIImage(named: "uncheck"), for: UIControl.State.normal)
             unchecked = false
         }
     }

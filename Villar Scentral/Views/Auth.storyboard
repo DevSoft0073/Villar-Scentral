@@ -67,13 +67,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in to order your fragrance refill and experience the best of Villar Scentral." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ua3-5m-IF5">
-                                                <rect key="frame" x="24" y="210.5" width="272" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <rect key="frame" x="24" y="210.5" width="272" height="30.5"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tl2-BR-gkW">
-                                                <rect key="frame" x="24" y="276.5" width="272" height="125"/>
+                                                <rect key="frame" x="24" y="271" width="272" height="125"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kn9-FR-ZQp">
                                                         <rect key="frame" x="0.0" y="0.0" width="272" height="57.5"/>
@@ -169,8 +169,8 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00z-GL-UeE">
-                                                <rect key="frame" x="181" y="411.5" width="115" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                <rect key="frame" x="186" y="406" width="110" height="17"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                                                 <state key="normal" title="Forgot Password ?">
                                                     <color key="titleColor" red="0.186539501" green="0.74840897319999999" blue="0.84970349069999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -179,13 +179,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRR-Y0-Fsj">
-                                                <rect key="frame" x="0.0" y="428.5" width="320" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="423" width="320" height="28.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2I-5T-Wh7">
-                                                <rect key="frame" x="24" y="457" width="272" height="34"/>
+                                                <rect key="frame" x="24" y="451.5" width="272" height="34"/>
                                                 <state key="normal" title="Button" image="btn-sign-in"/>
                                                 <connections>
                                                     <action selector="signInButtonAction:" destination="2jG-S4-XHo" eventType="touchUpInside" id="HtE-B3-0Sx"/>
@@ -410,6 +410,7 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Hb-Yh-G3b">
                                                                 <rect key="frame" x="0.0" y="26.5" width="245" height="19"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -538,7 +539,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bCv-0v-Kov" secondAttribute="height" multiplier="1:1" id="LVo-eP-N2s"/>
                                                 </constraints>
-                                                <state key="normal" image="check-icon-1"/>
+                                                <state key="normal" image="uncheck"/>
                                                 <connections>
                                                     <action selector="checkUncheckButton:" destination="HeR-lD-GeR" eventType="touchUpInside" id="etM-25-wY1"/>
                                                 </connections>
@@ -718,7 +719,7 @@
                                     <action selector="submitButtonAction:" destination="m28-XK-uCK" eventType="touchUpInside" id="LwZ-Ui-B1V"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info.png" translatesAutoresizingMaskIntoConstraints="NO" id="vOQ-gm-wNi">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back-1" translatesAutoresizingMaskIntoConstraints="NO" id="vOQ-gm-wNi">
                                 <rect key="frame" x="14" y="34" width="12" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vOQ-gm-wNi" secondAttribute="height" multiplier="1:1" id="UDQ-bM-2Cn"/>
@@ -730,7 +731,7 @@
                                     <constraint firstAttribute="width" secondItem="55Q-6c-RDm" secondAttribute="height" multiplier="1:1" id="C1e-qN-rcC"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="backButton:" destination="m28-XK-uCK" eventType="touchUpInside" id="ANx-BK-gWO"/>
+                                    <action selector="backButton:" destination="m28-XK-uCK" eventType="touchUpInside" id="UIS-Us-PBs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -780,11 +781,11 @@
     </scenes>
     <resources>
         <image name="back" width="640" height="1138"/>
+        <image name="back-1" width="17" height="29"/>
         <image name="btn-sign-in" width="540" height="73"/>
         <image name="btn-sign-up" width="540" height="73"/>
         <image name="btn-submit" width="608" height="82"/>
-        <image name="check-icon-1" width="128" height="128"/>
-        <image name="info.png" width="28" height="28"/>
         <image name="logo" width="469" height="64"/>
+        <image name="uncheck" width="120" height="120"/>
     </resources>
 </document>

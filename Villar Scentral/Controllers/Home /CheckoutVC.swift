@@ -29,6 +29,22 @@ class CheckoutVC: UIViewController {
     }
     
     @IBAction func submitButton(_ sender: Any) {
+        if (addressTxtFld.text?.isEmpty)!{
+            
+            ValidateData(strMessage: " Please enter address")
+        }
+        else if (citytxtFld.text?.isEmpty)!{
+            
+            ValidateData(strMessage: " Please enter city name")
+        }
+        else if (descriptionTxtView.text?.isEmpty)!{
+            
+            ValidateData(strMessage: " Please enter some description")
+        }
+        else if (descriptionTxtView.text?.isEmpty)!{
+            
+            ValidateData(strMessage: " Please enter contact number")
+        }
         checkout()
     }
     

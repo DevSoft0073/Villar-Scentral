@@ -41,6 +41,7 @@ class OrderHistoryVC: UIViewController {
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 IJProgressView.shared.hideProgressView()
                 print(response)
+                self.orderHistoryArray.removeAll()
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
@@ -109,10 +110,10 @@ extension OrderHistoryVC : UITableViewDelegate , UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderHistoryTBViewCell", for: indexPath) as! OrderHistoryTBViewCell
         cell.orderImage.sd_setImage(with: URL(string:orderHistoryArray[indexPath.row].image), placeholderImage: UIImage(named: "img"))
         cell.nameLbl.text = orderHistoryArray[indexPath.row].name
-        cell.idLbl.text = orderHistoryArray[indexPath.row].id
+        cell.idLbl.text = "ID: " + orderHistoryArray[indexPath.row].id
         cell.quantityLbl.text = orderHistoryArray[indexPath.row].quantity
         cell.deliveryDate.text = orderHistoryArray[indexPath.row].deliveryDate
-        cell.priceLbl.text = orderHistoryArray[indexPath.row].price
+        cell.priceLbl.text = "$" + orderHistoryArray[indexPath.row].price
         cell.reorderButton.addTarget(self, action: #selector(reorderButton(sender:)), for: .touchUpInside)
 
         return cell

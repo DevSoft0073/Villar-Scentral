@@ -15,8 +15,8 @@ class SideMenuVC: UIViewController {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     var timer: Timer?
-    var nameArray = ["Home","Other Products","Order History","Video tutorials","Invite","Store Locator","Settings","Logout"]
-    var imgArray = ["home","product-icon","order-history","video-tutorial","setting","store-locator","setting","logout"]
+    var nameArray = ["Home","Other Products","Order History","Video Tutorials","Invite","Store Locator","Settings","Logout"]
+    var imgArray = ["home","product-icon","order-history","video-tutorial","invitation","store-locator","setting","logout"]
     var message = String()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,11 @@ class SideMenuVC: UIViewController {
         
     }
     
-    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        profileImage.layer.masksToBounds = true
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
+    }
     
     func getData() {
         let id = UserDefaults.standard.value(forKey: "id") ?? ""
@@ -50,8 +54,8 @@ class SideMenuVC: UIViewController {
                 let status = response["status"] as? Int
                 if status == 1{
                     if let allData = response["user_details"] as? [String:Any]{
-                        self.cityLbl.text = allData["name"] as? String ?? ""
-                        self.nameLbl.text = allData["address"] as? String ?? ""
+                        self.nameLbl.text = allData["name"] as? String ?? ""
+                        self.cityLbl.text = allData["address"] as? String ?? ""
                         self.profileImage.sd_setImage(with: URL(string:allData["profile_image"] as? String ?? ""), placeholderImage: UIImage(named: "img"))
                         let url = URL(string:allData["image"] as? String ?? "")
                         if url != nil{
@@ -83,7 +87,7 @@ class SideMenuVC: UIViewController {
             alert(Constant.shared.appTitle, message: "Check internet connection", view: self)
         }
     }
-
+    
     
     func updateLocation() {
         if Reachability.isConnectedToNetwork() == true {
@@ -127,13 +131,13 @@ class SideMenuVC: UIViewController {
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
-//                    UserDefaults.standard.set(false, forKey: "tokenFString")
+                    //                    UserDefaults.standard.set(false, forKey: "tokenFString")
                     UserDefaults.standard.set(0, forKey: "tokenFString")
-
+                    
                     let appDel = UIApplication.shared.delegate as! AppDelegate
                     appDel.getLoggedUser()
-//                    UserDefaults.standard.set(false, forKey: "tokenFString")
-//                    Switcher.updateRootVC()
+                    //                    UserDefaults.standard.set(false, forKey: "tokenFString")
+                    //                    Switcher.updateRootVC()
                     
                 }else{
                     
@@ -184,21 +188,21 @@ extension SideMenuVC : UITableViewDelegate , UITableViewDataSource{
             let vc = HomeVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
         }
-        
+            
         else if(indexPath.row == 1) {
-//            let vc = OtherProductsVC.instantiate(fromAppStoryboard: .SideMenu)
-//            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
+            //            let vc = OtherProductsVC.instantiate(fromAppStoryboard: .SideMenu)
+            //            (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
             guard let url = URL(string: "https://stackoverflow.com") else { return }
             UIApplication.shared.open(url)
             
         }
-        
+            
         else if(indexPath.row == 2) {
             let vc = OrderHistoryVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
             
         }
-        
+            
         else if(indexPath.row == 3) {
             let vc = ShowAllVideosVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
@@ -209,7 +213,7 @@ extension SideMenuVC : UITableViewDelegate , UITableViewDataSource{
             if let name = URL(string: "https://itunes.apple.com/us/app/myapp/idxxxxxxxx?ls=1&mt=8"), !name.absoluteString.isEmpty {
                 let objectsToShare = [name]
                 let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-
+                
                 self.present(activityVC, animated: true, completion: nil)
             }else  {
                 // show alert for not available
@@ -217,18 +221,18 @@ extension SideMenuVC : UITableViewDelegate , UITableViewDataSource{
             }
             
         }
-        
+            
         else if(indexPath.row == 5) {
             let vc = StoreLocatorVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
             
         }
-        
+            
         else if(indexPath.row == 6) {
             let vc = ProfileVC.instantiate(fromAppStoryboard: .SideMenu)
             (sideMenuController?.rootViewController as! UINavigationController).pushViewController(vc, animated: true)
         }
-        
+            
         else if (indexPath.row == 7) {
             let dialogMessage = UIAlertController(title: Constant.shared.appTitle, message: "Are you sure you want to Logout?", preferredStyle: .alert)
             
