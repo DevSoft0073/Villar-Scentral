@@ -29,12 +29,12 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         getData()
         guard let country = CountryManager.shared.currentCountry else {
-            self.countryButton.setTitle("Pick Country", for: .normal)
+//            self.countryButton.setTitle("Pick Country", for: .normal)
             self.flagImage.isHidden = true
             return
         }
 
-        countryButton.setTitle(country.dialingCode, for: .normal)
+//        countryButton.setTitle(country.dialingCode, for: .normal)
         flagImage.image = country.flag
         countryButton.clipsToBounds = true
         // Do any additional setup after loading the view.
@@ -57,7 +57,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
            guard let self = self else { return }
 
            self.flagImage.image = country.flag
-           self.countryButton.setTitle(country.dialingCode, for: .normal)
+//           self.countryButton.setTitle(country.dialingCode, for: .normal)
 
          }
 

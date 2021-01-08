@@ -68,6 +68,7 @@ class ProfileVC: UIViewController {
                         self.emailTxtFld.text = allData["email"] as? String ?? ""
                         self.addressTxtFld.text = allData["address"] as? String ?? ""
                         self.bioTxtView.text = allData["biography"] as? String ?? ""
+                        self.nameLbl.text = allData["name"] as? String ?? ""
                         self.profileImage.sd_setImage(with: URL(string:allData["profile_image"] as? String ?? ""), placeholderImage: UIImage(named: "img"))
                         let url = URL(string:allData["profile_image"] as? String ?? "")
                         if url != nil{

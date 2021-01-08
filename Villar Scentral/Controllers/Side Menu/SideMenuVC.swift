@@ -57,7 +57,7 @@ class SideMenuVC: UIViewController {
                         self.nameLbl.text = allData["name"] as? String ?? ""
                         self.cityLbl.text = allData["email"] as? String ?? ""
                         self.profileImage.sd_setImage(with: URL(string:allData["profile_image"] as? String ?? ""), placeholderImage: UIImage(named: "img"))
-                        let url = URL(string:allData["image"] as? String ?? "")
+                        let url = URL(string:allData["profile_image"] as? String ?? "")
                         if url != nil{
                             if let data = try? Data(contentsOf: url!)
                             {
