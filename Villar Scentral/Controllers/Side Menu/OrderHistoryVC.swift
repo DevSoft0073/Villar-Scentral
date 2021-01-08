@@ -16,6 +16,7 @@ class OrderHistoryVC: UIViewController {
     var page = 1
     var lastPage = 1
     var message = String()
+    var id = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         orderHistoryTBView.separatorStyle = .none
@@ -115,6 +116,7 @@ extension OrderHistoryVC : UITableViewDelegate , UITableViewDataSource{
         cell.deliveryDate.text = orderHistoryArray[indexPath.row].deliveryDate
         cell.priceLbl.text = "$" + orderHistoryArray[indexPath.row].price
         cell.reorderButton.addTarget(self, action: #selector(reorderButton(sender:)), for: .touchUpInside)
+        cell.reorderButton.tag = indexPath.row
 
         return cell
     }
@@ -122,11 +124,12 @@ extension OrderHistoryVC : UITableViewDelegate , UITableViewDataSource{
     @objc func reorderButton(sender: UIButton) {
         
         let vc = CheckoutVC.instantiate(fromAppStoryboard: .SideMenu)
-        vc.productIDArray.append(orderHistoryArray[0].id)
+        vc.productIDArray.append(orderHistoryArray[sender.tag].id)
         self.navigationController?.pushViewController(vc, animated: true)
         
        }
     
+   
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }

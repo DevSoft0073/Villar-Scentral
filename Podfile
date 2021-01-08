@@ -15,6 +15,7 @@ target 'Villar Scentral' do
     pod 'LGSideMenuController'
     pod 'NVActivityIndicatorView'
     pod 'VersaPlayer'
+    pod 'SKCountryPicker'
 
 
   target 'Villar ScentralTests' do

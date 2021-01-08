@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CheckoutVC: UIViewController {
+class CheckoutVC: UIViewController , UITextFieldDelegate {
 
     @IBOutlet weak var contactNumberBottamLbl: UILabel!
     @IBOutlet weak var contextNumberTxtFld: UITextField!
@@ -21,6 +21,7 @@ class CheckoutVC: UIViewController {
     var productIDArray = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.contextNumberTxtFld.delegate = self
 
     }
     
@@ -47,6 +48,58 @@ class CheckoutVC: UIViewController {
         }
         checkout()
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == contextNumberTxtFld{
+        //            let allowedCharacters = CharacterSet.decimalDigits
+        //            let characterSet = CharacterSet(charactersIn: string)
+        //            return allowedCharacters.isSuperset(of: characterSet)
+                        if textField.text?.count ?? 0 <= 17 {
+                            textField.text = formatPhone(textField.text!)
+                            print(textField.text!.count)
+                            
+                            if textField.text!.count+string.count == 18 {
+                                return false
+                            }
+                            
+                            let allowedCharacters = CharacterSet.decimalDigits
+                            let characterSet = CharacterSet(charactersIn: string)
+                            return allowedCharacters.isSuperset(of: characterSet)
+
+                        }else {
+                            
+                            if textField.text?.count ?? 0 > 17 {
+                                textField.text!.removeLast()
+                            }
+                            return false
+                    }
+
+                }
+        else{
+            return true
+        }
+    }
+    
+    
+    private func formatPhone(_ number: String) -> String {
+           let cleanNumber = number.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+           let format: [Character] = ["+","X", "X", "X", " ", "X", "X", "X","X", "X", "X", "X"," ", "X", "X", "X", "X"]
+
+           var result = ""
+           var index = cleanNumber.startIndex
+           for ch in format {
+               if index == cleanNumber.endIndex {
+                   break
+               }
+               if ch == "X" {
+                   result.append(cleanNumber[index])
+                   index = cleanNumber.index(after: index)
+               } else {
+                   result.append(ch)
+               }
+           }
+           return result
+       }
     
     func checkout() {
         if Reachability.isConnectedToNetwork() == true {
@@ -85,3 +138,4 @@ class CheckoutVC: UIViewController {
         }
     }
 }
+

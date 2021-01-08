@@ -12,6 +12,7 @@ import LGSideMenuController
 
 class ProfileVC: UIViewController {
 
+    @IBOutlet weak var flagImage: UIImageView!
     @IBOutlet weak var bioTxtView: UITextView!
     @IBOutlet weak var addressTxtFld: UITextField!
     @IBOutlet weak var emailTxtFld: UITextField!
@@ -64,11 +65,11 @@ class ProfileVC: UIViewController {
                 let status = response["status"] as? Int
                 if status == 1{
                     if let allData = response["user_details"] as? [String:Any]{
-                        self.emailTxtFld.text = allData["name"] as? String ?? ""
+                        self.emailTxtFld.text = allData["email"] as? String ?? ""
                         self.addressTxtFld.text = allData["address"] as? String ?? ""
                         self.bioTxtView.text = allData["biography"] as? String ?? ""
                         self.profileImage.sd_setImage(with: URL(string:allData["profile_image"] as? String ?? ""), placeholderImage: UIImage(named: "img"))
-                        let url = URL(string:allData["image"] as? String ?? "")
+                        let url = URL(string:allData["profile_image"] as? String ?? "")
                         if url != nil{
                             if let data = try? Data(contentsOf: url!)
                             {
