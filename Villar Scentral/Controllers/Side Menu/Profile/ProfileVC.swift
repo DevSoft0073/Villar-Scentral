@@ -70,6 +70,8 @@ class ProfileVC: UIViewController {
                         self.bioTxtView.text = allData["biography"] as? String ?? ""
                         self.nameLbl.text = allData["name"] as? String ?? ""
                         self.profileImage.sd_setImage(with: URL(string:allData["profile_image"] as? String ?? ""), placeholderImage: UIImage(named: "img"))
+                        self.flagImage.sd_setImage(with: URL(string:allData["country_image"] as? String ?? ""), placeholderImage: UIImage(named: "img"))
+
                         let url = URL(string:allData["profile_image"] as? String ?? "")
                         if url != nil{
                             if let data = try? Data(contentsOf: url!)
@@ -83,6 +85,20 @@ class ProfileVC: UIViewController {
                         }
                         else{
                             self.profileImage.image = UIImage(named: "img")
+                        }
+                        let urls = URL(string:allData["country_image"] as? String ?? "")
+                        if urls != nil{
+                            if let data = try? Data(contentsOf: urls!)
+                            {
+                                if let image: UIImage = (UIImage(data: data)){
+                                    self.flagImage.image = image
+                                    self.flagImage.contentMode = .scaleToFill
+                                    IJProgressView.shared.hideProgressView()
+                                }
+                            }
+                        }
+                        else{
+                            self.flagImage.image = UIImage(named: "img")
                         }
                     }
                 }else{

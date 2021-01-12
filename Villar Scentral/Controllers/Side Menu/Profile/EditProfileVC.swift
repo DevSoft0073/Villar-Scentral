@@ -24,6 +24,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
     var imagePicker: ImagePicker!
     var imagePickers = UIImagePickerController()
     var base64String = String()
+    var flagBase64 = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
@@ -35,7 +36,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
         }
 
 //        countryButton.setTitle(country.dialingCode, for: .normal)
-        flagImage.image = country.flag
+//        flagImage.image = country.flag
         countryButton.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
@@ -57,8 +58,20 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
            guard let self = self else { return }
 
            self.flagImage.image = country.flag
-//           self.countryButton.setTitle(country.dialingCode, for: .normal)
-
+            self.flagBase64 = country.flag?.toString() ?? ""
+//            print(self.flagImage.image)
+            print(self.flagBase64)
+            
+            
+//            country.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+//
+//                  addPicBtn.setImage(nil, forState: .Normal)
+//
+//                  let imageData:NSData = UIImagePNGRepresentation(profileImage.image!)!
+//                  let imageStr = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+//                  print(imageStr)
+            
+            
          }
 
          // can customize the countryPicker here e.g font and color
@@ -196,6 +209,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
                         self.bioTXtView.text = allData["biography"] as? String ?? ""
                         self.nameTxtFld.text = allData["name"] as? String ?? ""
                         self.profileImage.sd_setImage(with: URL(string:allData["profile_image"] as? String ?? ""), placeholderImage: UIImage(named: "img"))
+                        self.flagImage.sd_setImage(with: URL(string:allData["country_image"] as? String ?? ""), placeholderImage: UIImage(named: "img"))
                         let url = URL(string:allData["profile_image"] as? String ?? "")
                         if url != nil{
                             if let data = try? Data(contentsOf: url!)
@@ -209,6 +223,20 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
                         }
                         else{
                             self.profileImage.image = UIImage(named: "img")
+                        }
+                        let urls = URL(string:allData["country_image"] as? String ?? "")
+                        if urls != nil{
+                            if let data = try? Data(contentsOf: urls!)
+                            {
+                                if let image: UIImage = (UIImage(data: data)){
+                                    self.flagImage.image = image
+                                    self.flagImage.contentMode = .scaleToFill
+                                    IJProgressView.shared.hideProgressView()
+                                }
+                            }
+                        }
+                        else{
+                            self.flagImage.image = UIImage(named: "img")
                         }
                     }
                 }else{
@@ -238,7 +266,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
             //            var base64String = String()
             //            base64String = UserDefaults.standard.value(forKey: "imag") as? String ?? ""
             
-            let parms : [String:Any] = ["user_id": id,"email" : emailLbl.text ?? "","address" : addressLbl.text ?? "" ,"image" : self.base64String,"bio" : bioTXtView.text ?? "" ,"latitude" : "" , "longitude" : "" , "name":nameTxtFld.text ?? ""]
+            let parms : [String:Any] = ["user_id": id,"email" : emailLbl.text ?? "","address" : addressLbl.text ?? "" ,"image" : self.base64String,"bio" : bioTXtView.text ?? "" ,"latitude" : "" , "longitude" : "" , "name":nameTxtFld.text ?? "","country_image" : self.flagBase64]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 IJProgressView.shared.hideProgressView()
@@ -276,3 +304,18 @@ extension EditProfileVC: ImagePickerDelegate {
         self.profileImage.image = image
     }
 }
+
+
+extension String {
+        func fromBase64() -> String? {
+                guard let data = Data(base64Encoded: self) else {
+                        return nil
+                }
+                return String(data: data, encoding: .utf8)
+        }
+        func toBase64() -> String {
+                return Data(self.utf8).base64EncodedString()
+        }
+}
+
+
