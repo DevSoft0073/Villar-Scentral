@@ -21,6 +21,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
     @IBOutlet weak var emailLbl: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
     var message = String()
+    var name = String()
     var imagePicker: ImagePicker!
     var imagePickers = UIImagePickerController()
     var base64String = String()
@@ -58,19 +59,10 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
            guard let self = self else { return }
 
            self.flagImage.image = country.flag
+            UserDefaults.standard.setValue(country.countryName, forKey: "name")
             self.flagBase64 = country.flag?.toString() ?? ""
 //            print(self.flagImage.image)
             print(self.flagBase64)
-            
-            
-//            country.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-//
-//                  addPicBtn.setImage(nil, forState: .Normal)
-//
-//                  let imageData:NSData = UIImagePNGRepresentation(profileImage.image!)!
-//                  let imageStr = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
-//                  print(imageStr)
-            
             
          }
 
@@ -266,7 +258,8 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
             //            var base64String = String()
             //            base64String = UserDefaults.standard.value(forKey: "imag") as? String ?? ""
             
-            let parms : [String:Any] = ["user_id": id,"email" : emailLbl.text ?? "","address" : addressLbl.text ?? "" ,"image" : self.base64String,"bio" : bioTXtView.text ?? "" ,"latitude" : "" , "longitude" : "" , "name":nameTxtFld.text ?? "","country_image" : self.flagBase64]
+            let countryName = UserDefaults.standard.value(forKey: "name")
+            let parms : [String:Any] = ["user_id": id,"email" : emailLbl.text ?? "","address" : addressLbl.text ?? "" ,"image" : self.base64String,"bio" : bioTXtView.text ?? "" ,"latitude" : "" , "longitude" : "" , "name":nameTxtFld.text ?? "","country_image" : self.flagBase64 ,"country_name" : countryName ?? ""]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 IJProgressView.shared.hideProgressView()
@@ -280,6 +273,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
                         let story = UIStoryboard(name: "SideMenu", bundle: nil)
                         let rootViewController:UIViewController = story.instantiateViewController(withIdentifier: "SideMenuControllerID")
                         self.navigationController?.pushViewController(rootViewController, animated: true)
+                        UserDefaults.standard.removeObject(forKey: "name")
                     }
                 }else{
                     IJProgressView.shared.hideProgressView()

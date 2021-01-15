@@ -23,13 +23,17 @@ class SideMenuVC: UIViewController {
         
         settingTBView.separatorStyle = .none
         timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
-        getData()
+       
     }
     
     @objc func fireTimer() {
         
         self.updateLocation()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -55,7 +59,7 @@ class SideMenuVC: UIViewController {
                 if status == 1{
                     if let allData = response["user_details"] as? [String:Any]{
                         self.nameLbl.text = allData["name"] as? String ?? ""
-                        self.cityLbl.text = allData["email"] as? String ?? ""
+                        self.cityLbl.text = allData["country_name"] as? String ?? ""
                         self.profileImage.sd_setImage(with: URL(string:allData["profile_image"] as? String ?? ""), placeholderImage: UIImage(named: "img"))
                         let url = URL(string:allData["profile_image"] as? String ?? "")
                         if url != nil{

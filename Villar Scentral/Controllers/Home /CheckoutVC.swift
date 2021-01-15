@@ -18,6 +18,7 @@ class CheckoutVC: UIViewController , UITextFieldDelegate {
     @IBOutlet weak var addressTxtFld: UITextField!
     @IBOutlet weak var productName: UITextField!
     var message = String()
+    var quantity = String()
     var productIDArray = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
