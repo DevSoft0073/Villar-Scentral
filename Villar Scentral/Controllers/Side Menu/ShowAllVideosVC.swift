@@ -120,7 +120,7 @@ extension ShowAllVideosVC : UITableViewDelegate , UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 220
+        return 300
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 //        if page <= lastPage{

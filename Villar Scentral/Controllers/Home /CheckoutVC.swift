@@ -50,6 +50,24 @@ class CheckoutVC: UIViewController , UITextFieldDelegate {
         checkout()
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == addressTxtFld {
+            addressBottamlbl.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+            cityBottamlbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            contactNumberBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            
+        } else if textField == citytxtFld{
+            addressBottamlbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            cityBottamlbl.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+            contactNumberBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            
+        } else if textField == contextNumberTxtFld {
+            addressBottamlbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            cityBottamlbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            contactNumberBottamLbl.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        }
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == contextNumberTxtFld{
         //            let allowedCharacters = CharacterSet.decimalDigits
