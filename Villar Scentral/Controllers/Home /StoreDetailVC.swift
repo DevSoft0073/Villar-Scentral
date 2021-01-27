@@ -30,6 +30,7 @@ class StoreDetailVC: UIViewController {
         addressLbl.text = address
         storeDetails()
         ratingView.type = .wholeRatings
+        ratingView.isUserInteractionEnabled = false
     }
     @IBAction func backbutton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

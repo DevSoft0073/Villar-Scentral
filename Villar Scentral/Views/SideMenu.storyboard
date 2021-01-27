@@ -510,7 +510,7 @@
                                 <rect key="frame" x="0.0" y="62.5" width="320" height="505.5"/>
                                 <color key="backgroundColor" red="0.090185977520000002" green="0.090201936659999996" blue="0.090178661049999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderHistoryTBViewCell" rowHeight="134" id="8Sg-6I-7fE" customClass="OrderHistoryTBViewCell" customModule="Villar_Scentral" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OrderHistoryTBViewCell" rowHeight="134" id="8Sg-6I-7fE" customClass="OrderHistoryTBViewCell" customModule="Villar_Scentral" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="134"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Sg-6I-7fE" id="LmL-Dc-io4">
@@ -562,8 +562,8 @@
                                                             </constraints>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$150.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjX-Qk-s6u">
-                                                            <rect key="frame" x="257" y="9" width="53" height="18.5"/>
-                                                            <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="14"/>
+                                                            <rect key="frame" x="256" y="9" width="54" height="23"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                                             <color key="textColor" red="0.186539501" green="0.74840897319999999" blue="0.84970349069999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1928,7 +1928,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fk4-LA-EaS">
                                 <rect key="frame" x="0.0" y="62.5" width="320" height="505.5"/>
-                                <color key="backgroundColor" red="0.090185977520000002" green="0.090201936659999996" blue="0.090178661049999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="StoreLocatorTBViewCll" rowHeight="111" id="CB8-cR-9U5" customClass="StoreLocatorTBViewCll" customModule="Villar_Scentral" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="111"/>
@@ -2172,10 +2172,10 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video" translatesAutoresizingMaskIntoConstraints="NO" id="Rb0-EP-pVu">
                                                     <rect key="frame" x="136" y="100.5" width="48" height="45.5"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqn-U9-oFz">
-                                                    <rect key="frame" x="283" y="207" width="26" height="18.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.19" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqn-U9-oFz">
+                                                    <rect key="frame" x="270.5" y="202.5" width="38.5" height="23"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -2198,6 +2198,7 @@
                                                 <constraint firstItem="hCH-qq-J00" firstAttribute="width" secondItem="jWa-iC-Pas" secondAttribute="width" id="dv0-gL-S0M"/>
                                                 <constraint firstItem="Rb0-EP-pVu" firstAttribute="height" secondItem="jWa-iC-Pas" secondAttribute="height" multiplier="0.15" id="mDg-7t-6Jm"/>
                                                 <constraint firstItem="0MH-Dc-yZX" firstAttribute="height" secondItem="jWa-iC-Pas" secondAttribute="height" multiplier="0.09" id="qIG-jx-stJ"/>
+                                                <constraint firstItem="hqn-U9-oFz" firstAttribute="width" secondItem="jWa-iC-Pas" secondAttribute="width" multiplier="0.12" id="sVO-3O-MMz"/>
                                                 <constraint firstItem="hqn-U9-oFz" firstAttribute="trailing" secondItem="jWa-iC-Pas" secondAttribute="trailingMargin" constant="5" id="wDI-c9-67M"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -2814,7 +2815,7 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crS-ZG-klP">
                                     <rect key="frame" x="0.0" y="0.0" width="379" height="116.5"/>
-                                    <color key="backgroundColor" red="0.090185977520000002" green="0.090201936659999996" blue="0.090178661049999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZ2-cq-e3n" userLabel="Controls View">
                                     <rect key="frame" x="0.0" y="116.5" width="379" height="142.5"/>
@@ -2847,7 +2848,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </button>
                                         <slider opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ST0-vw-Kga" customClass="VersaSeekbarSlider" customModule="VersaPlayer">
-                                            <rect key="frame" x="-2" y="130" width="383" height="15.5"/>
+                                            <rect key="frame" x="-2" y="140" width="383" height="15.5"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="minimumTrackTintColor" red="0.43001104849999999" green="0.8085697154" blue="0.86498651650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2914,7 +2915,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.090185977520000002" green="0.090201936659999996" blue="0.090178661049999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="eWf-vb-O7A" firstAttribute="leading" secondItem="9R3-i9-rVN" secondAttribute="trailing" constant="5" id="2QA-15-0fJ"/>
                                         <constraint firstItem="eWf-vb-O7A" firstAttribute="width" secondItem="9R3-i9-rVN" secondAttribute="width" id="3gE-z7-jdN"/>
@@ -2932,7 +2933,7 @@
                                         <constraint firstItem="0PR-MU-eGa" firstAttribute="centerY" secondItem="7tl-ym-Icr" secondAttribute="centerY" id="Uph-8B-8oJ"/>
                                         <constraint firstItem="dUw-iy-Gc6" firstAttribute="leading" secondItem="IMz-Ao-XsR" secondAttribute="trailing" constant="15" id="WxP-yD-0bM"/>
                                         <constraint firstItem="7tl-ym-Icr" firstAttribute="centerX" secondItem="jZ2-cq-e3n" secondAttribute="centerX" id="YtP-W8-UtU"/>
-                                        <constraint firstItem="ST0-vw-Kga" firstAttribute="top" secondItem="7tl-ym-Icr" secondAttribute="bottom" constant="85" id="ZW3-qM-ITW"/>
+                                        <constraint firstItem="ST0-vw-Kga" firstAttribute="top" secondItem="7tl-ym-Icr" secondAttribute="bottom" constant="95" id="ZW3-qM-ITW"/>
                                         <constraint firstItem="9R3-i9-rVN" firstAttribute="leading" secondItem="jZ2-cq-e3n" secondAttribute="leading" constant="5" id="aAf-LY-a9C"/>
                                         <constraint firstItem="ST0-vw-Kga" firstAttribute="leading" secondItem="jZ2-cq-e3n" secondAttribute="leading" id="bsu-E2-kCm"/>
                                         <constraint firstItem="ST0-vw-Kga" firstAttribute="height" secondItem="jZ2-cq-e3n" secondAttribute="height" multiplier="0.1" id="cDs-J4-Gie"/>
@@ -3369,25 +3370,25 @@
     </scenes>
     <designables>
         <designable name="0PR-MU-eGa">
-            <size key="intrinsicContentSize" width="128" height="128"/>
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="7tl-ym-Icr">
-            <size key="intrinsicContentSize" width="75" height="75"/>
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="IMz-Ao-XsR">
-            <size key="intrinsicContentSize" width="128" height="128"/>
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="NUQ-Cv-QAH">
-            <size key="intrinsicContentSize" width="128" height="128"/>
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="dUw-iy-Gc6">
-            <size key="intrinsicContentSize" width="101" height="99"/>
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="fhv-lq-FZ6">
-            <size key="intrinsicContentSize" width="128" height="128"/>
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="vMI-El-6Ah">
-            <size key="intrinsicContentSize" width="101" height="99"/>
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
     </designables>
     <resources>

@@ -169,7 +169,19 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
     
     
     @IBAction func saveButton(_ sender: Any) {
-        editProfile()
+        if (nameTxtFld.text?.isEmpty)!{
+
+            ValidateData(strMessage: "Name should not be empty")
+            
+        }  else if (emailLbl.text?.isEmpty)!{
+
+            ValidateData(strMessage: "Email should not be empty")
+            
+        }else{
+            
+            editProfile()
+        }
+        
     }
     
     
