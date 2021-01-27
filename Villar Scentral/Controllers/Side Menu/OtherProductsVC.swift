@@ -34,14 +34,19 @@ class OtherProductsVC: UIViewController {
     
     @IBAction func nextButton(_ sender: Any) {
         let filterArray = self.productListingArray.filter({$0.selectedCell == true})
+        print(filterArray)
         if filterArray.count > 0{
-            print(filterArray)
-            let vc = OfferDetailVC.instantiate(fromAppStoryboard: .SideMenu)
-            vc.productID = filterArray[0].product_id
-            vc.price = filterArray[0].price
-            vc.name = filterArray[0].name
-            vc.quantity = "\(count)"
-            self.navigationController?.pushViewController(vc, animated: true)
+            if count > 0 {
+                let vc = OfferDetailVC.instantiate(fromAppStoryboard: .SideMenu)
+                vc.productID = filterArray[0].product_id
+                vc.price = filterArray[0].price
+                vc.name = filterArray[0].name
+                vc.quantity = "\(count)"
+                self.navigationController?.pushViewController(vc, animated: true)
+            }else{
+                alert(Constant.shared.appTitle, message: "Please increase quantity from 0 to order product", view: self)
+            }
+           
         }else{
             alert(Constant.shared.appTitle, message: "Please select atleast one product", view: self)
         }
@@ -97,9 +102,9 @@ class OtherProductsVC: UIViewController {
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 IJProgressView.shared.hideProgressView()
                 print(response)
+                self.productListingArray.removeAll()
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
-//                self.productListingArray.removeAll()
                     if status == 1{
                         for obj in response["product_detail"] as? [[String:Any]] ?? [[:]]{
                             self.productListingArray.append(ProductsData(productImage: obj["image"] as? String ?? "", name: obj["product_name"] as? String ?? "", quantity: "0", selectedCell: false,price: obj["price"] as? String ?? "", product_id: obj["product_id"] as? String ?? "", description: obj["description"] as? String ?? ""))

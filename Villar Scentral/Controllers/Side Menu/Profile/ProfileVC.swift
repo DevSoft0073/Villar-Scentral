@@ -98,7 +98,7 @@ class ProfileVC: UIViewController {
                             }
                         }
                         else{
-                            self.flagImage.image = UIImage(named: "img")
+                            self.flagImage.image = UIImage(named: "flag")
                         }
                     }
                 }else{

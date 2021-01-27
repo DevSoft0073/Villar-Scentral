@@ -228,7 +228,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
                             }
                         }
                         else{
-                            self.flagImage.image = UIImage(named: "img")
+                            self.flagImage.image = UIImage(named: "flag")
                         }
                     }
                 }else{
@@ -270,10 +270,11 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
                         IJProgressView.shared.hideProgressView()
                     }
                     showAlertMessage(title: Constant.shared.appTitle, message: self.message, okButton: "Ok", controller: self) {
-                        let story = UIStoryboard(name: "SideMenu", bundle: nil)
-                        let rootViewController:UIViewController = story.instantiateViewController(withIdentifier: "SideMenuControllerID")
-                        self.navigationController?.pushViewController(rootViewController, animated: true)
-                        UserDefaults.standard.removeObject(forKey: "name")
+                        self.navigationController?.popViewController(animated: true)
+//                        let story = UIStoryboard(name: "SideMenu", bundle: nil)
+//                        let rootViewController:UIViewController = story.instantiateViewController(withIdentifier: "SideMenuControllerID")
+//                        self.navigationController?.pushViewController(rootViewController, animated: true)
+//                        UserDefaults.standard.removeObject(forKey: "name")
                     }
                 }else{
                     IJProgressView.shared.hideProgressView()
