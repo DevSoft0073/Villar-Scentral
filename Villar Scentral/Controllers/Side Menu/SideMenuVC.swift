@@ -59,7 +59,7 @@ class SideMenuVC: UIViewController {
                 if status == 1{
                     if let allData = response["user_details"] as? [String:Any]{
                         self.nameLbl.text = "Welcome" + " \(allData["name"] as? String ?? "")"
-                        self.cityLbl.text = allData["country_name"] as? String ?? ""
+                        self.cityLbl.text = allData["country_name"] as? String ?? "Canada"
                         self.profileImage.sd_setImage(with: URL(string:allData["profile_image"] as? String ?? ""), placeholderImage: UIImage(named: "img"))
                         let url = URL(string:allData["profile_image"] as? String ?? "")
                         if url != nil{

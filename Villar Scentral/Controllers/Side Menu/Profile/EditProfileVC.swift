@@ -11,6 +11,7 @@ import SKCountryPicker
 
 class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var bioView: UIView!
     @IBOutlet weak var countryButton: UIButton!
     @IBOutlet weak var flagImage: UIImageView!
     @IBOutlet weak var nameTxtFld: UITextField!
@@ -78,11 +79,21 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
         if textField == emailLbl {
             emailBottamLbl.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
             addressBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            bioView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             
             
         } else if textField == addressLbl{
             emailBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             addressBottamLbl.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+            bioView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView == bioTXtView{
+            bioView.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+            emailBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            addressBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
     }
     

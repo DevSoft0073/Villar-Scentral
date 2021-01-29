@@ -18,14 +18,16 @@ class OtherProductsVC: UIViewController {
     var chekAddRemove = Bool()
     var page = 1
     var lastPage = 1
+    var matchIndex = 0
+    var selectedIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        produtsListCollectionView.reloadData()
+        getAllProducts()
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
-        getAllProducts()
+       
     }
 
     @IBAction func menuOpen(_ sender: Any) {
@@ -36,17 +38,20 @@ class OtherProductsVC: UIViewController {
         let filterArray = self.productListingArray.filter({$0.selectedCell == true})
         print(filterArray)
         if filterArray.count > 0{
-            if count > 0 {
-                let vc = OfferDetailVC.instantiate(fromAppStoryboard: .SideMenu)
-                vc.productID = filterArray[0].product_id
-                vc.price = filterArray[0].price
-                vc.name = filterArray[0].name
-                vc.quantity = "\(count)"
-                self.navigationController?.pushViewController(vc, animated: true)
+            if selectedIndex == matchIndex {
+                if count > 0 {
+                    let vc = OfferDetailVC.instantiate(fromAppStoryboard: .SideMenu)
+                    vc.productID = filterArray[0].product_id
+                    vc.price = filterArray[0].price
+                    vc.name = filterArray[0].name
+                    vc.quantity = "\(count)"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }else{
+                    alert(Constant.shared.appTitle, message: "Please increase quantity from 0 to order product", view: self)
+                }
             }else{
-                alert(Constant.shared.appTitle, message: "Please increase quantity from 0 to order product", view: self)
+                alert(Constant.shared.appTitle, message: "You can only place the product which have been selected and which quantity more then 0", view: self)
             }
-           
         }else{
             alert(Constant.shared.appTitle, message: "Please select atleast one product", view: self)
         }
@@ -60,11 +65,13 @@ class OtherProductsVC: UIViewController {
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.addRemoveProduct
             print(url)
+            let filterArray = self.productListingArray.filter({$0.selectedCell == true})
+            print(filterArray)
             var parms = [String:Any]()
             if chekAddRemove == true{
-                parms = ["user_id":id,"product_id":productListingArray[0].product_id,"type":"add"]
+                parms = ["user_id":id,"product_id":filterArray[0].product_id,"type":"add"]
             }else{
-                parms = ["user_id":id,"product_id":productListingArray[0].product_id,"type":"remove"]
+                parms = ["user_id":id,"product_id":filterArray[0].product_id,"type":"remove"]
             }
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
@@ -203,8 +210,29 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
         let indexPath = IndexPath(row: sender.tag, section: 0)
         let cell = collectionView(produtsListCollectionView, cellForItemAt: indexPath) as! ProdutsListCollectionViewCell
         cell.quantityLbl.text = "\(count)"
+        
+        
+        if self.productListingArray[indexPath.row].selectedCell{
+            self.productListingArray[indexPath.row].selectedCell = !self.productListingArray[indexPath.row].selectedCell
+            self.productListingArray = self.productListingArray.map({ (data) -> ProductsData in
+                var mutableData = data
+                matchIndex = indexPath.row
+                mutableData.selectedCell = false
+                return mutableData
+            })
+        }else{
+            self.productListingArray = self.productListingArray.map({ (data) -> ProductsData in
+                var mutableData = data
+                mutableData.selectedCell = false
+                matchIndex = indexPath.row
+                return mutableData
+            })
+            self.productListingArray[indexPath.row].selectedCell = !self.productListingArray[indexPath.row].selectedCell
+        }
+        
         DispatchQueue.main.async {
             self.produtsListCollectionView.reloadData()
+            self.selectedIndex = indexPath.row
             self.addRemoveProducts()
 
         }
@@ -223,8 +251,31 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
             let indexPath = IndexPath(row: sender.tag, section: 0)
             let cell = collectionView(produtsListCollectionView, cellForItemAt: indexPath) as! ProdutsListCollectionViewCell
             cell.quantityLbl.text = "\(count)"
+            
+            
+            if self.productListingArray[indexPath.row].selectedCell{
+                self.productListingArray[indexPath.row].selectedCell = !self.productListingArray[indexPath.row].selectedCell
+                self.productListingArray = self.productListingArray.map({ (data) -> ProductsData in
+                    var mutableData = data
+                    matchIndex = indexPath.row
+                    mutableData.selectedCell = false
+                    return mutableData
+                })
+            }else{
+                self.productListingArray = self.productListingArray.map({ (data) -> ProductsData in
+                    var mutableData = data
+                    mutableData.selectedCell = false
+                    matchIndex = indexPath.row
+                    return mutableData
+                })
+                self.productListingArray[indexPath.row].selectedCell = !self.productListingArray[indexPath.row].selectedCell
+            }
+            
+            
             DispatchQueue.main.async {
                 self.produtsListCollectionView.reloadData()
+                self.selectedIndex = indexPath.row
+                
                 self.addRemoveProducts()
             }
 
@@ -263,6 +314,7 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
             self.productListingArray[indexPath.row].selectedCell = !self.productListingArray[indexPath.row].selectedCell
             self.productListingArray = self.productListingArray.map({ (data) -> ProductsData in
                 var mutableData = data
+//                matchIndex = indexPath.row
                 mutableData.selectedCell = false
                 return mutableData
             })
@@ -270,6 +322,7 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
             self.productListingArray = self.productListingArray.map({ (data) -> ProductsData in
                 var mutableData = data
                 mutableData.selectedCell = false
+                matchIndex = indexPath.row
                 return mutableData
             })
             self.productListingArray[indexPath.row].selectedCell = !self.productListingArray[indexPath.row].selectedCell
