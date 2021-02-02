@@ -17,6 +17,17 @@ class ShowAllVideosVC: UIViewController {
     var message = String()
     var page = 1
     var lastPage = 1
+    
+    
+    //For Pagination
+    var isDataLoading:Bool=false
+    var pageNo:Int=0
+    var limit:Int=20
+    var offset:Int=0 //pageNo*limit
+    var didEndReached:Bool=false
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -68,9 +79,40 @@ class ShowAllVideosVC: UIViewController {
         
     }
     
+    
     @IBAction func showMenu(_ sender: Any) {
         sideMenuController?.showLeftViewAnimated()
 
+    }
+    
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+
+        print("scrollViewWillBeginDragging")
+        isDataLoading = false
+    }
+
+
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("scrollViewDidEndDecelerating")
+    }
+    
+    
+    //Pagination
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+
+        print("scrollViewDidEndDragging")
+        if ((showAllVideosTBView.contentOffset.y + showAllVideosTBView.frame.size.height) >= showAllVideosTBView.contentSize.height)
+        {
+            if !isDataLoading{
+                isDataLoading = true
+                self.pageNo=self.pageNo+1
+                self.limit=self.limit+10
+                self.offset=self.limit * self.pageNo
+                getAllVideos()
+            }
+        }
     }
     
 }
@@ -122,15 +164,15 @@ extension ShowAllVideosVC : UITableViewDelegate , UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        if page <= lastPage{
-            let bottamEdge = Float(self.showAllVideosTBView.contentOffset.y + self.showAllVideosTBView.frame.size.height)
-            if bottamEdge >= Float(self.showAllVideosTBView.contentSize.height) && videoDataArray.count > 0 {
-                page = page + 1
-                getAllVideos()
-//            }
-        }
-    }
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+////        if page <= lastPage{
+//            let bottamEdge = Float(self.showAllVideosTBView.contentOffset.y + self.showAllVideosTBView.frame.size.height)
+//            if bottamEdge >= Float(self.showAllVideosTBView.contentSize.height) && videoDataArray.count > 0 {
+//                page = page + 1
+//                getAllVideos()
+////            }
+//        }
+//    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = VideoPlayVC.instantiate(fromAppStoryboard: .SideMenu)
         vc.videoId = videoDataArray[0].videoId

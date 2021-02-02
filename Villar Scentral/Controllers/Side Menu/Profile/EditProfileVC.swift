@@ -64,6 +64,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
             self.flagBase64 = country.flag?.toString() ?? ""
 //            print(self.flagImage.image)
             print(self.flagBase64)
+            UserDefaults.standard.setValue(self.base64String, forKey: "flagImage")
             
          }
 
@@ -91,7 +92,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView == bioTXtView{
-            bioView.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+            bioView.borderColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
             emailBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             addressBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
@@ -277,12 +278,13 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
             print("Internet connection OK")
             IJProgressView.shared.showProgressView()
             let url = Constant.shared.baseUrl + Constant.shared.EditProfile
+            let flagImgData = UserDefaults.standard.value(forKey: "flagImage")
             print(url)
             //            var base64String = String()
             //            base64String = UserDefaults.standard.value(forKey: "imag") as? String ?? ""
             
             let countryName = UserDefaults.standard.value(forKey: "name")
-            let parms : [String:Any] = ["user_id": id,"email" : emailLbl.text ?? "","address" : addressLbl.text ?? "" ,"image" : self.base64String,"bio" : bioTXtView.text ?? "" ,"latitude" : "" , "longitude" : "" , "name":nameTxtFld.text ?? "","country_image" : self.flagBase64 ,"country_name" : countryName ?? ""]
+            let parms : [String:Any] = ["user_id": id,"email" : emailLbl.text ?? "","address" : addressLbl.text ?? "" ,"image" : self.base64String,"bio" : bioTXtView.text ?? "" ,"latitude" : "" , "longitude" : "" , "name":nameTxtFld.text ?? "","country_image" : flagImgData ?? "" ,"country_name" : countryName ?? ""]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 IJProgressView.shared.hideProgressView()

@@ -17,6 +17,16 @@ class OrderHistoryVC: UIViewController {
     var lastPage = 1
     var message = String()
     var id = String()
+    
+    //For Pagination
+    var isDataLoading:Bool=false
+    var pageNo:Int=0
+    var limit:Int=20
+    var offset:Int=0 //pageNo*limit
+    var didEndReached:Bool=false
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         orderHistoryTBView.separatorStyle = .none
@@ -28,6 +38,35 @@ class OrderHistoryVC: UIViewController {
     @IBAction func openMenu(_ sender: Any) {
         sideMenuController?.showLeftViewAnimated()
         
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+
+        print("scrollViewWillBeginDragging")
+        isDataLoading = false
+    }
+
+
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("scrollViewDidEndDecelerating")
+    }
+    
+    
+    //Pagination
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+
+        print("scrollViewDidEndDragging")
+        if ((orderHistoryTBView.contentOffset.y + orderHistoryTBView.frame.size.height) >= orderHistoryTBView.contentSize.height)
+        {
+            if !isDataLoading{
+                isDataLoading = true
+                self.pageNo=self.pageNo+1
+                self.limit=self.limit+10
+                self.offset=self.limit * self.pageNo
+                orderHistory()
+            }
+        }
     }
     
     func orderHistory()  {
@@ -50,6 +89,7 @@ class OrderHistoryVC: UIViewController {
                         self.orderHistoryArray.append(OrderHistoryData(name: obj["product_name"] as? String ?? "Orinted Luz", id: obj["product_id"] as? String ?? "", quantity: obj["Quantity"] as? String ?? "", deliveryDate: obj["Deliver_by"] as? String ?? "", price: obj["price"] as? String ?? "$123.00", image: obj["product_image"] as? String ?? "img"))
                     }
                     self.orderHistoryTBView.reloadData()
+
                 }else{
                     IJProgressView.shared.hideProgressView()
                 }
@@ -133,14 +173,24 @@ extension OrderHistoryVC : UITableViewDelegate , UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        if page <= lastPage{
-            let bottamEdge = Float(self.orderHistoryTBView.contentOffset.y + self.orderHistoryTBView.frame.size.height)
-            if bottamEdge >= Float(self.orderHistoryTBView.contentSize.height) && orderHistoryArray.count > 0 {
-                page = page + 1
-                orderHistory()
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+////        if page <= lastPage{
+//            let bottamEdge = Float(self.orderHistoryTBView.contentOffset.y + self.orderHistoryTBView.frame.size.height)
+//            if bottamEdge >= Float(self.orderHistoryTBView.contentSize.height) && orderHistoryArray.count > 0 {
+//                page = page + 1
+//                self.orderHistoryArray.removeAll()
+//                orderHistory()
+////            }
+//        }
+//    }
+    
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//            if indexPath.row == orderHistoryArray.count {
+//                page = page + 1
+//                orderHistory()
 //            }
-        }
-    }
+//    }
+    
+    
 
 }

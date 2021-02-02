@@ -16,6 +16,17 @@ class StoreLocatorVC: UIViewController {
     var message = String()
     var page = 1
     var lastPage = 1
+    
+    
+    //For Pagination
+    var isDataLoading:Bool=false
+    var pageNo:Int=0
+    var limit:Int=20
+    var offset:Int=0 //pageNo*limit
+    var didEndReached:Bool=false
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,6 +44,35 @@ class StoreLocatorVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         page = 1
         storeLocator()
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+
+        print("scrollViewWillBeginDragging")
+        isDataLoading = false
+    }
+
+
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("scrollViewDidEndDecelerating")
+    }
+    
+    
+    //Pagination
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+
+        print("scrollViewDidEndDragging")
+        if ((storeLocatorTBView.contentOffset.y + storeLocatorTBView.frame.size.height) >= storeLocatorTBView.contentSize.height)
+        {
+            if !isDataLoading{
+                isDataLoading = true
+                self.pageNo=self.pageNo+1
+                self.limit=self.limit+10
+                self.offset=self.limit * self.pageNo
+                storeLocator()
+            }
+        }
     }
     
     func storeLocator()  {
@@ -112,15 +152,15 @@ extension StoreLocatorVC : UITableViewDelegate, UITableViewDataSource{
         return 120
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        if page <= lastPage{
-            let bottamEdge = Float(self.storeLocatorTBView.contentOffset.y + self.storeLocatorTBView.frame.size.height)
-            if bottamEdge >= Float(self.storeLocatorTBView.contentSize.height) && storeLocatorArray.count > 0 {
-                page = page + 1
-                storeLocator()
-//            }
-        }
-    }
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+////        if page <= lastPage{
+//            let bottamEdge = Float(self.storeLocatorTBView.contentOffset.y + self.storeLocatorTBView.frame.size.height)
+//            if bottamEdge >= Float(self.storeLocatorTBView.contentSize.height) && storeLocatorArray.count > 0 {
+//                page = page + 1
+//                storeLocator()
+////            }
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          let vc = StoreDetailVC.instantiate(fromAppStoryboard: .SideMenu)

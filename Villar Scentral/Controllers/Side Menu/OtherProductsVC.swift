@@ -20,6 +20,20 @@ class OtherProductsVC: UIViewController {
     var lastPage = 1
     var matchIndex = 0
     var selectedIndex = 0
+    var productIdArray = [String]()
+    
+    
+    
+    //For Pagination
+    var isDataLoading:Bool=false
+    var pageNo:Int=0
+    var limit:Int=20
+    var offset:Int=0 //pageNo*limit
+    var didEndReached:Bool=false
+
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getAllProducts()
@@ -32,6 +46,37 @@ class OtherProductsVC: UIViewController {
 
     @IBAction func menuOpen(_ sender: Any) {
         sideMenuController?.showLeftViewAnimated()
+    }
+    
+    
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+
+        print("scrollViewWillBeginDragging")
+        isDataLoading = false
+    }
+
+
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("scrollViewDidEndDecelerating")
+    }
+    
+    
+    //Pagination
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+
+        print("scrollViewDidEndDragging")
+        if ((produtsListCollectionView.contentOffset.y + produtsListCollectionView.frame.size.height) >= produtsListCollectionView.contentSize.height)
+        {
+            if !isDataLoading{
+                isDataLoading = true
+                self.pageNo=self.pageNo+1
+                self.limit=self.limit+10
+                self.offset=self.limit * self.pageNo
+                getAllProducts()
+            }
+        }
     }
     
     @IBAction func nextButton(_ sender: Any) {
@@ -58,6 +103,7 @@ class OtherProductsVC: UIViewController {
        
     }
     
+    
     func addRemoveProducts()  {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
@@ -66,12 +112,17 @@ class OtherProductsVC: UIViewController {
             let url = Constant.shared.baseUrl + Constant.shared.addRemoveProduct
             print(url)
             let filterArray = self.productListingArray.filter({$0.selectedCell == true})
+            for obj in filterArray {
+                productIdArray.append(obj.product_id)
+            }
             print(filterArray)
+            productIdArray.removeDuplicates()
+            print(productIdArray)
             var parms = [String:Any]()
             if chekAddRemove == true{
-                parms = ["user_id":id,"product_id":filterArray[0].product_id,"type":"add"]
+                parms = ["user_id":id,"product_id":productIdArray,"type":"add"]
             }else{
-                parms = ["user_id":id,"product_id":filterArray[0].product_id,"type":"remove"]
+                parms = ["user_id":id,"product_id":productIdArray,"type":"remove"]
             }
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
@@ -242,56 +293,61 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
     @objc func decreaseCounter(sender: UIButton) {
         //increase logic here
         chekAddRemove = false
-        count = (count - 1)
-        let currntVal = Int(productListingArray[sender.tag].quantity) ?? 0
-        if currntVal <= 1{
-        }else{
-            let newVal = currntVal - 1
-            productListingArray[sender.tag].quantity = "\(newVal)"
-            let indexPath = IndexPath(row: sender.tag, section: 0)
-            let cell = collectionView(produtsListCollectionView, cellForItemAt: indexPath) as! ProdutsListCollectionViewCell
-            cell.quantityLbl.text = "\(count)"
-            
-            
-            if self.productListingArray[indexPath.row].selectedCell{
-                self.productListingArray[indexPath.row].selectedCell = !self.productListingArray[indexPath.row].selectedCell
-                self.productListingArray = self.productListingArray.map({ (data) -> ProductsData in
-                    var mutableData = data
-                    matchIndex = indexPath.row
-                    mutableData.selectedCell = false
-                    return mutableData
-                })
+        if count >= 1{
+            count = (count - 1)
+            let currntVal = Int(productListingArray[sender.tag].quantity) ?? 0
+            if currntVal <= 1{
             }else{
-                self.productListingArray = self.productListingArray.map({ (data) -> ProductsData in
-                    var mutableData = data
-                    mutableData.selectedCell = false
-                    matchIndex = indexPath.row
-                    return mutableData
-                })
-                self.productListingArray[indexPath.row].selectedCell = !self.productListingArray[indexPath.row].selectedCell
-            }
-            
-            
-            DispatchQueue.main.async {
-                self.produtsListCollectionView.reloadData()
-                self.selectedIndex = indexPath.row
+                let newVal = currntVal - 1
+                productListingArray[sender.tag].quantity = "\(newVal)"
+                let indexPath = IndexPath(row: sender.tag, section: 0)
+                let cell = collectionView(produtsListCollectionView, cellForItemAt: indexPath) as! ProdutsListCollectionViewCell
+                cell.quantityLbl.text = "\(count)"
                 
-                self.addRemoveProducts()
-            }
+                
+                if self.productListingArray[indexPath.row].selectedCell{
+                    self.productListingArray[indexPath.row].selectedCell = !self.productListingArray[indexPath.row].selectedCell
+                    self.productListingArray = self.productListingArray.map({ (data) -> ProductsData in
+                        var mutableData = data
+                        matchIndex = indexPath.row
+                        mutableData.selectedCell = false
+                        return mutableData
+                    })
+                }else{
+                    self.productListingArray = self.productListingArray.map({ (data) -> ProductsData in
+                        var mutableData = data
+                        mutableData.selectedCell = false
+                        matchIndex = indexPath.row
+                        return mutableData
+                    })
+                    self.productListingArray[indexPath.row].selectedCell = !self.productListingArray[indexPath.row].selectedCell
+                }
+                
+                
+                DispatchQueue.main.async {
+                    self.produtsListCollectionView.reloadData()
+                    self.selectedIndex = indexPath.row
+                    
+                    self.addRemoveProducts()
+                }
 
+            }
+        }else{
+            
         }
+       
         
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        if page <= lastPage{
-            let bottamEdge = Float(self.produtsListCollectionView.contentOffset.y + self.produtsListCollectionView.frame.size.height)
-            if bottamEdge >= Float(self.produtsListCollectionView.contentSize.height) && productListingArray.count > 0 {
-                page = page + 1
-                getAllProducts()
-//            }
-        }
-    }
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+////        if page <= lastPage{
+//            let bottamEdge = Float(self.produtsListCollectionView.contentOffset.y + self.produtsListCollectionView.frame.size.height)
+//            if bottamEdge >= Float(self.produtsListCollectionView.contentSize.height) && productListingArray.count > 0 {
+//                page = page + 1
+//                getAllProducts()
+////            }
+//        }
+//    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
@@ -328,5 +384,16 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
             self.productListingArray[indexPath.row].selectedCell = !self.productListingArray[indexPath.row].selectedCell
         }
         collectionView.reloadData()
+    }
+}
+
+extension RangeReplaceableCollection where Element: Hashable {
+    var orderedSet: Self {
+        var set = Set<Element>()
+        return filter { set.insert($0).inserted }
+    }
+    mutating func removeDuplicates() {
+        var set = Set<Element>()
+        removeAll { !set.insert($0).inserted }
     }
 }

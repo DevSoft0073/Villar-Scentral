@@ -13,6 +13,19 @@ class NotificationVC: UIViewController {
     var message = String()
     var page = Int()
     var lastPage = Bool()
+    
+    
+    
+    //For Pagination
+    var isDataLoading:Bool=false
+    var pageNo:Int=0
+    var limit:Int=20
+    var offset:Int=0 //pageNo*limit
+    var didEndReached:Bool=false
+
+    
+    
+    
     @IBOutlet weak var notificationTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +47,35 @@ class NotificationVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         page = 1
         notificationData()
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+
+        print("scrollViewWillBeginDragging")
+        isDataLoading = false
+    }
+
+
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("scrollViewDidEndDecelerating")
+    }
+    
+    
+    //Pagination
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+
+        print("scrollViewDidEndDragging")
+        if ((notificationTableView.contentOffset.y + notificationTableView.frame.size.height) >= notificationTableView.contentSize.height)
+        {
+            if !isDataLoading{
+                isDataLoading = true
+                self.pageNo=self.pageNo+1
+                self.limit=self.limit+10
+                self.offset=self.limit * self.pageNo
+                notificationData()
+            }
+        }
     }
     
     func notificationData()  {
@@ -101,15 +143,15 @@ extension NotificationVC : UITableViewDelegate, UITableViewDataSource{
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        if page <= lastPage{
-            let bottamEdge = Float(self.notificationTableView.contentOffset.y + self.notificationTableView.frame.size.height)
-            if bottamEdge >= Float(self.notificationTableView.contentSize.height) && notificationArray.count > 0 {
-                page = page + 1
-                notificationData()
-//            }
-        }
-    }
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+////        if page <= lastPage{
+//            let bottamEdge = Float(self.notificationTableView.contentOffset.y + self.notificationTableView.frame.size.height)
+//            if bottamEdge >= Float(self.notificationTableView.contentSize.height) && notificationArray.count > 0 {
+//                page = page + 1
+//                notificationData()
+////            }
+//        }
+//    }
     
 }
 
