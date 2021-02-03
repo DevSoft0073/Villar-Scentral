@@ -20,6 +20,7 @@ class OfferDetailVC: UIViewController {
     var price = String()
     var name = String()
     var quantity = String()
+    var productIDArray = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,7 +72,7 @@ class OfferDetailVC: UIViewController {
     
     @IBAction func gotoOrderAcceptedVC(_ sender: Any) {
         let vc = CheckoutVC.instantiate(fromAppStoryboard: .SideMenu)
-        vc.productIDArray.append(productID)
+        vc.productIDArray = productIDArray
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -20,20 +20,21 @@ class SideMenuVC: UIViewController {
     var message = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getData()
         settingTBView.separatorStyle = .none
-        timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
        
     }
     
     @objc func fireTimer() {
         
         self.updateLocation()
+        getData()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        getData()
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,20 +47,20 @@ class SideMenuVC: UIViewController {
         let id = UserDefaults.standard.value(forKey: "id") ?? ""
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
-            IJProgressView.shared.showProgressView()
+//            IJProgressView.shared.showProgressView()
             let signInUrl = Constant.shared.baseUrl + Constant.shared.profile
             print(signInUrl)
             let parms : [String:Any] = ["user_id" : id]
             print(parms)
             AFWrapperClass.requestPOSTURL(signInUrl, params: parms, success: { (response) in
-                IJProgressView.shared.hideProgressView()
+//                IJProgressView.shared.hideProgressView()
                 print(response)
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
                     if let allData = response["user_details"] as? [String:Any]{
                         self.nameLbl.text = "Welcome" + " \(allData["name"] as? String ?? "")"
-                        self.cityLbl.text = allData["country_name"] as? String ?? "Canada"
+                        self.cityLbl.text = allData["country_name"] as? String
                         self.profileImage.sd_setImage(with: URL(string:allData["profile_image"] as? String ?? ""), placeholderImage: UIImage(named: "img"))
                         let url = URL(string:allData["profile_image"] as? String ?? "")
                         if url != nil{
@@ -77,11 +78,11 @@ class SideMenuVC: UIViewController {
                         }
                     }
                 }else{
-                    IJProgressView.shared.hideProgressView()
+//                    IJProgressView.shared.hideProgressView()
                     alert(Constant.shared.appTitle, message: self.message, view: self)
                 }
             }) { (error) in
-                IJProgressView.shared.hideProgressView()
+//                IJProgressView.shared.hideProgressView()
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }

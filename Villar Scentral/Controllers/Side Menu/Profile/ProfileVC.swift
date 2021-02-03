@@ -23,7 +23,6 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         emailTxtFld.isUserInteractionEnabled = false
         addressTxtFld.isUserInteractionEnabled = false
-        bioTxtView.isUserInteractionEnabled = false
 
     }
     

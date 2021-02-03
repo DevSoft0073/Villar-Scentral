@@ -59,13 +59,11 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
 
            guard let self = self else { return }
 
-           self.flagImage.image = country.flag
+            self.flagImage.image = country.flag
             UserDefaults.standard.setValue(country.countryName, forKey: "name")
             self.flagBase64 = country.flag?.toString() ?? ""
-//            print(self.flagImage.image)
-            print(self.flagBase64)
-            UserDefaults.standard.setValue(self.base64String, forKey: "flagImage")
-            
+            UserDefaults.standard.setValue(country.flag?.toString() ?? "", forKey: "flagImage")
+            print(UserDefaults.standard.value(forKey: "flagImage"))
          }
 
          // can customize the countryPicker here e.g font and color
@@ -80,13 +78,13 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
         if textField == emailLbl {
             emailBottamLbl.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
             addressBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            bioView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            bioView.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             
             
         } else if textField == addressLbl{
             emailBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             addressBottamLbl.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-            bioView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            bioView.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
     }
     

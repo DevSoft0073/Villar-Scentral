@@ -7,96 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D6BDFBA0-B659-40FE-96DF-2C981CA96BD0"
+            uuid = "9542EFF8-1F20-44F6-B0D9-F69DFD62A4EA"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Villar Scentral/Controllers/Side Menu/OtherProductsVC.swift"
+            filePath = "Villar Scentral/Controllers/Side Menu/Profile/ProfileVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "getData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D12D159F-1FAA-4B13-BCFD-32A2B9D78BBE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Villar Scentral/Controllers/Side Menu/OtherProductsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FED82187-35D7-48DC-B4A7-E9354A55AC71"
+            uuid = "09A39C81-F3C2-4F6C-A8A9-D112C39BBBA2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Villar Scentral/Controllers/Side Menu/OrderHistoryVC.swift"
+            filePath = "Villar Scentral/Controllers/Side Menu/Profile/EditProfileVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "orderHistory()"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "editProfile()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4AE096D6-C9E9-4FEA-B429-6AFDD88EF8B3"
+            uuid = "EEC0B4A2-CE59-4EF6-8065-EB3DED45AB0B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Villar Scentral/Controllers/Side Menu/OtherProductsVC.swift"
+            filePath = "Villar Scentral/Controllers/Side Menu/Profile/EditProfileVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
-            landmarkName = "decreaseCounter(sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1A5C92E9-2A9C-4E28-B85D-2666BB8BC870"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Villar Scentral/Controllers/Side Menu/OtherProductsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "335"
-            endingLineNumber = "335"
-            landmarkName = "decreaseCounter(sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D5725921-07E0-4816-BABF-26602C65F71B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Villar Scentral/Controllers/Side Menu/OtherProductsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "addRemoveProducts()"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "countryCodeButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

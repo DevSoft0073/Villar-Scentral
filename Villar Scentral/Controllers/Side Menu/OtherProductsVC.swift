@@ -21,6 +21,7 @@ class OtherProductsVC: UIViewController {
     var matchIndex = 0
     var selectedIndex = 0
     var productIdArray = [String]()
+    var productID = String()
     
     
     
@@ -90,6 +91,7 @@ class OtherProductsVC: UIViewController {
                     vc.price = filterArray[0].price
                     vc.name = filterArray[0].name
                     vc.quantity = "\(count)"
+                    vc.productIDArray = self.productIdArray
                     self.navigationController?.pushViewController(vc, animated: true)
                 }else{
                     alert(Constant.shared.appTitle, message: "Please increase quantity from 0 to order product", view: self)
@@ -114,15 +116,17 @@ class OtherProductsVC: UIViewController {
             let filterArray = self.productListingArray.filter({$0.selectedCell == true})
             for obj in filterArray {
                 productIdArray.append(obj.product_id)
+                productID = obj.product_id
             }
             print(filterArray)
             productIdArray.removeDuplicates()
+//            productID = productIdArray[0]
             print(productIdArray)
             var parms = [String:Any]()
             if chekAddRemove == true{
-                parms = ["user_id":id,"product_id":productIdArray,"type":"add"]
+                parms = ["user_id":id,"product_id":productID,"type":"add"]
             }else{
-                parms = ["user_id":id,"product_id":productIdArray,"type":"remove"]
+                parms = ["user_id":id,"product_id":productID,"type":"remove"]
             }
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
