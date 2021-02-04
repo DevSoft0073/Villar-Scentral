@@ -2777,9 +2777,10 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9YS-8I-aag">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="22.5"/>
-                                <color key="backgroundColor" red="0.090185977520000002" green="0.090201936659999996" blue="0.090178661049999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
+                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uu-Yv-NPs">
                                 <rect key="frame" x="0.0" y="22.5" width="320" height="40"/>
@@ -2867,13 +2868,14 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tl-ym-Icr" customClass="VersaStatefulButton" customModule="VersaPlayer">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tl-ym-Icr" customClass="VersaStatefulButton" customModule="VersaPlayer">
                                             <rect key="frame" x="177" y="20" width="25" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="UVt-3a-XI6"/>
                                                 <constraint firstAttribute="width" constant="25" id="yLT-2k-ZtL"/>
                                             </constraints>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <state key="normal" image="play"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="image" keyPath="activeImage" value="vid-play-lines"/>
                                                 <userDefinedRuntimeAttribute type="image" keyPath="inactiveImage" value="play"/>
@@ -3097,13 +3099,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Fragrance Faimly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSG-IA-fmJ">
-                                                        <rect key="frame" x="15" y="197" width="153.5" height="23"/>
+                                                        <rect key="frame" x="15" y="204" width="153.5" height="23"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                                                         <color key="textColor" systemColor="groupTableViewBackgroundColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="p3e-z9-YHI">
-                                                        <rect key="frame" x="145" y="252.5" width="160" height="25.5"/>
+                                                        <rect key="frame" x="145" y="259.5" width="160" height="25.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgW-n0-Ie4">
                                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="25.5"/>
@@ -3188,20 +3190,20 @@
                                                         </constraints>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Villar Scentral" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSm-fl-Fd0">
-                                                        <rect key="frame" x="15" y="224.5" width="98.5" height="23"/>
+                                                        <rect key="frame" x="15" y="231.5" width="98.5" height="23"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                                                         <color key="textColor" systemColor="groupTableViewBackgroundColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6iC-qc-w0k">
-                                                        <rect key="frame" x="15" y="255.5" width="96" height="30"/>
+                                                        <rect key="frame" x="15" y="262.5" width="96" height="30"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dxa-3F-xRB" customClass="FloatRatingView" customModule="Villar_Scentral" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="6" width="96" height="18"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
-                                                                    <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="StarFull"/>
+                                                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="star-outline"/>
+                                                                    <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="star"/>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="minRating">
                                                                         <integer key="value" value="1"/>
                                                                     </userDefinedRuntimeAttribute>
@@ -3286,12 +3288,12 @@
                                                     <constraint firstItem="p3e-z9-YHI" firstAttribute="trailing" secondItem="6lk-HI-94Y" secondAttribute="trailing" constant="-15" id="OA3-0f-aPb"/>
                                                     <constraint firstAttribute="trailing" secondItem="tDs-fU-RAN" secondAttribute="trailing" id="Qn8-XK-ciH"/>
                                                     <constraint firstItem="tDs-fU-RAN" firstAttribute="top" secondItem="GeQ-pU-Drr" secondAttribute="top" id="ajv-b2-KQc"/>
+                                                    <constraint firstItem="KSG-IA-fmJ" firstAttribute="top" secondItem="tDs-fU-RAN" secondAttribute="bottom" constant="15" id="cFH-E5-bs7"/>
                                                     <constraint firstItem="KSG-IA-fmJ" firstAttribute="leading" secondItem="6lk-HI-94Y" secondAttribute="leading" constant="15" id="cmj-yZ-7wB"/>
-                                                    <constraint firstItem="KSG-IA-fmJ" firstAttribute="top" secondItem="6lk-HI-94Y" secondAttribute="bottom" constant="8" id="cy3-sB-uH7"/>
+                                                    <constraint firstItem="KSG-IA-fmJ" firstAttribute="top" secondItem="6lk-HI-94Y" secondAttribute="bottom" constant="15" id="cy3-sB-uH7"/>
                                                     <constraint firstItem="6iC-qc-w0k" firstAttribute="top" secondItem="wSm-fl-Fd0" secondAttribute="bottom" constant="8" id="ja5-f4-MOZ"/>
                                                     <constraint firstItem="6iC-qc-w0k" firstAttribute="leading" secondItem="6lk-HI-94Y" secondAttribute="leading" constant="15" id="kFb-rE-4lg"/>
                                                     <constraint firstItem="6lk-HI-94Y" firstAttribute="top" secondItem="GeQ-pU-Drr" secondAttribute="top" constant="10" id="kG4-K5-Rf6"/>
-                                                    <constraint firstItem="KSG-IA-fmJ" firstAttribute="top" secondItem="tDs-fU-RAN" secondAttribute="bottom" constant="8" id="n7g-se-hp6"/>
                                                     <constraint firstItem="tDs-fU-RAN" firstAttribute="leading" secondItem="GeQ-pU-Drr" secondAttribute="leading" id="pII-Sg-TQs"/>
                                                     <constraint firstItem="wSm-fl-Fd0" firstAttribute="leading" secondItem="KSG-IA-fmJ" secondAttribute="leading" id="qLL-Qg-ulK"/>
                                                 </constraints>
@@ -3413,7 +3415,7 @@
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="7tl-ym-Icr">
-            <size key="intrinsicContentSize" width="30" height="30"/>
+            <size key="intrinsicContentSize" width="75" height="75"/>
         </designable>
         <designable name="IMz-Ao-XsR">
             <size key="intrinsicContentSize" width="30" height="30"/>
@@ -3432,8 +3434,6 @@
         </designable>
     </designables>
     <resources>
-        <image name="StarEmpty" width="22" height="22"/>
-        <image name="StarFull" width="22" height="22"/>
         <image name="about" width="418" height="82"/>
         <image name="bac-10" width="101" height="99"/>
         <image name="back-1" width="17" height="29"/>
@@ -3463,6 +3463,8 @@
         <image name="refill" width="418" height="82"/>
         <image name="rewind" width="128" height="128"/>
         <image name="square" width="22" height="22"/>
+        <image name="star" width="37" height="36"/>
+        <image name="star-outline" width="128" height="128"/>
         <image name="store-detail-img" width="1242" height="893"/>
         <image name="vid-play-lines" width="60" height="96"/>
         <image name="video" width="75" height="75"/>

@@ -275,16 +275,9 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
             print("Internet connection OK")
             IJProgressView.shared.showProgressView()
             let url = Constant.shared.baseUrl + Constant.shared.EditProfile
-//            let flagImgData = UserDefaults.standard.value(forKey: "flagImage")
             print(url)
             flagImage.image?.toString() // it will convert UIImage to string
-
-            
-            //            var base64String = String()
-            //            base64String = UserDefaults.standard.value(forKey: "imag") as? String ?? ""
-            
             let countryName = UserDefaults.standard.value(forKey: "name")
-//            let parms : [String:Any] = ["user_id": id,"email" : emailLbl.text ?? "","address" : addressLbl.text ?? "" ,"image" : self.base64String,"bio" : bioTXtView.text ?? "" ,"latitude" : "" , "longitude" : "" , "name":nameTxtFld.text ?? "","country_image" : flagImgData ?? "" ,"country_name" : countryName ?? ""]
             let parms : [String:Any] = ["user_id": id,"email" : emailLbl.text ?? "","address" : addressLbl.text ?? "" ,"image" : self.base64String,"bio" : bioTXtView.text ?? "" ,"latitude" : "" , "longitude" : "" , "name":nameTxtFld.text ?? "","country_image" : flagImage.image?.toString() ?? "" ,"country_name" : countryName ?? ""]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
@@ -298,10 +291,6 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
                     }
                     showAlertMessage(title: Constant.shared.appTitle, message: self.message, okButton: "Ok", controller: self) {
                         self.navigationController?.popViewController(animated: true)
-//                        let story = UIStoryboard(name: "SideMenu", bundle: nil)
-//                        let rootViewController:UIViewController = story.instantiateViewController(withIdentifier: "SideMenuControllerID")
-//                        self.navigationController?.pushViewController(rootViewController, animated: true)
-//                        UserDefaults.standard.removeObject(forKey: "name")
                     }
                 }else{
                     IJProgressView.shared.hideProgressView()
