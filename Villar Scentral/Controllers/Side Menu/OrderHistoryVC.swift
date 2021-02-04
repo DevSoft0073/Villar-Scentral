@@ -165,6 +165,7 @@ extension OrderHistoryVC : UITableViewDelegate , UITableViewDataSource{
         
         let vc = CheckoutVC.instantiate(fromAppStoryboard: .SideMenu)
         vc.productIDArray.append(orderHistoryArray[sender.tag].id)
+        vc.count = orderHistoryArray[sender.tag].quantity
         self.navigationController?.pushViewController(vc, animated: true)
         
        }

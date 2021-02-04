@@ -73,6 +73,7 @@ class OfferDetailVC: UIViewController {
     @IBAction func gotoOrderAcceptedVC(_ sender: Any) {
         let vc = CheckoutVC.instantiate(fromAppStoryboard: .SideMenu)
         vc.productIDArray = productIDArray
+        vc.count = quantity
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -7,8 +7,9 @@
 
 import UIKit
 
-class CheckoutVC: UIViewController , UITextFieldDelegate {
+class CheckoutVC: UIViewController , UITextFieldDelegate, UITextViewDelegate {
 
+    @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var detailBootamLbl: UILabel!
     @IBOutlet weak var detailTxtFld: UITextField!
     @IBOutlet weak var contactNumberBottamLbl: UILabel!
@@ -22,6 +23,7 @@ class CheckoutVC: UIViewController , UITextFieldDelegate {
     var message = String()
     var quantity = String()
     var productIDArray = [String]()
+    var count = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contextNumberTxtFld.delegate = self
@@ -59,24 +61,38 @@ class CheckoutVC: UIViewController , UITextFieldDelegate {
             addressBottamlbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             cityBottamlbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             contactNumberBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            descriptionView.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             
         }else if textField == addressTxtFld {
             detailBootamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             addressBottamlbl.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
             cityBottamlbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             contactNumberBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            descriptionView.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             
         } else if textField == citytxtFld{
             detailBootamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             addressBottamlbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             cityBottamlbl.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
             contactNumberBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            descriptionView.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             
         } else if textField == contextNumberTxtFld {
             detailBootamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             addressBottamlbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             cityBottamlbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             contactNumberBottamLbl.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+            descriptionView.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView == descriptionTxtView {
+            detailBootamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            addressBottamlbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            cityBottamlbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            contactNumberBottamLbl.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            descriptionView.borderColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         }
     }
     
@@ -139,7 +155,7 @@ class CheckoutVC: UIViewController , UITextFieldDelegate {
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.checkout
             print(url)
-            let parms : [String:Any] = ["address":addressTxtFld.text ?? "", "user_id" : id, "city" : citytxtFld.text ?? "", "description" : descriptionTxtView.text ?? "",  "contact_no" : contextNumberTxtFld.text ?? "" ,"product_id" : productIDArray,"quality" : detailTxtFld.text ?? ""]
+            let parms : [String:Any] = ["address":addressTxtFld.text ?? "", "user_id" : id, "city" : citytxtFld.text ?? "", "description" : descriptionTxtView.text ?? "",  "contact_no" : contextNumberTxtFld.text ?? "" ,"product_id" : productIDArray,"quality" : detailTxtFld.text ?? "","total_count" : self.count]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 IJProgressView.shared.hideProgressView()

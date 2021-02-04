@@ -298,10 +298,11 @@ extension OtherProductsVC : UICollectionViewDelegate , UICollectionViewDataSourc
         //increase logic here
         chekAddRemove = false
         if count >= 1{
-            count = (count - 1)
+//            count = (count - 1)
             let currntVal = Int(productListingArray[sender.tag].quantity) ?? 0
             if currntVal <= 1{
             }else{
+                count = (count - 1)
                 let newVal = currntVal - 1
                 productListingArray[sender.tag].quantity = "\(newVal)"
                 let indexPath = IndexPath(row: sender.tag, section: 0)
