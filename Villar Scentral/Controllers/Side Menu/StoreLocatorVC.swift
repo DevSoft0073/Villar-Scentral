@@ -82,7 +82,7 @@ class StoreLocatorVC: UIViewController {
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.nearByStore
             print(url)
-            let parms : [String:Any] = ["user_id":id,"pageno":page,"per_page":"100"]
+            let parms : [String:Any] = ["user_id":id,"pageno":page,"per_page":"100" , "distance" : "50"]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 IJProgressView.shared.hideProgressView()

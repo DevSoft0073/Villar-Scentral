@@ -23,6 +23,7 @@ class StoreDetailVC: UIViewController {
     var image = String()
     var storeId = String()
     var address = String()
+    var number = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         itemName.text = name
@@ -38,6 +39,16 @@ class StoreDetailVC: UIViewController {
     
     
     @IBAction func contactButton(_ sender: Any) {
+        callNumber(phoneNumber: self.number)
+    }
+    
+    
+    func callNumber(phoneNumber: String) {
+        guard let url = URL(string: "telprompt://\(phoneNumber)"),
+            UIApplication.shared.canOpenURL(url) else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
     @IBAction func directionButton(_ sender: Any) {
@@ -63,6 +74,7 @@ class StoreDetailVC: UIViewController {
                     self.imagesArray.removeAll()
                     let storeDetails = response["store_detail"] as? [String:Any] ?? [:]
                     self.storeDetailArray.append(StoreDetails(name: storeDetails["name"] as? String ?? "", address: storeDetails["address"] as? String ?? "", lat: storeDetails["latitude"] as? String ?? "", long: storeDetails["longitude"] as? String ?? "", rating: storeDetails["rating"] as? String ?? "", srartDate: storeDetails["start_date"] as? String ?? "", workingHour: storeDetails["working_hours"] as? String ?? "", placeID: storeDetails["place_id"] as? String ?? "", endDate: storeDetails["end_date"] as? String ?? ""))
+                    self.number = storeDetails["contact"] as? String ?? ""
                     let ratVal = storeDetails["rating"] as? String ?? ""
                     self.ratingView.rating = Double(ratVal) ?? 0
                     self.imagesArray = storeDetails["photo"] as? [String] ?? [String]()
