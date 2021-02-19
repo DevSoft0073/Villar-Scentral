@@ -2339,7 +2339,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vld-ah-5Xs">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="564"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order-hist-pro-1" translatesAutoresizingMaskIntoConstraints="NO" id="5mB-5k-2Cm">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order-hist-pro-1" translatesAutoresizingMaskIntoConstraints="NO" id="5mB-5k-2Cm">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="256"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PwX-9k-1B4">

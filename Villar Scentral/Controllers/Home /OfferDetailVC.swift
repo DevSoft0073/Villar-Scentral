@@ -21,9 +21,10 @@ class OfferDetailVC: UIViewController {
     var name = String()
     var quantity = String()
     var productIDArray = [String]()
+    var imageArray = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        productDetail()
         offersTBView.separatorStyle = .none
         
         offerArray.append(OfferDetailsData(image: "", offerDetail: "Loreum Ipsum or Ipsum it is sometimes known , is dummy text used in laying out print."))
@@ -32,9 +33,9 @@ class OfferDetailVC: UIViewController {
         offerArray.append(OfferDetailsData(image: "", offerDetail: "Loreum Ipsum or Ipsum it is sometimes known , is dummy text used in laying out print."))
         
         offersTBView.reloadData()
-        nameLbl.text = name
-        let totalPrice = Int(price)! * Int(quantity)!
-        priceLbl.text = "$\(totalPrice)"
+//        nameLbl.text = name
+//        let totalPrice = Int(price)! * Int(quantity)!
+//        priceLbl.text = "$\(totalPrice)"
 
     }
     
@@ -53,6 +54,16 @@ class OfferDetailVC: UIViewController {
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
+                    let allData = response["product_detail"] as? [String:Any] ?? [:]
+                    self.nameLbl.text = allData["description"] as? String ?? ""
+                    self.priceLbl.text = allData["price"] as? String ?? ""
+                    
+                    let allImages = allData["image"] as? [String] ?? [String]()
+                    for obj in allImages{
+                        self.imageArray.append(obj)
+                    }
+                    print(self.imageArray)
+                    self.orderImage.sd_setImage(with: URL(string: self.imageArray[0] as? String ?? "image"), placeholderImage: UIImage(named: "pro"))
                 }else{
                     IJProgressView.shared.hideProgressView()
                     alert(Constant.shared.appTitle, message: self.message, view: self)
