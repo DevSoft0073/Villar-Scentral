@@ -109,7 +109,7 @@ class OtherProductsVC: UIViewController {
     func addRemoveProducts()  {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
-            IJProgressView.shared.showProgressView()
+            PKWrapperClass.svprogressHudShow(title: kAppName, view: self)
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.addRemoveProduct
             print(url)
@@ -130,17 +130,17 @@ class OtherProductsVC: UIViewController {
             }
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 print(response)
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
                 }else{
-                    IJProgressView.shared.hideProgressView()
+                    PKWrapperClass.svprogressHudDismiss(view: self)
                     alert(Constant.shared.appTitle, message: self.message, view: self)
                 }
             }) { (error) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }
@@ -155,14 +155,14 @@ class OtherProductsVC: UIViewController {
     func getAllProducts()  {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
-            IJProgressView.shared.showProgressView()
+            PKWrapperClass.svprogressHudShow(title: kAppName, view: self)
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.allProducts
             print(url)
             let parms : [String:Any] = ["user_id":id,"pageno":page,"per_page":"10"]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 print(response)
                 self.productListingArray.removeAll()
                 self.message = response["message"] as? String ?? ""
@@ -174,11 +174,11 @@ class OtherProductsVC: UIViewController {
                         }
                         self.produtsListCollectionView.reloadData()
                     }else{
-                        IJProgressView.shared.hideProgressView()
+                        PKWrapperClass.svprogressHudDismiss(view: self)
 //                        alert(Constant.shared.appTitle, message: self.message, view: self)
                     }
             }) { (error) in
-//                IJProgressView.shared.hideProgressView()
+//                PKWrapperClass.svprogressHudDismiss(view: self)
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }

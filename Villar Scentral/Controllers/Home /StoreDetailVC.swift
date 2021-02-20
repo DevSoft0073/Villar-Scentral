@@ -59,14 +59,14 @@ class StoreDetailVC: UIViewController {
     func storeDetails() {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
-            IJProgressView.shared.showProgressView()
+            PKWrapperClass.svprogressHudShow(title: kAppName, view: self)
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.storeDetails
             print(url)
             let parms : [String:Any] = ["user_id":id,"store_id":storeId]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 print(response)
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
@@ -81,11 +81,11 @@ class StoreDetailVC: UIViewController {
                     print(self.imagesArray)
                     self.imagesCollectionView.reloadData()
                 }else{
-                    IJProgressView.shared.hideProgressView()
+                    PKWrapperClass.svprogressHudDismiss(view: self)
                     alert(Constant.shared.appTitle, message: self.message, view: self)
                 }
             }) { (error) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }

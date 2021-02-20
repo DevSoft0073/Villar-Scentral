@@ -43,13 +43,13 @@ class ForgotPasswordVC: UIViewController , UITextFieldDelegate{
     func forgotPassword() {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
-            IJProgressView.shared.showProgressView()
+            PKWrapperClass.svprogressHudShow(title: kAppName, view: self)
             let url = Constant.shared.baseUrl + Constant.shared.ForgotPassword
             print(url)
             let parms : [String:Any] = ["email":emailTxtFld.text ?? ""]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 print(response)
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
@@ -59,11 +59,11 @@ class ForgotPasswordVC: UIViewController , UITextFieldDelegate{
                             self.navigationController?.popViewController(animated: true)
                         }
                     }else{
-                        IJProgressView.shared.hideProgressView()
+                        PKWrapperClass.svprogressHudDismiss(view: self)
                         alert(Constant.shared.appTitle, message: self.message, view: self)
                     }
             }) { (error) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }

@@ -72,14 +72,14 @@ class OrderHistoryVC: UIViewController {
     func orderHistory()  {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
-            IJProgressView.shared.showProgressView()
+            PKWrapperClass.svprogressHudShow(title: kAppName, view: self)
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.orderHistory
             print(url)
             let parms : [String:Any] = ["user_id":id,"pageno":page,"per_page":"100"]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 print(response)
                 self.orderHistoryArray.removeAll()
                 self.message = response["message"] as? String ?? ""
@@ -91,10 +91,10 @@ class OrderHistoryVC: UIViewController {
                     self.orderHistoryTBView.reloadData()
 
                 }else{
-                    IJProgressView.shared.hideProgressView()
+                    PKWrapperClass.svprogressHudDismiss(view: self)
                 }
             }) { (error) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }

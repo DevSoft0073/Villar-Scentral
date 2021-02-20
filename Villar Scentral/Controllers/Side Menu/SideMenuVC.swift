@@ -47,13 +47,13 @@ class SideMenuVC: UIViewController {
         let id = UserDefaults.standard.value(forKey: "id") ?? ""
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
-//            IJProgressView.shared.showProgressView()
+//            PKWrapperClass.svprogressHudShow(title: kAppName, view: self)
             let signInUrl = Constant.shared.baseUrl + Constant.shared.profile
             print(signInUrl)
             let parms : [String:Any] = ["user_id" : id]
             print(parms)
             AFWrapperClass.requestPOSTURL(signInUrl, params: parms, success: { (response) in
-//                IJProgressView.shared.hideProgressView()
+//                PKWrapperClass.svprogressHudDismiss(view: self)
                 print(response)
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
@@ -69,7 +69,7 @@ class SideMenuVC: UIViewController {
                                 if let image: UIImage = (UIImage(data: data)){
                                     self.profileImage.image = image
                                     self.profileImage.contentMode = .scaleToFill
-                                    IJProgressView.shared.hideProgressView()
+                                    PKWrapperClass.svprogressHudDismiss(view: self)
                                 }
                             }
                         }
@@ -78,11 +78,11 @@ class SideMenuVC: UIViewController {
                         }
                     }
                 }else{
-//                    IJProgressView.shared.hideProgressView()
+//                    PKWrapperClass.svprogressHudDismiss(view: self)
                     alert(Constant.shared.appTitle, message: self.message, view: self)
                 }
             }) { (error) in
-//                IJProgressView.shared.hideProgressView()
+//                PKWrapperClass.svprogressHudDismiss(view: self)
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }
@@ -111,7 +111,7 @@ class SideMenuVC: UIViewController {
                 }else{
                 }
             }) { (error) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }
@@ -148,7 +148,7 @@ class SideMenuVC: UIViewController {
                     
                 }
             }) { (error) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }

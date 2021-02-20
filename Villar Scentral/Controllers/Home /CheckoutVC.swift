@@ -151,14 +151,14 @@ class CheckoutVC: UIViewController , UITextFieldDelegate, UITextViewDelegate {
     func checkout() {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
-            IJProgressView.shared.showProgressView()
+            PKWrapperClass.svprogressHudShow(title: kAppName, view: self)
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.checkout
             print(url)
             let parms : [String:Any] = ["address":addressTxtFld.text ?? "", "user_id" : id, "city" : citytxtFld.text ?? "", "description" : descriptionTxtView.text ?? "",  "contact_no" : contextNumberTxtFld.text ?? "" ,"product_id" : productIDArray,"quality" : detailTxtFld.text ?? "","total_count" : self.count]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 print(response)
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
@@ -170,11 +170,11 @@ class CheckoutVC: UIViewController , UITextFieldDelegate, UITextViewDelegate {
                             
                         }
                     }else{
-                        IJProgressView.shared.hideProgressView()
+                        PKWrapperClass.svprogressHudDismiss(view: self)
                         alert(Constant.shared.appTitle, message: self.message, view: self)
                     }
             }) { (error) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }

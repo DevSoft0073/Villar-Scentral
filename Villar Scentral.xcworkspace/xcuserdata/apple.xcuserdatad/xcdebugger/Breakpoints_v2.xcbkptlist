@@ -46,8 +46,8 @@
             filePath = "Villar Scentral/Controllers/Side Menu/Profile/EditProfileVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
             landmarkName = "editProfile()"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "Villar Scentral/Controllers/Side Menu/Profile/EditProfileVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
             landmarkName = "editProfile()"
             landmarkType = "7">
          </BreakpointContent>

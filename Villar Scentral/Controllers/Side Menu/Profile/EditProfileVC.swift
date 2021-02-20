@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 import SKCountryPicker
+import AVFoundation
 
 class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -109,7 +110,8 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
         
         let saveActionButton: UIAlertAction = UIAlertAction(title: NSLocalizedString("Take Photo", comment: ""), style: .default)
         { action -> Void in
-            self.openCamera()
+//            self.openCamera()
+            self.checkCameraAccess()
         }
         actionSheetController.addAction(saveActionButton)
         
@@ -136,6 +138,43 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    
+    func checkCameraAccess() {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .denied:
+            print("Denied, request permission from settings")
+            presentCameraSettings()
+        case .restricted:
+            print("Restricted, device owner must approve")
+        case .authorized:
+            print("Authorized, proceed")
+            self.openCamera()
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { success in
+                if success {
+                    print("Permission granted, proceed")
+                } else {
+                    print("Permission denied")
+                }
+            }
+        }
+    }
+
+    func presentCameraSettings() {
+        let alertController = UIAlertController(title: "Error",
+                                      message: "Camera access is denied",
+                                      preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .default))
+        alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: { _ in
+                })
+            }
+        })
+
+        present(alertController, animated: true)
     }
     
     func gallery()
@@ -205,13 +244,13 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
         let id = UserDefaults.standard.value(forKey: "id") ?? ""
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
-            IJProgressView.shared.showProgressView()
+            PKWrapperClass.svprogressHudShow(title: kAppName, view: self)
             let signInUrl = Constant.shared.baseUrl + Constant.shared.profile
             print(signInUrl)
             let parms : [String:Any] = ["user_id" : id]
             print(parms)
             AFWrapperClass.requestPOSTURL(signInUrl, params: parms, success: { (response) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 print(response)
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
@@ -230,7 +269,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
                                 if let image: UIImage = (UIImage(data: data)){
                                     self.profileImage.image = image
                                     self.profileImage.contentMode = .scaleToFill
-                                    IJProgressView.shared.hideProgressView()
+                                    PKWrapperClass.svprogressHudDismiss(view: self)
                                 }
                             }
                         }
@@ -244,7 +283,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
                                 if let image: UIImage = (UIImage(data: data)){
                                     self.flagImage.image = image
                                     self.flagImage.contentMode = .scaleToFill
-                                    IJProgressView.shared.hideProgressView()
+                                    PKWrapperClass.svprogressHudDismiss(view: self)
                                 }
                             }
                         }
@@ -253,11 +292,11 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
                         }
                     }
                 }else{
-                    IJProgressView.shared.hideProgressView()
+                    PKWrapperClass.svprogressHudDismiss(view: self)
                     alert(Constant.shared.appTitle, message: self.message, view: self)
                 }
             }) { (error) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }
@@ -273,7 +312,7 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
         let id = UserDefaults.standard.value(forKey: "id") ?? ""
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
-            IJProgressView.shared.showProgressView()
+            PKWrapperClass.svprogressHudShow(title: kAppName, view: self)
             let url = Constant.shared.baseUrl + Constant.shared.EditProfile
             print(url)
             flagImage.image?.toString() // it will convert UIImage to string
@@ -281,23 +320,23 @@ class EditProfileVC: UIViewController , UITextFieldDelegate ,UITextViewDelegate 
             let parms : [String:Any] = ["user_id": id,"email" : emailLbl.text ?? "","address" : addressLbl.text ?? "" ,"image" : self.base64String,"bio" : bioTXtView.text ?? "" ,"latitude" : "" , "longitude" : "" , "name":nameTxtFld.text ?? "","country_image" : flagImage.image?.toString() ?? "" ,"country_name" : countryName ?? ""]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
                     if let allData = response["userDetails"] as? [String:Any] {
                         print(allData)
-                        IJProgressView.shared.hideProgressView()
+                        PKWrapperClass.svprogressHudDismiss(view: self)
                     }
                     showAlertMessage(title: Constant.shared.appTitle, message: self.message, okButton: "Ok", controller: self) {
                         self.navigationController?.popViewController(animated: true)
                     }
                 }else{
-                    IJProgressView.shared.hideProgressView()
+                    PKWrapperClass.svprogressHudDismiss(view: self)
                     alert(Constant.shared.appTitle, message: self.message, view: self)
                 }
             }) { (error) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }

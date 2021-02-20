@@ -31,51 +31,27 @@ class HomeVC: UIViewController ,MFMailComposeViewControllerDelegate
     
     @IBAction func aboutUsButtonAction(_ sender: Any) {
         
-        // Modify following variables with your text / recipient
-        let recipientEmail = "test@email.com"
-        let subject = "Multi client email support"
-        let body = "This code supports sending email via multiple different email apps on iOS! :)"
-        
-        // Show default mail composer
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients([recipientEmail])
-            mail.setSubject(subject)
-            mail.setMessageBody(body, isHTML: false)
-            
-            present(mail, animated: true)
-            
-            // Show third party email composer if default Mail app is not present
-        } else if let emailUrl = createEmailUrl(to: recipientEmail, subject: subject, body: body) {
-            UIApplication.shared.open(emailUrl)
+        let mailComposeViewController = configureMailComposer()
+        if MFMailComposeViewController.canSendMail(){
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        }else{
+            print("Can't send email")
         }
         
     }
-    private func createEmailUrl(to: String, subject: String, body: String) -> URL? {
-        let subjectEncoded = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let bodyEncoded = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        
-        let gmailUrl = URL(string: "googlegmail://co?to=\(to)&subject=\(subjectEncoded)&body=\(bodyEncoded)")
-        let outlookUrl = URL(string: "ms-outlook://compose?to=\(to)&subject=\(subjectEncoded)")
-        let yahooMail = URL(string: "ymail://mail/compose?to=\(to)&subject=\(subjectEncoded)&body=\(bodyEncoded)")
-        let sparkUrl = URL(string: "readdle-spark://compose?recipient=\(to)&subject=\(subjectEncoded)&body=\(bodyEncoded)")
-        let defaultUrl = URL(string: "mailto:\(to)?subject=\(subjectEncoded)&body=\(bodyEncoded)")
-        
-        if let gmailUrl = gmailUrl, UIApplication.shared.canOpenURL(gmailUrl) {
-            return gmailUrl
-        } else if let outlookUrl = outlookUrl, UIApplication.shared.canOpenURL(outlookUrl) {
-            return outlookUrl
-        } else if let yahooMail = yahooMail, UIApplication.shared.canOpenURL(yahooMail) {
-            return yahooMail
-        } else if let sparkUrl = sparkUrl, UIApplication.shared.canOpenURL(sparkUrl) {
-            return sparkUrl
-        }
-        return defaultUrl
+    
+    func configureMailComposer() -> MFMailComposeViewController{
+        let mailComposeVC = MFMailComposeViewController()
+        mailComposeVC.mailComposeDelegate = self
+        mailComposeVC.setToRecipients([""])
+        mailComposeVC.setSubject("")
+        mailComposeVC.setMessageBody("", isHTML: false)
+        return mailComposeVC
     }
     
     
+    // MARK: - MFMail compose method
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
+        controller.dismiss(animated: true, completion: nil)
     }
 }

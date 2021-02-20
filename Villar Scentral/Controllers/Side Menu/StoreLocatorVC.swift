@@ -78,14 +78,14 @@ class StoreLocatorVC: UIViewController {
     func storeLocator()  {
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
-            IJProgressView.shared.showProgressView()
+            PKWrapperClass.svprogressHudShow(title: kAppName, view: self)
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.nearByStore
             print(url)
             let parms : [String:Any] = ["user_id":id,"pageno":page,"per_page":"100" , "distance" : "50"]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 print(response)
                 self.message = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
@@ -96,10 +96,10 @@ class StoreLocatorVC: UIViewController {
                     }
                     self.storeLocatorTBView.reloadData()
                 }else{
-                    IJProgressView.shared.hideProgressView()
+                    PKWrapperClass.svprogressHudDismiss(view: self)
                 }
             }) { (error) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }

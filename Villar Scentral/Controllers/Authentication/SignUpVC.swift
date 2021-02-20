@@ -104,12 +104,12 @@ class SignUpVC: UIViewController  , UITextFieldDelegate{
                 
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
-            IJProgressView.shared.showProgressView()
+            PKWrapperClass.svprogressHudShow(title: kAppName, view: self)
             let url = Constant.shared.baseUrl + Constant.shared.SignUP
             let deviceToken = UserDefaults.standard.value(forKey: DefaultKeys.deviceToken) as? String ?? "529173FB75AC135EE09EE7186B98C89DBC72C2CC0EF25C242EA7DA31BD292EFC"
             let params = ["name":usernameTxtFld.text ?? "","password":passwordTxtFld.text ?? "", "confirm_password":confirmPasswordTxtFld.text ?? "","device_token":deviceToken,"device_type":Constant.shared.device_token] as [String : Any]
             AFWrapperClass.requestPOSTURL(url, params: params, success: { (response) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 self.messgae = response["message"] as? String ?? ""
                 let status = response["status"] as? Int
                 if status == 1{
@@ -126,11 +126,11 @@ class SignUpVC: UIViewController  , UITextFieldDelegate{
                     let rootViewController:UIViewController = story.instantiateViewController(withIdentifier: "SideMenuControllerID")
                     self.navigationController?.pushViewController(rootViewController, animated: true)
                 }else{
-                    IJProgressView.shared.hideProgressView()
+                    PKWrapperClass.svprogressHudDismiss(view: self)
                     alert(Constant.shared.appTitle, message: self.messgae, view: self)
                 }
             }) { (error) in
-                IJProgressView.shared.hideProgressView()
+                PKWrapperClass.svprogressHudDismiss(view: self)
                 alert(Constant.shared.appTitle, message: error.localizedDescription, view: self)
                 print(error)
             }
