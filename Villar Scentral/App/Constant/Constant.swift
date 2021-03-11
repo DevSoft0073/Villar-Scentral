@@ -32,6 +32,8 @@ class Constant: NSObject {
     let nearByStore = "GetUserAllNearbyStore.php"
     let logout = "Logout.php"
     let storeDetails = "GetStoreDetailById.php"
+    let CoupnList = "GetAllCouponCode.php"
+    let ApplyCoupn = "ApplyCouponCode.php"
 }
 
 class Singleton  {

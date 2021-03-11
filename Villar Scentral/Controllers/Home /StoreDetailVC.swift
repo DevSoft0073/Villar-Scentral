@@ -39,16 +39,12 @@ class StoreDetailVC: UIViewController {
     
     
     @IBAction func contactButton(_ sender: Any) {
-        callNumber(phoneNumber: self.number)
-    }
-    
-    
-    func callNumber(phoneNumber: String) {
-        guard let url = URL(string: "telprompt://\(phoneNumber)"),
-            UIApplication.shared.canOpenURL(url) else {
-            return
-        }
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        guard let number = URL(string: "tel://" + "4151231234") else { return }
+        UIApplication.shared.open(number)
+        
+//        guard let number = URL(string: "tel://" + "\(phoneNumber)") else { return }
+//        UIApplication.shared.open(number)
+        
     }
     
     @IBAction func directionButton(_ sender: Any) {

@@ -24,10 +24,12 @@ class CheckoutVC: UIViewController , UITextFieldDelegate, UITextViewDelegate {
     var quantity = String()
     var productIDArray = [String]()
     var count = String()
+    var coupnID = String()
+    var productIDs = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contextNumberTxtFld.delegate = self
-
+        print(productIDs)
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -155,7 +157,7 @@ class CheckoutVC: UIViewController , UITextFieldDelegate, UITextViewDelegate {
             let id = UserDefaults.standard.value(forKey: "id") ?? ""
             let url = Constant.shared.baseUrl + Constant.shared.checkout
             print(url)
-            let parms : [String:Any] = ["address":addressTxtFld.text ?? "", "user_id" : id, "city" : citytxtFld.text ?? "", "description" : descriptionTxtView.text ?? "",  "contact_no" : contextNumberTxtFld.text ?? "" ,"product_id" : productIDArray,"quality" : detailTxtFld.text ?? "","total_count" : self.count]
+            let parms : [String:Any] = ["address":addressTxtFld.text ?? "", "user_id" : id, "city" : citytxtFld.text ?? "", "description" : descriptionTxtView.text ?? "",  "contact_no" : contextNumberTxtFld.text ?? "" ,"product_id" : productIDs,"quality" : detailTxtFld.text ?? "","total_count" : self.count,"coupon_code_id" : self.coupnID ?? ""]
             print(parms)
             AFWrapperClass.requestPOSTURL(url, params: parms, success: { (response) in
                 PKWrapperClass.svprogressHudDismiss(view: self)
