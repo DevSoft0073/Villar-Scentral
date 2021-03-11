@@ -22,10 +22,10 @@ class CheckoutVC: UIViewController , UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var productName: UITextField!
     var message = String()
     var quantity = String()
-    var productIDArray = [String]()
+//    var productID = String()
     var count = String()
     var coupnID = String()
-    var productIDs = [String]()
+    var productIDs = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contextNumberTxtFld.delegate = self

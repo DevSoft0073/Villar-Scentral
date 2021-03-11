@@ -20,7 +20,7 @@ class OtherProductsVC: UIViewController {
     var lastPage = 1
     var matchIndex = 0
     var selectedIndex = 0
-    var productIdArray = [String]()
+    var productIdArray = String()
     var productID = String()
     
     
@@ -91,7 +91,7 @@ class OtherProductsVC: UIViewController {
                     vc.price = filterArray[0].price
                     vc.name = filterArray[0].name
                     vc.quantity = "\(count)"
-                    vc.productIDArray = self.productIdArray
+//                    vc.productIDArray = self.productID
                     self.navigationController?.pushViewController(vc, animated: true)
                 }else{
                     alert(Constant.shared.appTitle, message: "Please increase quantity from 0 to order product", view: self)

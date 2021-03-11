@@ -17,7 +17,6 @@ class OfferDetailVC: UIViewController {
     var name = String()
     var quantity = String()
     var coupnCode = String()
-    var productIDArray = [String]()
     var imageArray = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +86,7 @@ class OfferDetailVC: UIViewController {
                         let vc = CheckoutVC.instantiate(fromAppStoryboard: .SideMenu)
                         vc.coupnID = self.coupnCode
                         vc.count = self.quantity
-                        vc.productIDs = self.productIDArray
+                        vc.productIDs = self.productID
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }else{
@@ -108,7 +107,7 @@ class OfferDetailVC: UIViewController {
     
     @IBAction func gotoOrderAcceptedVC(_ sender: Any) {
         let vc = CheckoutVC.instantiate(fromAppStoryboard: .SideMenu)
-        vc.productIDArray = productIDArray
+        vc.productIDs = productID
         vc.count = quantity
         self.navigationController?.pushViewController(vc, animated: true)
     }
